@@ -5,3 +5,10 @@
     height: 100%;
     width: 100%;
 }
+
+.headder h1{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 500px;
+}

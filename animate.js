@@ -6,7 +6,7 @@ var controller = new ScrollMagic.Controller();
 var scene = new ScrollMagic.Scene({
     triggerElement: intro, 
     triggerHook: 0,
-    duration: 1000
+    duration: 2000
 })
     .addIndicators() // add indicators (requires plugin)
     .setPin(intro)
@@ -21,4 +21,4 @@ scene.on("update", e=>{
 
 setInterval(() => {
     video.currentTime = scrollpos;
-}, 100);
+}, 60);
