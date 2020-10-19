@@ -153,24 +153,17 @@ setInterval(() => {
 
 
 const sizeTween = TweenMax.fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
-const heightTween = TweenMax.fromTo(intro, 1, {top:'0px'}, {top:'500px'} )
 
-
-var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 450})
+var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 550})
     .addIndicators()
     .offset(-250)
-    .setTween(heightTween)
+    .setTween(sizeTween)
     .addTo(controller)
-    .on("leave", function () {
+    .on("enter", function () {
         intro.style.top = '0';
         intro.style.position = 'fixed';
     });
 
-var scene3 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 450})
-    .addIndicators()
-    .offset(-250)
-    .setTween(sizeTween)
-    .addTo(controller);
 
 scene.on("update", e=>{
     scrollpos = e.scrollPos*0.06;
