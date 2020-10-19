@@ -1,5 +1,6 @@
 const intro = document.querySelector(".intro");
 const myimg = document.querySelector("img");
+const aloha = document.querySelector("h2");
 
 var controller = new ScrollMagic.Controller();
 
@@ -126,14 +127,12 @@ var images = [
     "./AY_svg_seq/AY_svg_seq0120.svg"
 ];
 
-var obj = {curImg: 0};
-
 // init controller
 var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({triggerElement: intro, triggerHook: 0, duration: 1700})
-    .addIndicators()
+    //.addIndicators()
     .setPin(intro)
     .addTo(controller);
 
@@ -142,9 +141,10 @@ let scrollpos = 0;
 scene.on("update", e=>{
     scrollpos = e.scrollPos*0.06;
     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
-    console.log(scrollpos);
+    console.log(100-scrollpos);
 });
 
 setInterval(() => {
     myimg.src = images[scrollpos]
-},0.5);
+    aloha.style.opacity = (100-scrollpos)/100
+},0);

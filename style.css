@@ -6,11 +6,24 @@
     height: 100%;
     width: 100%;
     object-fit: contain;
+    
+}
+.intro h2{
+    font-family: 'Pacifico', sans-serif;
+    color: #FFA62A;
+    text-align: center;
+    font-size: 10vw;
+    position: absolute;
+    top: 50%;
+    left: 65%
 }
 
 .headder h1{
+    font-family: 'Rubik', sans-serif;
+    color: #582ca3;
     padding-top: 5px;
     text-align: center;
     font-size: 80px;
     padding-bottom: 500px;
+    opacity: 90%;
 }
