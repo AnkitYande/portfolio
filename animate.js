@@ -155,7 +155,7 @@ setInterval(() => {
 const sizeTween = TweenMax.fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
 
 var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 550})
-    .addIndicators()
+    //.addIndicators()
     .offset(-250)
     .setTween(sizeTween)
     .addTo(controller)
