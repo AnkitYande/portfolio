@@ -1,14 +1,16 @@
 .intro{
-    height: 100vh;
+    height: 85vh;
 }
-.intro video{
+.intro img{
+    align-self: center;
     height: 100%;
     width: 100%;
+    object-fit: contain;
 }
 
 .headder h1{
-    padding-top: 10px;
+    padding-top: 5px;
     text-align: center;
-    font-size: 60px;
+    font-size: 80px;
     padding-bottom: 500px;
 }

@@ -1,0 +1,42 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="1920px" height="1300px" viewBox="0 0 1920 1300">
+<defs>
+<g id="Tween_1_0_Layer0_0_MEMBER_0_FILL">
+<path fill="#FFA62A" stroke="none" d="
+M 846.2 1.7
+L 669.9 1.7 273.8 987.55 550.75 987.55 760.5 362.6 965.4 987.55 1242.45 987.55 846.2 1.7 Z"/>
+</g>
+
+<g id="Symbol_1_0_Layer0_0_MEMBER_0_FILL">
+<path fill="#8B60D6" stroke="none" d="
+M 1225.55 0
+L 756.75 731.5 283.5 0 0 0 635.25 986.4 635.25 987.5 636.25 987.5 635.25 1670 878.25 1670 879.25 987.5 878.25 987.5 878.25 986.4 1511.5 0 1225.55 0 Z"/>
+</g>
+
+<g id="Symbol_2_0_Layer0_0_FILL">
+<path fill="#FFA62A" stroke="none" d="
+M 550.75 987.55
+L 580 900.5 413 641.2 0.3 1668.3 259.95 1668.3
+Q 289.8 1589.75 355.6 1444.15 391.4 1365.3 409.1 1325.9 439.55 1258.05 460.15 1209.3
+L 1058.15 1209.3 1258.35 1668.3 1515.65 1668.3 1101.9 638.15 935.7 897.05 965.4 987.55 550.75 987.55 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 960,526.6) ">
+<g transform="matrix( 0.611907958984375, 0, 0, 0.611907958984375, -463.9,-302.65) ">
+<use xlink:href="#Tween_1_0_Layer0_0_MEMBER_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 496.4,-350.15) ">
+<g transform="matrix( 0.611907958984375, 0, 0, 0.611907958984375, 0,0) ">
+<use xlink:href="#Symbol_1_0_Layer0_0_MEMBER_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 496.4,614.45) ">
+<g transform="matrix( 0.6119232177734375, 0, 0, 0.6119232177734375, -0.2,-390.5) ">
+<use xlink:href="#Symbol_2_0_Layer0_0_FILL"/>
+</g>
+</g>
+</svg>
