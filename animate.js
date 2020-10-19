@@ -3,27 +3,6 @@ const myimg = document.querySelector("img");
 
 var controller = new ScrollMagic.Controller();
 
-// let scrollpos = 0;
-
-// scene.on("update", e=>{
-//     scrollpos = e.scrollPos/1000;
-// })
-
-// setInterval(() => {
-//     video.currentTime = scrollpos;
-//     $("#img").attr("src", imgs[obj.curImg]);
-// }, 60);
-
-// var scene = new ScrollMagic.Scene({
-//     triggerElement: intro, 
-//     triggerHook: 0,
-//     duration: 2000
-// })
-//     .addIndicators() // add indicators (requires plugin)
-//     .setPin(intro)
-//     .setTween(tween)
-//     .addTo(controller);
-
 var images = [
     "./AY_svg_seq/AY_svg_seq0001.svg",
     "./AY_svg_seq/AY_svg_seq0002.svg",
@@ -149,26 +128,12 @@ var images = [
 
 var obj = {curImg: 0};
 
-	// create tween
-// var tween = TweenMax.to(obj, 0.5,
-//     {
-//         curImg: images.length - 1,	// animate propery curImg to number of images
-//         roundProps: "curImg",				// only integers so it can be used as an array index
-//         repeat: 3,									// repeat 3 times
-//         immediateRender: true,			// load first image automatically
-//         ease: Linear.easeNone,			// show every image the same ammount of time
-//         onUpdate: function () {
-//             myimg.src=images[obj.curImg]); // set the image source
-//         }
-//     }
-// );
-
 // init controller
 var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({triggerElement: intro, triggerHook: 0, duration: 1700})
-    .addIndicators() // add indicators (requires plugin)
+    .addIndicators()
     .setPin(intro)
     .addTo(controller);
 
