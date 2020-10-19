@@ -156,13 +156,12 @@ const sizeTween = TweenMax.fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
 
 var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 550})
     //.addIndicators()
-    .offset(-250)
+    .offset(-280)
     .setTween(sizeTween)
     .addTo(controller)
     .on("enter", function () {
-        intro.style.top = '0';
         intro.style.position = 'fixed';
-    });
+});
 
 
 scene.on("update", e=>{
