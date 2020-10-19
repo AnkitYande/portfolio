@@ -1,3 +1,29 @@
+*{
+    color: #333;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    color: #6a46aa;
+    text-decoration: none;
+}
+
+.navbar{
+    top:0;
+    z-index: 2;
+    width: 100%;
+    position: fixed;
+    opacity: 0;
+}
+
+.navbar a{
+    font-family: 'Rubik', sans-serif;
+    font-size: 3vh;
+    padding: 10px;
+}
+
 .intro{
     top:0;
     z-index: 1;
@@ -5,6 +31,7 @@
     width: 100%;
     background-color: white;
 }
+
 .intro img{
     height: 100%;
     width: 100%;
@@ -17,7 +44,7 @@
     text-align: center;
     font-size: 10vw;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 65%
 }
 

@@ -1,3 +1,4 @@
+const nav = document.querySelector(".navbar");
 const intro = document.querySelector(".intro");
 const myimg = document.querySelector("img");
 const aloha = document.querySelector("h2");
@@ -151,18 +152,18 @@ setInterval(() => {
     aloha.style.opacity = (100-scrollpos*1.5)/100 < 0 ? 0 : (100-scrollpos*1.5)/100
 },0);
 
+var tween = new TimelineMax()
+    .fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
+    .fromTo(nav, 1, {opacity:'0'}, {opacity:'1'} )
 
-const sizeTween = TweenMax.fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
-
-var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 550})
+var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 600})
     //.addIndicators()
     .offset(-280)
-    .setTween(sizeTween)
+    .setTween(tween)
     .addTo(controller)
     .on("enter", function () {
         intro.style.position = 'fixed';
-});
-
+    })
 
 scene.on("update", e=>{
     scrollpos = e.scrollPos*0.06;
