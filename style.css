@@ -1,13 +1,16 @@
 .intro{
+    top:0;
     height: 90vh;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
 }
 .intro img{
-    align-self: center;
     height: 100%;
     width: 100%;
     object-fit: contain;
-    
 }
+
 .intro h2{
     font-family: 'Pacifico', sans-serif;
     color: #FFA62A;
@@ -20,7 +23,6 @@
 
 .headder h1{
     font-family: 'Rubik', sans-serif;
-    color: #582ca3;
     padding-top: 5px;
     text-align: center;
     font-size: 80px;

@@ -2,6 +2,9 @@ const intro = document.querySelector(".intro");
 const myimg = document.querySelector("img");
 const aloha = document.querySelector("h2");
 
+const headder = document.querySelector(".headder");
+
+
 var controller = new ScrollMagic.Controller();
 
 var images = [
@@ -141,10 +144,36 @@ let scrollpos = 0;
 scene.on("update", e=>{
     scrollpos = e.scrollPos*0.06;
     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
-    console.log(100-scrollpos);
 });
 
 setInterval(() => {
     myimg.src = images[scrollpos]
-    aloha.style.opacity = (100-scrollpos)/100
+    aloha.style.opacity = (100-scrollpos*1.5)/100 < 0 ? 0 : (100-scrollpos*1.5)/100
 },0);
+
+
+const sizeTween = TweenMax.fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
+const heightTween = TweenMax.fromTo(intro, 1, {top:'0px'}, {top:'500px'} )
+
+
+var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 450})
+    .addIndicators()
+    .offset(-250)
+    .setTween(heightTween)
+    .addTo(controller)
+    .on("leave", function () {
+        intro.style.top = '0';
+        intro.style.position = 'fixed';
+    });
+
+var scene3 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 450})
+    .addIndicators()
+    .offset(-250)
+    .setTween(sizeTween)
+    .addTo(controller);
+
+scene.on("update", e=>{
+    scrollpos = e.scrollPos*0.06;
+    scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
+});
+
