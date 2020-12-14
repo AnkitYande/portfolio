@@ -62,12 +62,17 @@ a:hover{
 
 .bio{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
+}
+
+.bioInfo{
+    display: grid;
+    grid-template-rows: auto auto
 }
 
 .bio img{
     object-fit: cover;
-    padding: 15%;
+    padding: 10%;
     width: 100%;
 }
 
@@ -75,6 +80,14 @@ a:hover{
     font-family: 'Rubik', sans-serif;
     text-align: center;
     margin:auto;
+    margin-bottom: 0;
     font-size: 5vw;
     opacity: 90%;
+}
+
+.bio h3{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    font-size: 3vw;
+    opacity: 70%;
 }
