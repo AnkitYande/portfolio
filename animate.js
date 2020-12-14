@@ -136,7 +136,7 @@ var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1500 })
-    .addIndicators()
+    //.addIndicators()
     .setPin(intro)
     .addTo(controller)
     .on("leave", function () {
@@ -160,7 +160,7 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, triggerHook: bio, duration: 600 })
-    .addIndicators()
+    //.addIndicators()
     .offset(-280)
     .setTween(tween)
     .addTo(controller);

@@ -1,17 +1,19 @@
-*{
+* {
     color: #333;
 }
-a{
+
+a {
     color: #444;
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: #6a46aa;
     text-decoration: none;
 }
 
-.navbar{
-    top:0;
+.navbar {
+    top: 0;
     z-index: 2;
     width: 100%;
     position: fixed;
@@ -21,27 +23,27 @@ a:hover{
     opacity: 0;
 }
 
-.navbar a{
+.navbar a {
     font-family: 'Rubik', sans-serif;
     margin: auto;
     font-size: 20px;
     padding: 10px;
 }
 
-.intro{
-    top:0;
+.intro {
+    top: 0;
     z-index: 1;
     background-color: white;
 }
 
-.intro img{
+.intro img {
     height: 100%;
     width: 100%;
     padding: 5px;
     object-fit: contain;
 }
 
-.intro h2{
+.intro h2 {
     font-family: 'Pacifico', sans-serif;
     color: #FFA62A;
     text-align: center;
@@ -51,7 +53,7 @@ a:hover{
     left: 65%
 }
 
-.headder h1{
+.headder h1 {
     font-family: 'Rubik', sans-serif;
     padding-top: 15px;
     text-align: center;
@@ -60,34 +62,45 @@ a:hover{
     opacity: 90%;
 }
 
-.bio{
+.bio {
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
-.bioInfo{
+.bioInfo {
     display: grid;
     grid-template-rows: auto auto
 }
 
-.bio img{
+.bio img {
     object-fit: cover;
     padding: 10%;
     width: 100%;
 }
 
-.bio h1{
+.bio h1 {
     font-family: 'Rubik', sans-serif;
     text-align: center;
-    margin:auto;
+    margin: auto;
+    
+    /* Gradient Text Code */
+    background-color: #333;
+    background-image: linear-gradient(45deg, #FFA62A, #8B60D6);
+    background-size: 100%;
+    background-repeat: repeat;
+    /* Use the text as a mask for the background. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    
     margin-bottom: 0;
     font-size: 5vw;
-    opacity: 90%;
 }
 
-.bio h3{
+.bio h3 {
     font-family: 'Rubik', sans-serif;
     text-align: center;
-    font-size: 3vw;
+    font-size: 2vw;
     opacity: 70%;
 }
