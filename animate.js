@@ -2,8 +2,8 @@ const nav = document.querySelector(".navbar");
 const intro = document.querySelector(".intro");
 const myimg = document.querySelector("img");
 const aloha = document.querySelector("h2");
-
 const bio = document.querySelector(".bio");
+const spacer = document.querySelector(".spacer");
 
 
 var controller = new ScrollMagic.Controller();
