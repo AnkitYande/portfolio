@@ -15,26 +15,29 @@ a:hover{
     z-index: 2;
     width: 100%;
     position: fixed;
+    box-shadow: 0px 10px 10px rgba(50, 50, 50, 0.1);
+    display: grid;
+    grid-template-columns: 20% 20% 10% 20% 20%;
     opacity: 0;
 }
 
 .navbar a{
     font-family: 'Rubik', sans-serif;
-    font-size: 3vh;
+    margin: auto;
+    font-size: 20px;
     padding: 10px;
 }
 
 .intro{
     top:0;
     z-index: 1;
-    height: 90vh;
-    width: 100%;
     background-color: white;
 }
 
 .intro img{
     height: 100%;
     width: 100%;
+    padding: 5px;
     object-fit: contain;
 }
 
@@ -54,5 +57,24 @@ a:hover{
     text-align: center;
     font-size: 80px;
     padding-bottom: 500px;
+    opacity: 90%;
+}
+
+.bio{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.bio img{
+    object-fit: cover;
+    padding: 15%;
+    width: 100%;
+}
+
+.bio h1{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    margin:auto;
+    font-size: 5vw;
     opacity: 90%;
 }

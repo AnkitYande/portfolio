@@ -3,7 +3,7 @@ const intro = document.querySelector(".intro");
 const myimg = document.querySelector("img");
 const aloha = document.querySelector("h2");
 
-const headder = document.querySelector(".headder");
+const bio = document.querySelector(".bio");
 
 
 var controller = new ScrollMagic.Controller();
@@ -153,10 +153,10 @@ setInterval(() => {
 },0);
 
 var tween = new TimelineMax()
-    .fromTo(intro, 1, {height:'90vh'}, {height:'10vh'} )
+    .fromTo(intro, 1, {height:'90vh'}, {height:'65px'} )
     .fromTo(nav, 1, {opacity:'0'}, {opacity:'1'} )
 
-var scene2 = new ScrollMagic.Scene({triggerElement: headder, triggerHook: headder, duration: 600})
+var scene2 = new ScrollMagic.Scene({triggerElement: bio, triggerHook: bio, duration: 600})
     //.addIndicators()
     .offset(-280)
     .setTween(tween)
