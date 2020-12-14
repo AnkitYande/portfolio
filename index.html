@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <link rel="icon" href="./src/AY.png">
     <title>Ankit Yande</title>
@@ -26,7 +28,7 @@
         <a href=""></a>
         <a href="https://www.linkedin.com/in/ankit-yande/"> LinkedIn </a>
         <a href="https://github.com/AnkitYande"> Github </a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="expand_menu()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
@@ -46,6 +48,43 @@
 
     <div class="spacer"> </div>
 
+    <div class="gallery js-flickity"
+    data-flickity-options='{ "wrapAround": true }'>
+    <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" alt="contrail" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" alt="golden hour" />
+      </div>
+      <div class="carousel-cell">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" alt="flight formation" />
+      </div>
+    </div>
+
+    <div class="headder">
+        <h1>
+            YOOOO
+        </h1>
+    </div>
+
     <div class="headder">
         <h1>
             YOOOO
@@ -58,24 +97,7 @@
         </h1>
     </div>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("navbar");
-            if (x.className === "navbar") {
-                x.className += " responsive";
-            } else {
-                x.className = "navbar";
-            }
-            var x = document.getElementById("intro");
-            if (x.className === "intro") {
-                x.className += " responsive";
-            } else {
-                x.className = "intro";
-            }
-        }
-    </script>
-
-
+    <script src="./script.js"></script>
     <script src="./animate.js"></script>
 
 </body>

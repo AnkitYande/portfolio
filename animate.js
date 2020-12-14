@@ -145,7 +145,7 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 let scrollpos = 0;
 
 scene.on("update", e => {
-    scrollpos = e.scrollPos * 0.06;
+    scrollpos = e.scrollPos*0.1;
     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
 });
 
@@ -159,9 +159,9 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { display: 'none' }, { display: 'grid' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
-var scene2 = new ScrollMagic.Scene({ triggerElement: bio, triggerHook: bio, duration: 500 })
+var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 500 })
     //.addIndicators()
-    .offset(-280)
+    .offset(-250)
     .setTween(tween)
     .addTo(controller);
 
