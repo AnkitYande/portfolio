@@ -5,7 +5,6 @@ const aloha = document.querySelector("h2");
 const bio = document.querySelector(".bio");
 const spacer = document.querySelector(".spacer");
 
-
 var controller = new ScrollMagic.Controller();
 
 var images = [
@@ -135,7 +134,7 @@ var images = [
 var controller = new ScrollMagic.Controller();
 
 // build scene
-var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1500 })
+var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1700 })
     //.addIndicators()
     .setPin(intro)
     .addTo(controller)
@@ -157,13 +156,15 @@ setInterval(() => {
 
 var tween = new TimelineMax()
     .fromTo(intro, 1, { height: '90vh' }, { height: '65px' })
+    .fromTo(nav, 1, { display: 'none' }, { display: 'grid' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
-var scene2 = new ScrollMagic.Scene({ triggerElement: bio, triggerHook: bio, duration: 600 })
+var scene2 = new ScrollMagic.Scene({ triggerElement: bio, triggerHook: bio, duration: 500 })
     //.addIndicators()
     .offset(-280)
     .setTween(tween)
     .addTo(controller);
+
 
 scene.on("update", e => {
     scrollpos = e.scrollPos * 0.06;

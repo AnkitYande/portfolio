@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./style.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
-    
-    <title>Portfolio</title>
+    <link rel="icon" href="./src/AY.png">
+    <title>Ankit Yande</title>
 </head>
 
 <body>
-    <div class = "navbar">
-        <a href=""> Photography </a>
+    <div class="navbar" id="navbar">
         <a href="src/Ankit_Resume_F2020.pdf" download> Resume </a>
+        <a href=""> Photography </a>
         <a href=""></a>
         <a href="https://www.linkedin.com/in/ankit-yande/"> LinkedIn </a>
         <a href="https://github.com/AnkitYande"> Github </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 
-    <div class="intro">
-        <a><img id = "myimg" src="./AY_svg_seq/AY_svg_seq0001.svg"></img></a>
-        <h2 id = "aloha">loha!</h2>
+    <div class="intro", id="intro">
+        <a><img id="myimg" src="./AY_svg_seq/AY_svg_seq0001.svg"></img></a>
+        <h2 id="aloha">loha!</h2>
     </div>
 
     <div class="bio">
-        <img id = "profile" src="./src/bio.png"></img>
+        <img id="profile" src="./src/bio.png"></img>
         <div class="bioInfo">
             <h1>Ankit Yande</h1>
             <h3>Developer · Designer · Photographer</h3>
         </div>
     </div>
-    
+
     <div class="spacer"> </div>
-    
-    <div class="headder"> 
+
+    <div class="headder">
         <h1>
             YOOOO
         </h1>
     </div>
 
-    <div class="headder"> 
+    <div class="headder">
         <h1>
             YOOOO
         </h1>
     </div>
 
-    
-    <script src = "./animate.js"></script>
-   
+    <script>
+        function myFunction() {
+            var x = document.getElementById("navbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+            var x = document.getElementById("intro");
+            if (x.className === "intro") {
+                x.className += " responsive";
+            } else {
+                x.className = "intro";
+            }
+        }
+    </script>
+
+
+    <script src="./animate.js"></script>
+
 </body>
+
 </html>
