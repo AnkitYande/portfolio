@@ -145,7 +145,7 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 let scrollpos = 0;
 
 scene.on("update", e => {
-    scrollpos = e.scrollPos*0.1;
+    scrollpos = e.scrollPos * 0.1;
     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
 });
 
