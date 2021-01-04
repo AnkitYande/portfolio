@@ -12,3 +12,15 @@ function expand_menu() {
         x.className = "intro";
     }
 }
+
+let path = document.querySelector(".cls-4");
+
+/*
+125
+215
+60
+315
+*/
+
+let length = path.getTotalLength();
+console.log(length);

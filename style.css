@@ -65,10 +65,70 @@ a:hover {
     font-family: 'Pacifico', sans-serif;
     color: #FFA62A;
     text-align: center;
-    font-size: 10vw;
     position: absolute;
+    font-size: 10vw;
     top: 50%;
     left: 65%
+}
+
+.stroke-im {
+    width: 20%;
+    fill: none;
+    stroke: #6a46aa;
+    stroke-width: 6px;
+    /* animation-fill-mode: forwards; */
+}
+
+.cls-1 {
+    stroke-dasharray: 125px;
+    animation: aCls1 5s ease-in;
+}
+.cls-2 {
+    stroke-dasharray: 215px;
+    animation: aCls2 5s ease-in;
+}
+.cls-3 {
+    stroke-dasharray: 60px;
+    animation: aCls3 5s ease-in;
+}
+.cls-4 {
+    stroke-dasharray: 285px;
+    animation: aCls4 5s ease-in;
+}
+
+@keyframes aCls1 {
+    0%, 10% { stroke-dashoffset: 125; }
+    20% { stroke-dashoffset: 0; }
+}
+@keyframes aCls2 {
+    0%, 20% { stroke-dashoffset: 215; }
+    30% { stroke-dashoffset: 0; }
+}
+@keyframes aCls3 {
+    0%, 30% { stroke-dashoffset: 60; }
+    40% { stroke-dashoffset: 0; }
+}
+@keyframes aCls4 {
+    0%, 40% { stroke-dashoffset: 285; }
+    50% { stroke-dashoffset: 0; }
+}
+
+.intro i {
+    text-align: center;
+    position: absolute;
+    font-size: 10vh;
+    top: 95%;
+    left: 50%;
+    animation: move 1s linear infinite;
+}
+
+@keyframes move {
+    from {
+        top: 94%;
+    }
+    to {
+        top: 98%;
+    }
 }
 
 .headder h1 {
@@ -86,22 +146,24 @@ a:hover {
     grid-template-columns: 50% 50%;
 }
 
-.bioInfo {
-    display: grid;
-    grid-template-rows: auto auto
-}
-
 .bio img {
     object-fit: cover;
     padding: 10%;
     width: 100%;
 }
 
+.bioInfo {
+    display: block;
+    vertical-align: middle;
+}
+
+.bioInfo svg{
+    padding-top: 30%;
+}
+
 .bio h1 {
     font-family: 'Rubik', sans-serif;
     text-align: center;
-    margin: auto;
-    
     /************* Gradient Text Code ***************/
     background-color: #333;
     background-image: linear-gradient(45deg, #FFA62A, #B03AE0);
@@ -112,8 +174,6 @@ a:hover {
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     /**********************************************/
-   
-    margin-bottom: 0;
     font-size: 7vw;
 }
 
@@ -125,8 +185,7 @@ a:hover {
     opacity: 70%;
 }
 
-/************************* Carousel ****************************/
-
+/************************ Carousel ***************************/
 .carousel-cell {
     width: 70%;
     height: 200px;
@@ -206,13 +265,10 @@ a:hover {
 }
 
 .flickity-page-dots .dot.is-selected {
-    background:#6a46aa;
+    background: #6a46aa;
 }
+
 /***************************************************************/
-
-
-
-
 
 @media screen and (max-width: 700px) {
     .navbar a:not(:first-child) {
@@ -225,10 +281,14 @@ a:hover {
     .bio {
         display: block;
     }
-    .bio h1{
+    .bioInfo svg{
+        padding-left: 20px;
+        padding-top: 0%;
+    }
+    .bio h1 {
         font-size: 10vw;
     }
-    .bio h3{
+    .bio h3 {
         font-size: 4vw;
     }
 }
@@ -247,5 +307,4 @@ a:hover {
     .intro.responsive {
         display: none;
     }
-    
 }
