@@ -18,6 +18,8 @@ a:hover {
     height: 100px;
 }
 
+/************************** Nav Bar *******************************/
+
 .navbar {
     position: fixed;
     overflow: hidden;
@@ -48,6 +50,8 @@ a:hover {
     padding: 20px;
 }
 
+/**************************** Intro *********************************/
+
 .intro {
     top: 0;
     z-index: 1;
@@ -68,78 +72,24 @@ a:hover {
     position: absolute;
     font-size: 10vw;
     top: 50%;
-    left: 65%
+    transform: translate(0, -50%);
+    left: 63%;
 }
 
-.stroke-im {
-    width: 20%;
-    fill: none;
-    stroke: #6a46aa;
-    stroke-width: 6px;
-    /* animation-fill-mode: forwards; */
-}
-
-.cls-1 {
-    stroke-dasharray: 125px;
-    animation: aCls1 5s ease-in;
-}
-.cls-2 {
-    stroke-dasharray: 215px;
-    animation: aCls2 5s ease-in;
-}
-.cls-3 {
-    stroke-dasharray: 60px;
-    animation: aCls3 5s ease-in;
-}
-.cls-4 {
-    stroke-dasharray: 285px;
-    animation: aCls4 5s ease-in;
-}
-
-@keyframes aCls1 {
-    0%, 10% { stroke-dashoffset: 125; }
-    20% { stroke-dashoffset: 0; }
-}
-@keyframes aCls2 {
-    0%, 20% { stroke-dashoffset: 215; }
-    30% { stroke-dashoffset: 0; }
-}
-@keyframes aCls3 {
-    0%, 30% { stroke-dashoffset: 60; }
-    40% { stroke-dashoffset: 0; }
-}
-@keyframes aCls4 {
-    0%, 40% { stroke-dashoffset: 285; }
-    50% { stroke-dashoffset: 0; }
-}
-
-.intro i {
-    text-align: center;
+.intro h4 {
+    height: 8vh;
     position: absolute;
-    font-size: 10vh;
-    top: 95%;
+    size: 1;
     left: 50%;
-    animation: move 1s linear infinite;
+    transform: translate(-50%);
+    animation: move-arrow 1.5s linear infinite;
 }
 
-@keyframes move {
-    from {
-        top: 94%;
-    }
-    to {
-        top: 98%;
-    }
+.down-arrow {
+    opacity: 60%;
 }
 
-.headder h1 {
-    font-family: 'Rubik', sans-serif;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 80px;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    opacity: 90%;
-}
+/**************************** Bio *********************************/
 
 .bio {
     display: grid;
@@ -153,18 +103,14 @@ a:hover {
 }
 
 .bioInfo {
-    display: block;
-    vertical-align: middle;
-}
-
-.bioInfo svg{
-    padding-top: 30%;
+    padding-top: 15%;
 }
 
 .bio h1 {
     font-family: 'Rubik', sans-serif;
     text-align: center;
-    /************* Gradient Text Code ***************/
+    font-size: 7vw;
+    /*Gradient Text Code*/
     background-color: #333;
     background-image: linear-gradient(45deg, #FFA62A, #B03AE0);
     background-size: 100%;
@@ -173,8 +119,6 @@ a:hover {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-    /**********************************************/
-    font-size: 7vw;
 }
 
 .bio h3 {
@@ -182,93 +126,24 @@ a:hover {
     text-align: center;
     padding: none;
     font-size: 2vw;
-    opacity: 70%;
+    /* opacity: 70%; */
 }
 
-/************************ Carousel ***************************/
-.carousel-cell {
-    width: 70%;
-    height: 200px;
-    /* flex-box, center image in cell */
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
+.bio i {
+    color: #6a46aa;
 }
 
-.carousel-cell img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    /* dim unselected */
-    opacity: 0.7;
-    -webkit-transform: scale(0.85);
-    transform: scale(0.85);
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s, transform 0.3s, -webkit-filter 0.3s, filter 0.3s;
-    transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+/************************** Responsive Layout *************************************/
+
+.headder h1 {
+    font-family: 'Rubik', sans-serif;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 80px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    opacity: 90%;
 }
-
-/* brighten selected image */
-
-.carousel-cell.is-selected img {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-filter: none;
-    filter: none;
-}
-
-@media screen and ( min-width: 768px) {
-    .carousel-cell {
-        height: 400px;
-    }
-}
-
-@media screen and ( min-width: 960px) {
-    .carousel-cell {
-        width: 60%;
-    }
-}
-
-/* buttons */
-
-.flickity-prev-next-button {
-    width: 30px;
-    height: 30px;
-    background: #6a46aa;
-    opacity: 0.6;
-}
-
-.flickity-prev-next-button:hover {
-    background: #6a46aa;
-    opacity: 1;
-}
-
-/* arrow color */
-
-.flickity-prev-next-button .arrow {
-    fill: white;
-}
-
-.flickity-prev-next-button.no-svg {
-    color: white;
-}
-
-.flickity-page-dots .dot {
-    fill: transparent;
-}
-
-.flickity-page-dots .dot.is-selected {
-    background: #6a46aa;
-}
-
-/***************************************************************/
 
 @media screen and (max-width: 700px) {
     .navbar a:not(:first-child) {
@@ -281,15 +156,21 @@ a:hover {
     .bio {
         display: block;
     }
-    .bioInfo svg{
-        padding-left: 20px;
+    .bioInfo {
         padding-top: 0%;
+        padding-left: 20px;
     }
     .bio h1 {
         font-size: 10vw;
     }
     .bio h3 {
         font-size: 4vw;
+    }
+    .stroke-made {
+        padding-top: 5vh;
+    }
+    .intro h4 {
+        height: 4vh;
     }
 }
 

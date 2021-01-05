@@ -13,14 +13,6 @@ function expand_menu() {
     }
 }
 
-let path = document.querySelector(".cls-4");
-
-/*
-125
-215
-60
-315
-*/
-
-let length = path.getTotalLength();
-console.log(length);
+// let path = document.querySelector(".cls-13");
+// let length = path.getTotalLength();
+// console.log(length);

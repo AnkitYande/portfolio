@@ -5,6 +5,7 @@ const aloha = document.querySelector("h2");
 const arrow = document.querySelector("h4");
 const bio = document.querySelector(".bio");
 const spacer = document.querySelector(".spacer");
+const strokes = document.querySelectorAll(".stroke");
 
 var controller = new ScrollMagic.Controller();
 
@@ -153,6 +154,7 @@ scene.on("update", e => {
 setInterval(() => {
     myimg.src = images[scrollpos]
     aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
+    aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
     arrow.style.opacity = scrollpos > 1 ? 0 : 1
 }, 0);
 
@@ -162,10 +164,21 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 450 })
-    //.addIndicators()
+    // .addIndicators()
     .offset(-250)
     .setTween(tween)
-    .addTo(controller);
+    .addTo(controller)
+    .on("leave", function () {
+        for (i = 0; i < 13; i++) {
+            strokes[i].style.animationPlayState = "running";
+        }
+        // setTimeout(() => {
+        //     for (i = 0; i < 13; i++) {
+        //         strokes[i].style.display = "none";
+        //     }
+        // }, 10000);
+    });
+
 
 
 scene.on("update", e => {
