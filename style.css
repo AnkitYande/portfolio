@@ -148,7 +148,7 @@ a:hover {
 
 .ph_gallery{
     margin-top: 100px;
-  columns: 3;
+    columns: 3;
 }
 .ph_gallery img {
     padding: 10px;
@@ -189,6 +189,10 @@ a:hover {
     .stroke-im{
         padding: 0;
         display: none;
+    }
+    .ph_gallery{
+        margin-top: 100px;
+        columns: 1;
     }
 }
 
