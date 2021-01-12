@@ -14,6 +14,10 @@
     align-items: center;
 }
 
+.carousel-cell a{
+    height: 100%;
+}
+
 .carousel-cell img {
     display: block;
     max-width: 100%;

@@ -13,6 +13,18 @@ function expand_menu() {
     }
 }
 
+function list_files() {
+    console.log("loading");
+    const testFolder = './src/';
+    const fs = require('fs');
+
+    fs.readdir(testFolder, (err, files) => {
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+}
+
 // let path = document.querySelector(".cls-13");
 // let length = path.getTotalLength();
 // console.log(length);
