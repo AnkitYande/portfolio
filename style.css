@@ -139,20 +139,27 @@ a:hover {
 
 .headder h1 {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 4vw;
+    font-size: 5w;
     text-align: center;
-    margin-top: 20vh;
-    margin-bottom: 10vh;
+    margin-top: 100px;
+    margin-bottom: 50px;
 
 }
 
 .ph_gallery{
     margin-top: 100px;
+    margin-left: 5vw;
+    margin-right: 5vw;
     columns: 3;
 }
 .ph_gallery img {
     padding: 10px;
     width: 100%;
+    filter: brightness(100%)
+}
+
+.ph_gallery img:hover {
+    filter: brightness(80%)
 }
 
 /************************** Responsive Layout *************************************/
