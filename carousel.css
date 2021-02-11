@@ -18,6 +18,10 @@
     height: 100%;
 }
 
+.borderImg{
+    border: 2px rgb(128, 128, 128) solid
+}
+
 .carousel-cell img {
     display: block;
     max-width: 100%;
