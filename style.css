@@ -21,12 +21,12 @@ a:hover {
 
 h1 {
     text-align: center;
-    font-size: 3.5vw;
+    font-size: 3rem;
 }
 
-p{
+/* p{
     text-align: justify;
-}
+} */
 
 /************************** Nav Bar *******************************/
 
@@ -145,6 +145,68 @@ p{
     color: #6a46aa;
 }
 
+
+/************************** ABOUT *************************************/
+
+
+.about {
+    padding: 5em 0;
+    background-color: #8659D4;
+}
+
+.about h1 {
+    color: white;
+    margin-bottom: 1em;
+}
+
+.about p {
+    max-width: 1000px;
+    font-size: 1.1rem;
+    line-height: 2em;
+    color: white;
+    margin: 0 auto;
+}
+
+form {
+    margin: 5em auto;
+    width: 90%;
+    max-width: 750px;
+    padding: 2em;
+    text-align: center;
+    background: rgba( 255, 255, 255, 0.85);
+    box-shadow: 0 8px 32px 0;
+    border-radius: 20px;
+}
+
+form h2{
+    font-size: 2.5rem;
+}
+
+input, textarea {
+    width: 90%;
+    margin: 1em 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    border: none;
+    padding: 10px;
+}
+
+textarea {
+    height: 10em;
+}
+
+.spacer2 {
+    margin-top: 50px;
+    height: 180px;
+    width: 100%;
+    background-color: #8659D4;
+    background-image: url(./src/curve.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    display: block;
+}
+
 /************************** Other *************************************/
 
 .headder h1 {
@@ -152,12 +214,11 @@ p{
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
-
 }
 
 /************************** PDF *************************************/
 
-.info_container{
+.info_container {
     padding-top: 5vh;
     padding-bottom: 5vh;
     margin-left: 20%;
@@ -166,24 +227,24 @@ p{
     grid-gap: 15%;
     grid-template-columns: fit-content(300px) fit-content(300px) fit-content(300px);
     justify-content: center;
-
 }
-.info_container p{
+
+.info_container p {
     text-align: left;
 }
 
-.headder{
+.headder {
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.btn-cnt{
+.btn-cnt {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn{
+.btn {
     outline: none;
     border: none;
     background-color: #333;
@@ -191,7 +252,7 @@ p{
     font-size: 1.2em;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #333;
     background-image: linear-gradient(45deg, rgb(255, 175, 0), rgb(175, 0, 255));
     background-size: 110%;
@@ -199,23 +260,23 @@ p{
     color: white;
 }
 
-embed{
+embed {
     width: 90%;
     height: 700px;
-    text-align: center; 
-    margin: 5%; 
+    text-align: center;
+    margin: 5%;
     border: solid;
 }
 
 /************************** Gallery *************************************/
 
-.ph_gallery{
+.ph_gallery {
     margin-left: 5vw;
     margin-right: 5vw;
     columns: 3;
 }
 
-.ph_gallery .image{
+.ph_gallery .image {
     overflow: hidden;
 }
 
@@ -235,7 +296,7 @@ embed{
 @media screen and (max-width: 700px) {
     h1 {
         font-size: 6vw;
-    }    
+    }
     .navbar a:not(:first-child) {
         display: none;
     }
@@ -256,21 +317,25 @@ embed{
     .bio h3 {
         font-size: 4vw;
     }
-    .stroke{
+    .stroke {
         padding: 0;
         display: none;
     }
-    .stroke-made{
+    .stroke-made {
         padding: 0;
         display: none;
     }
-    .stroke-im{
+    .stroke-im {
         padding: 0;
         display: none;
     }
-    .ph_gallery{
+    .ph_gallery {
         margin-top: 100px;
         columns: 1;
+    }
+
+    .about p{
+        padding: 0;
     }
 }
 
