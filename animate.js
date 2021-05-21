@@ -1,6 +1,6 @@
 const nav = document.querySelector(".navbar");
 const intro = document.querySelector(".intro");
-const myimg = document.querySelector("img");
+const myimg = document.querySelector(".myimg");
 const aloha = document.querySelector("h2");
 const arrow = document.querySelector("h4");
 const bio = document.querySelector(".bio");
@@ -155,12 +155,12 @@ setInterval(() => {
     myimg.src = images[scrollpos]
     aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
     aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
-    arrow.style.opacity = scrollpos > 1 ? 0 : 1
+    arrow.style.display  =  scrollpos > 1 ? "none" : "block"
 }, 0);
 
 var tween = new TimelineMax()
     .fromTo(intro, 1, { height: '90vh' }, { height: '65px' })
-    .fromTo(nav, 1, { display: 'none' }, { display: 'grid' })
+    .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 450 })

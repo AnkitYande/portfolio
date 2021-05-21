@@ -1,12 +1,31 @@
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    color: #555;
-    font-family: 'Rubik', sans-serif;
+    color: #444;
+    font-family: 'poppins', sans-serif;
+}
+
+label{
+    font-weight: 500;
+    float:left;
+}
+
+label,input{
+    float:left;
+    display:block;
+}
+
+i {
+    font-size: 30px;
+    padding-bottom: 0;
+}
+
+i:hover {
+    color: #6a46aa;
 }
 
 a {
-    color: #555;
+    color: #444;
     text-decoration: none;
 }
 
@@ -19,45 +38,105 @@ a:hover {
     height: 100px;
 }
 
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #6a46aa;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 h1 {
+    font-family: gilroyextrabold;
     text-align: center;
     font-size: 3rem;
 }
 
-/* p{
-    text-align: justify;
-} */
-
 /************************** Nav Bar *******************************/
 
 .navbar {
+    display: flex;
     position: fixed;
-    overflow: hidden;
+    /* overflow: hidden; */
     top: 0;
     z-index: 2;
     width: 100%;
+    height: 65px;
     box-shadow: 0px 10px 10px rgba(50, 50, 50, 0.1);
-    display: grid;
-    grid-template-columns: 20% 20% 15% 20% 20%;
-    display: none;
-    opacity: 0;
+    align-items: center;
 }
 
 .navbar a {
-    font-family: 'Rubik', sans-serif;
-    margin: auto;
+    /* margin: auto; */
     float: left;
-    display: block;
-    font-size: 20px;
-    padding: 10px;
+    padding-top: 10px;
+    align-self: center;
+    padding-right: 20px;
 }
 
-.navbar .icon {
-    position: absolute;
-    display: none;
-    right: 0;
-    font-size: 20px;
+.nav-center a{ /* padding for logo */
     padding: 20px;
+}
+.navbar p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.navbar p:hover{
+    color: #6a46aa;
+}
+
+.hidden {
+    display: none;
+    text-align: center;
+}
+
+.hidden h5{
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+
+.nav-left{
+    display: flex;
+    flex: 40%;
+}
+.nav-center{
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+}
+.nav-right{
+    flex: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height:100%
+}
+
+.nav-btn{
+    /* flex: 12%; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon{
+    color: #444;
+    height: 30px;
+    display: none;
 }
 
 /**************************** Intro *********************************/
@@ -117,11 +196,10 @@ h1 {
 }
 
 .bio h1 {
-    font-family: 'Rubik', sans-serif;
     text-align: center;
-    font-size: 7vw;
+    font-size: 6vw;
     /*Gradient Text Code*/
-    background-color: #333;
+    background-color: #444;
     background-image: linear-gradient(45deg, rgb(255, 175, 0), rgb(175, 0, 255));
     background-size: 100%;
     background-repeat: repeat;
@@ -134,7 +212,6 @@ h1 {
 }
 
 .bio h3 {
-    font-family: 'Rubik', sans-serif;
     text-align: center;
     padding: none;
     font-size: 2vw;
@@ -145,12 +222,10 @@ h1 {
     color: #6a46aa;
 }
 
-
 /************************** ABOUT *************************************/
 
-
 .about {
-    padding: 5em 0;
+    padding: 5em 0 1em 0;
     background-color: #8659D4;
 }
 
@@ -178,7 +253,7 @@ form {
     border-radius: 20px;
 }
 
-form h2{
+form h2 {
     font-size: 2.5rem;
 }
 
@@ -196,15 +271,13 @@ textarea {
 }
 
 .spacer2 {
-    margin-top: 50px;
-    height: 180px;
-    width: 100%;
     background-color: #8659D4;
     background-image: url(./src/curve.svg);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    display: block;
+    height: 10vw;
+    width: 100vw;
 }
 
 /************************** Other *************************************/
@@ -247,13 +320,14 @@ textarea {
 .btn {
     outline: none;
     border: none;
-    background-color: #333;
+    background-color: #444;
     color: white;
     font-size: 1.2em;
+    height: 40px
 }
 
 .btn:hover {
-    background-color: #333;
+    background-color: #444;
     background-image: linear-gradient(45deg, rgb(255, 175, 0), rgb(175, 0, 255));
     background-size: 110%;
     background-repeat: repeat;
@@ -293,17 +367,18 @@ embed {
 
 /************************** Responsive Layout *************************************/
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     h1 {
         font-size: 6vw;
     }
-    .navbar a:not(:first-child) {
+    /* .navbar a:not(:first-child) {
         display: none;
     }
     .navbar a.icon {
-        float: right;
+        float: left;
         display: block;
-    }
+    } */
+
     .bio {
         display: block;
     }
@@ -333,13 +408,12 @@ embed {
         margin-top: 100px;
         columns: 1;
     }
-
-    .about p{
+    .about p {
         padding: 0;
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     .navbar.responsive {
         grid-template-columns: auto;
         grid-template-rows: auto auto 0 auto auto;
@@ -350,7 +424,41 @@ embed {
         display: block;
         text-align: center;
     }
-    .intro.responsive {
+    /* .intro.responsive {
         display: none;
+    } */
+    .nav-right{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .nav-left{
+        display: none;
+    }
+    .nav-left-active{
+        position: absolute;
+        top: 100%;
+        left:0%;
+        width: 400px;
+        height: 100vh;
+        text-align: left;
+        z-index: 4;
+        background-color: rgba(255, 255, 255, 0.95);
+        display: flex;
+        flex-direction: column;
+        margin: 0
+    }
+    .navbar a{
+        padding-top: 0
+    }
+    .nav-right-links p{
+        display: none;
+    }
+    .icon{
+        display: block;
+    }
+    .hidden{
+        display: inline;
     }
 }
