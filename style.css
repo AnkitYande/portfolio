@@ -106,6 +106,7 @@ h1 {
 }
 
 .hidden h5{
+    padding-top: 10px;
     padding-bottom: 10px;
     text-decoration: underline;
 }
@@ -120,7 +121,7 @@ h1 {
     justify-content: center;
 }
 .nav-right{
-    flex: 25%;
+    flex: 40%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -128,7 +129,7 @@ h1 {
 }
 
 .nav-btn{
-    /* flex: 12%; */
+    /* flex: 15%; */
     display: flex;
     justify-content: flex-end;
 }
@@ -427,7 +428,7 @@ embed {
     /* .intro.responsive {
         display: none;
     } */
-    .nav-right{
+    .nav-right-links{
         display: none;
     }
 }
