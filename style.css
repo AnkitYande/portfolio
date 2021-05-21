@@ -108,7 +108,7 @@ h1 {
 .hidden h5{
     padding-top: 10px;
     padding-bottom: 10px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .nav-left{
@@ -154,6 +154,11 @@ h1 {
     padding: 5px;
     object-fit: contain;
 }
+
+/* .fog{
+    z-index: 5;
+    box-shadow: 0 50px red;
+} */
 
 .intro h2 {
     font-family: 'Pacifico', sans-serif;
