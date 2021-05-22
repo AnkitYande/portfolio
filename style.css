@@ -5,16 +5,6 @@
     font-family: 'poppins', sans-serif;
 }
 
-label{
-    font-weight: 500;
-    float:left;
-}
-
-label,input{
-    float:left;
-    display:block;
-}
-
 i {
     font-size: 30px;
     padding-bottom: 0;
@@ -261,6 +251,12 @@ form {
 
 form h2 {
     font-size: 2.5rem;
+    padding-bottom: 1em;
+}
+
+label{
+    font-weight: 500;
+    float:left;
 }
 
 input, textarea {
