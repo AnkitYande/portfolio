@@ -6,6 +6,7 @@ const arrow = document.querySelector("h4");
 const bio = document.querySelector(".bio");
 const spacer = document.querySelector(".spacer");
 const strokes = document.querySelectorAll(".stroke");
+const fog = document.querySelector(".fog");
 
 var controller = new ScrollMagic.Controller();
 
@@ -140,6 +141,9 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
     //.addIndicators()
     .setPin(intro)
     .addTo(controller)
+    .on("enter", function () {
+        fog.style.opacity = 1;
+    })
     .on("leave", function () {
         intro.style.position = 'fixed';
     })
@@ -164,10 +168,13 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 450 })
-    // .addIndicators()
+    .addIndicators()
     .offset(-250)
     .setTween(tween)
     .addTo(controller)
+    .on("enter", function () {
+        fog.style.opacity = 0;
+    })
     .on("leave", function () {
         for (i = 0; i < 13; i++) {
             strokes[i].style.animationPlayState = "running";
