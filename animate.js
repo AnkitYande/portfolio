@@ -168,7 +168,7 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 450 })
-    .addIndicators()
+    // .addIndicators()
     .offset(-250)
     .setTween(tween)
     .addTo(controller)
