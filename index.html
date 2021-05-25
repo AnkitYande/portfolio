@@ -7,16 +7,11 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&amily=Poppins">
-    <link rel="stylesheet" href="./gilroy.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    
-    <link rel="stylesheet" href="./animate.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./carousel.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
@@ -25,8 +20,10 @@
     
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://kit.fontawesome.com/9d145696d7.js" crossorigin="anonymous"></script>
-
+   
+    <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./src/AY.png">
+    
     <title>Ankit Yande</title>
 </head>
 
@@ -93,77 +90,35 @@
            </div>
     
         </div>
-
-        
-        <!-- <a href="javascript:void(0);" class="icon" onclick="expand_menu()"> -->        <!-- </a> -->
-
     </nav>
+
 
     <div class="intro" , id="intro">
         <div class = "fog"></div> 
         <img class="myimg" src="./AY_svg_seq/AY_svg_seq0001.svg"></img>
-   
-        <h2 id="aloha">loha!</h2>
+        <h2 class="aloha">loha!</h2>
         <h4><img class="down-arrow" src="./src/down-arrow.svg"></img></h4>
     </div>
 
-    <div class="bio" id="bio">
-        <img id="profile" src="./src/bio.png"></img>
-        <div class="bioInfo">
-            <!-- I'm path -->
-            <svg class="stroke-im" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 145">
-                <path class="cls-1 stroke" d="M13,73.2c-2.1-2.8,1.2-5.1,2.1-5.4l94.8-32.1c2.7-0.9,6-4.3,4.4-6.8" />
-                <path class="cls-2 stroke"
-                    d="M69.9,49.7c3.2,19.9,5.1,45.6,4.2,65.7c-0.4,7.9-2.1,17.3-9.4,20.3c-6.6,2.7-14-1.5-19.4-6.2c-0.8-0.6-1.4-1.4-1.7-2.3c-0.4-2.2,2-3.6,4.1-4.4c21.5-7.5,45.5-6.6,66.3-15.7c3.6-1.6,7.6-4.3,7.3-8.2" />
-                <path class="cls-3 stroke"
-                    d="M142.8,10.7l1.1-4.7c6.8,1.3,8.5,9,9,15.3c0.4,4.9,0.7,9.9-0.7,14.7s-5,9.5-10.2,11.2" />
-                <path class="cls-4 stroke"
-                    d="M168.9,48.6c9.3-2.3,18.7,5.9,21.2,15.2s0.1,19.2-2.3,28.4c2.4-13.8,4.8-27.8,11.2-40.2c1.9-3.6,4.2-7.3,7.8-9.4c6.9-4.1,16.2-1,21.7,4.9s7.9,13.8,10.2,21.5c0.1-9.6,3.4-19,9.3-26.5c3.9-5,9.2-9.1,15.4-10.5c6.2-1.3,13.3,0.7,16.9,5.9c4.5,6.6,2.3,15.4,2,23.3c-0.3,8,3.8,18,11.8,17.6c4.1-0.2,7.3-3.2,10.2-6.1" />
-            </svg>
+
+    <div class="bio" id="bio">   
+        <div class="bio-info">
             <h1>Ankit Yande</h1>
-            <h3>Developer · Designer</h3>
-            <div style="text-align: center; padding-top: 1em;">
-                <button class="btn" onclick="location.href='./index.html#form'">
-                    Contact Me
-                </button>
-            </div>
-            <!-- Here's some stuff I made -->
-            <svg class="stroke-made" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 1200 180">
-                <path class="cls-5 stroke"
-                    d="M154.15,208.26c6.13,32.1,6.44,36.31.9,68.53-1.28-14.11-1.84-21.3,8.33-31.16,2.39-2.32,5.47-4.18,8.8-4.17,6,0,7.31,6,8.89,11.81s1.58,5.07,4.2,10.48c4.38,9,12.42,11.34,21.54,7.19s13.74-16.09,9.82-25.3a6.49,6.49,0,0,0-2.21-3c-3.47-2.26-7.53,1.84-9.62,5.41-4.41,7.54-8.72,17.23-3.84,24.47,5.1,7.56,15.76,6.69,23.8,2.4,10.72-5.72,11.88-16,15-27.76-.31,8-.95,19.32-1.26,27.36-2.43-13.53,12.51-26.72,23-26,2.53,10.59,14.47,14.7,24.45,10,2.81-1.32,5.47-3.39,6.45-6.33s-.36-6.75-3.33-7.61c-3.62-1.05-9.36,2.87-11.57,5.92-2.82,3.89-3.23,7.48-4.06,12.21S274.5,273,279,274.85c2.37,1,5.05.74,7.57.3,11.56-2,19.32-8.29,26.75-17.36"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-6 stroke" d="M307.17,222.56c4.33-1.13,9.25-2.49,12,1a11.88,11.88,0,0,1,1.16,12.63"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-7 stroke"
-                    d="M352.11,245.41c-3.53-4.29-9-7.58-14.44-6.6S328,246.53,331,251.23c2.17,3.43,6.7,4.27,10.67,5.09s8.52,2.52,9.59,6.44a7.76,7.76,0,0,1-.67,5.3,10.9,10.9,0,0,1-20.28-1.54"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-8 stroke"
-                    d="M407.05,244.06c-.88-5.94-8.29-10-13.93-7.59s-7.69,10.43-3.85,15.11,11.33,5.19,15.36,9.74a10.33,10.33,0,0,1,.82,12.32,10.91,10.91,0,0,1-11.92,4.12c-2.61-.81-5.09-3.41-4.12-5.91s4.13-2.86,6.75-3.07c21.21-1.71,34.48-9,46.42-26.18a43.55,43.55,0,0,0-14,19.76c-.9,2.63-1.53,5.56-.46,8.13,1.75,4.21,7.25,5.61,11.89,5.21,12.82-1.1,24.13-14.8,19.23-26.42-1-2.28-2.75-4.53-5.25-4.88s-5.22,2.39-4,4.54a4.72,4.72,0,0,0,2.93,1.87,18.12,18.12,0,0,0,18.11-5.14c1.6-1.8,3-4.06,5.42-4.56,4.43-.92,7.07,4.75,7.3,9.16.31,6.19-.64,16.81-2.78,22.65,2-5.8,1.53-16.58,3.78-22.28s9.21-10.57,14.59-7.45c4.12,2.39,4.81,8,3.93,12.57s-2.85,13.47-2.33,18.12c.53-6.53,2-17.35,4.25-23.5,1.1-2.94,2.84-6.19,6-6.78,4.74-.9,7.9,4.82,8.25,9.52s-.13,11.16,3.47,14.3c3.11,2.72,8.13,4.81,11.65,2.64s8.91-6.7,11.18-10.12c1.25-1.88,5.73-11.19,5.73-13.44,0-4-4-6-6-6-9,0-19.08,14.15-16.48,22.66,1.84,6,8.51,11.32,14.82,9.89,13.22-3,16-14.49,16.16-22.38"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-9 stroke"
-                    d="M605.45,248.12c-.82-5.23-6.81-9-11.88-7.46s-8,8-5.72,12.81c3,6.37,11.8,7.51,16.28,12.93,5.19,6.28,1.32,17.54-6.63,19.31-4.41,1-10.16-2.24-9.23-6.65,6.58.48,13.48.91,19.48-1.83,8.45-3.85,13.07-13,16.06-21.78a172,172,0,0,0,7.69-37.95c-2.54,13.06-6.28,31.51-8.82,44.57-.51,2.64-1,5.39-.26,8,2.09,7.22,13,8.11,18.69,3.21s7.49-18.85,8.95-26.23c-2.64,4.94-4.66,16.2-6,21.63-.49,1.95-.86,4.16.23,5.86,1.77,2.78,6,2.26,9,.91,7.76-3.49,13.89-16.43,16.41-24.56-2.7,5.34-5.09,16.83-7.15,22.44,8.8,2.65,18.73-.58,25.37-6.94s10.24-15.41,11.36-24.53c.69-5.63-.36-12.7-5.68-14.68q-8.94,27.45-17.67,55a11.87,11.87,0,0,0-.82,5.62c.88,4.82,7.31,6.56,11.93,4.94,8.61-3,12.7-14.8,7.83-22.51,9.3.85,21.14-3.1,26.64-10.66s4.68-24.41,1-33c-7.66,12.37-11.55,32.71-15.12,46.81-.8,3.19-3.35,15.24-1.88,18.19,2,4,13,2,15,0,4.24-4.24,6-8,0-19,13,2.61,23.21-10.75,25.87-23.73"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-10 stroke" d="M613.4,237.49c12.58-2.05,25.58-3.73,39-5"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-11 stroke"
-                    d="M769,220.12q35.26-1,70.55-.57-17.12-.2-34.25.07a3.44,3.44,0,0,0-4.18,3.5l-4.83,26.22a114.59,114.59,0,0,1-3.59,15.42c-1.48,4.46-3.84,9.07-8.11,11s-10.58-.48-10.76-5.18c-.11-2.82,2-5.38,4.61-6.51a15.55,15.55,0,0,1,8.35-.69c8.48,1.17,16.29,7.15,24.44,9.77s17.5,3.78,24.95-.45c.53-.3,2.46-2.65,2.34-3.24"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-12 stroke"
-                    d="M871.5,243.5c3.26,9.32,3.1,20.78.42,30.82l4.49-20.57a16.09,16.09,0,0,1,2.34-6.34c3.86-5.16,12.35-2.35,15.42,3.51s2.38,13.05,1.59,19.69c-.16-6.41-.22-13.27,3-18.59s11.09-7.68,15.07-2.88c5.92,7.15-1.71,21.93,6,26.62,3.65,2.21,10.64-.26,10.93-3.62.37-4.33,1.57-12.86,3.71-16.7,3.24-5.82,11-6.94,16.94-7-8.94.1-12.45.67-16.94,7-1.51,2.15-3.52,11.78-3.35,14.49A8,8,0,0,0,938,277c3.38.45,6.73-1.11,9.43-3.33,6.37-5.26,9.72-14.52,8.37-23.17-.29,5.82-.54,11.92,1.74,17.23s8,9.43,13,7.51c5.64-2.15,7.17-9.75,9.88-15.53,4.21-9,13.42-15.46,22.73-15.48-8.07-.16-16.92,4.12-20.41,12s.83,19.44,8.86,20.41c4.49.53,8.75-2.1,12.26-5.13,18-15.51,24.67-44.73,15.46-67.92a98,98,0,0,0-5.25,57.54c.53,2.48,1.23,5.09,3,6.8a10.06,10.06,0,0,0,5.95,2.42,33,33,0,0,0,26.28-8.35c2.5-2.26,4.79-5.1,5.39-8.59s-1-7.64-4.19-8.64c-3.86-1.21-7.37,2.46-9.91,5.77-3.22,4.21-6.53,8.61-7.67,14s.64,8.89,5.28,11.16c2.31,1.13,4.94.78,7.46,1,12.83.89,22-2.72,25.83-15.11"
-                    transform="translate(-154.15 -203.58)" />
-                <path class="cls-13 stroke"
-                    d="M1096.75,242.87a242.85,242.85,0,0,1,71-6.34c13.17.77,27.83,3.52,35.43,14.3s5,26.46-3,37.08-20,17.25-32,23c-85.91,41.06-186.41,50.72-278.57,26.79-20.23-5.25-40.6-12.13-61.47-10.85s-46.42,24.46-51.73,44.68c-5-7-5.79-22.36-4.18-29.14a56.5,56.5,0,0,0,3.27,28.69,51,51,0,0,0,27.86-9.38"
-                    transform="translate(-154.15 -203.58)" />
-            </svg>
+            <h2>Developer · Designer</h2>
+            <button class="btn" onclick="location.href='./index.html#form'">
+                Let's Chat
+            </button>
         </div>
-        <br>
+        <div class="bio-img">
+            <img src="./src/bio.svg"></img>
+        </div>
     </div>
 
 
-    <div class="headder" id="development">
-        <h1>
+    <!-- <div class="headder" id="development">
+        <h2>
             Programming Projects
-        </h1>
+        </h2>
     </div>
     <div class="gallery js-flickity">
         <div class="carousel-cell">
@@ -178,61 +133,14 @@
             <img class="borderImg" src="./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg"
                 alt="2017 Poster" />
         </div>
-        <!-- <div class="carousel-cell">
-            <a href="./gallery.html"><img src="./src/See All.png" alt="See All" /></a>
-        </div> -->
-    </div>
+    </div> -->
 
 
-
-    <div class="headder" id="photography">
-        <h1>
-            <a href="./gallery.html"> Photography </a>
-        </h1>
-    </div>
-
-    <div class="gallery js-flickity">
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" alt="contrail" />
-        </div>
-        <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" alt="golden hour" />
-        </div>
-        <div class="carousel-cell">
-            <a href="./gallery.html"><img src="./src/See All.png" alt="See All" /></a>
-        </div>
-    </div>
-
-
-    <div class="headder" id="art">
-        <h1>
-            Art
-        </h1>
-    </div>
-
-    <div class="spacer2"></div>
+    <div class="curve-spacer"></div>
 
     <div class="about">
         <div class="container">
-            <h1>A little about me</h1>
+            <h2>A little about me</h2>
             <p>
                 I am a student at the University of Texas at Austin pursuing a BSA in Computer Science. In the past few
                 years, design has become my passion and I am working on developing my front-end skills to design highly
@@ -241,7 +149,7 @@
 
             <div id="form"></div>
             <form action="https://formspree.io/f/mvovyeeg" method="POST">
-                <h2>Let's Chat!</h2>
+                <h3>Let's Chat!</h3>
                 
                     <label for="name">Name</label><br>
                     <input type="text" name="name" placeholder="e.g. John Smith"><br>

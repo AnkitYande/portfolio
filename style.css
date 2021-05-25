@@ -5,27 +5,26 @@
     font-family: 'poppins', sans-serif;
 }
 
+:root{
+ --purple: #8558F0
+}
+
 i {
-    font-size: 30px;
+    font-size: 1.75em;
     padding-bottom: 0;
 }
 
 i:hover {
-    color: #6a46aa;
+    color: var(--purple);
 }
 
 a {
-    color: #444;
     text-decoration: none;
 }
 
 a:hover {
-    color: #6a46aa;
+    color: var(--purple);
     text-decoration: none;
-}
-
-.spacer {
-    height: 100px;
 }
 
 .hover-underline-animation {
@@ -41,7 +40,7 @@ a:hover {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #6a46aa;
+    background-color: var(--purple);
     transform-origin: bottom left;
     transition: transform 0.25s ease-out;
 }
@@ -49,12 +48,6 @@ a:hover {
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
-
-h1 {
-    font-family: gilroyextrabold;
-    text-align: center;
-    font-size: 3rem;
 }
 
 /************************** Nav Bar *******************************/
@@ -90,7 +83,7 @@ h1 {
 }
 
 .navbar p:hover {
-    color: #6a46aa;
+    color: var(--purple);
 }
 
 .hidden {
@@ -144,10 +137,8 @@ h1 {
 }
 
 .intro img {
-    /* -webkit-mask-image: -webkit-gradient(linear, left 90%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))) */
     height: 100%;
     width: 100%;
-    /* padding: 5px; */
     object-fit: contain;
 }
 
@@ -160,7 +151,7 @@ h1 {
     z-index: 5;
 }
 
-.intro h2 {
+.aloha {
     font-family: 'Pacifico', sans-serif;
     color: #FFA62A;
     text-align: center;
@@ -184,54 +175,63 @@ h1 {
     opacity: 60%;
 }
 
+@keyframes move-arrow {
+    0% {
+        top: 93%;
+    }
+    50% {
+        top: 98%;
+    }
+    100% {
+        top: 93%;
+    }
+}
+
 /**************************** Bio *********************************/
 
 .bio {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
-.bio img {
-    object-fit: cover;
-    padding: 10%;
+.bio-info {
+    flex: 50%;
+    padding-left: 10%
+}
+
+.bio-img{
+    flex: 40%;
+}
+
+.bio-img img {
     width: 100%;
+    /* padding-left: 150px; */
+    object-fit: cover;
+
 }
 
-.bioInfo {
-    padding-top: 15%;
+.bio-info h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    color: var(--purple);
 }
 
-.bio h1 {
-    text-align: center;
-    font-size: 6vw;
-    /*Gradient Text Code*/
-    background-color: #444;
-    background-image: linear-gradient(45deg, rgb(255, 175, 0), rgb(175, 0, 255));
-    background-size: 100%;
-    background-repeat: repeat;
-    clip: text;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+.bio-info h2 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
 }
 
-.bio h3 {
-    text-align: center;
-    padding: none;
-    font-size: 2vw;
-    /* opacity: 70%; */
-}
-
-.bio i {
-    color: #6a46aa;
+.bio-info button{
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
 }
 
 /************************** ABOUT / FORM *************************************/
 
-.spacer2 {
-    background-color: #8659D4;
+.curve-spacer {
+    background-color: var(--purple);
     background-image: url(./src/curve.svg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -241,18 +241,21 @@ h1 {
 }
 
 .about {
-    padding: 5em 0 5em 0;
-    background-color: #8659D4;
+    padding:  3em 0 3em 0;
+    background-color: var(--purple);
 }
 
-.about h1 {
-    color: white;
+.about h2 {
+    font-size: 2.5rem;
     margin-bottom: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: white;
 }
 
 .about p {
     max-width: 1000px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 2em;
     color: white;
     margin: 0 auto;
@@ -270,14 +273,19 @@ form {
     border-radius: 20px;
 }
 
-form h2 {
+.about h3 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+form button {
+    margin-top: 2em;
 }
 
 label {
     padding-top: 2em;
-    font-weight: 500;
+    font-weight: 600;
     float: left;
 }
 
@@ -286,20 +294,11 @@ input, textarea {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 3px;
     border: none;
-    padding: 10px;
+    padding: 1.25rem;
 }
 
 textarea {
     height: 10em;
-}
-
-/************************** Other *************************************/
-
-.headder h1 {
-    font-size: 5w;
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
 }
 
 /************************** PDF *************************************/
@@ -333,10 +332,13 @@ textarea {
 .btn {
     outline: none;
     border: none;
-    background-color: #444;
+    background-color: var(--purple);
     color: white;
     font-size: 1.2em;
-    height: 40px
+    /* height: 40px; */
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
 }
 
 .btn:hover {
@@ -380,70 +382,47 @@ embed {
 
 /************************** Responsive Layout *************************************/
 
-@media screen and (max-width: 750px) {
-    h1 {
-        font-size: 6vw;
+@media screen and (max-width: 1100px) {
+    .bio-info{
+        padding-left: 5%;
     }
-    /* .navbar a:not(:first-child) {
-        display: none;
+    .bio-info h1{
+        font-size: 4rem;
     }
-    .navbar a.icon {
-        float: left;
-        display: block;
-    } */
-    .bio {
-        display: block;
-    }
-    .bioInfo {
-        padding-top: 0%;
-        /* padding-left: 20px; */
-    }
-    .bio h1 {
-        font-size: 10vw;
-    }
-    .bio h3 {
-        font-size: 4vw;
-    }
-    .stroke {
-        padding: 0;
-        display: none;
-    }
-    .stroke-made {
-        padding: 0;
-        display: none;
-    }
-    .stroke-im {
-        padding: 0;
-        display: none;
-    }
-    .ph_gallery {
-        margin-top: 100px;
-        columns: 1;
-    }
-    .about p {
-        padding: 0;
+    .bio-info h2{
+        font-size: 2rem;
     }
 }
-
 @media screen and (max-width: 750px) {
-    .navbar.responsive {
-        grid-template-columns: auto;
-        grid-template-rows: auto auto 0 auto auto;
-        background-color: rgba(255, 255, 255, 0.95);
+    .bio {
+        flex-direction: column;
     }
-    .navbar.responsive a {
-        float: none;
-        display: block;
+    .bio {
         text-align: center;
     }
-    /* .intro.responsive {
-        display: none;
-    } */
-    .nav-right-links {
-        display: none;
+    .bio-info{
+        order:2;
+        padding-left: 0;
+    }
+    .bio-info h1{
+       font-size: 3rem;
+    }
+    .bio-info h2{
+        font-size: 1.5rem;
+    }
+    .bio-img{
+        margin: 10%
+     }
+
+    .about h2{
+        font-size: 1.5rem;
+    }
+    .about h3{
+        font-size: 1.5rem;
     }
 }
 
+/* RESPONSIVE NAV */
 @media screen and (max-width: 1100px) {
     .nav-left {
         display: none;
@@ -472,5 +451,24 @@ embed {
     }
     .hidden {
         display: inline;
+    }
+}
+@media screen and (max-width: 750px) {
+    .navbar.responsive {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto 0 auto auto;
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .nav-right-links {
+        display: none;
+    }
+    .nav-btn button{
+        padding-left: 0.25em;
+        padding-right: 0.25em;
     }
 }

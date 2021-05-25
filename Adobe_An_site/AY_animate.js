@@ -101,7 +101,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#8B60D6").s().p("EgS0CCeMAAKhqpIgKAAIAAgLMhjRiaHMAsTAAAMBJ8ByTMBJQhyTMAsrAAAMhi8CaHIAAALIAKAAMgAKBqpg");
+	this.shape.graphics.f("#8558F0").s().p("EgS0CCeMAAKhqpIgKAAIAAgLMhjRiaHMAsTAAAMBJ8ByTMBJQhyTMAsrAAAMhi8CaHIAAALIAKAAMgAKBqpg");
 	this.shape.setTransform(263.191,290.7899,0.3483,0.3483);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
