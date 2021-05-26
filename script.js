@@ -1,15 +1,16 @@
 function expand_menu() {
+    const width  = window.innerWidth;
     var x = document.getElementById("nav-left");
-    if (x.className === "nav-left") {
-        x.className += "-active";
+    var symbol = document.getElementById("symbol");
+
+    if (x.style.width == "0px"){
+        symbol.innerHTML = `<i class="fas fa-times"></i>`
+        if(width>=500)
+            x.style.width =  "500px";
+        else
+            x.style.width = `${width}px`
     } else {
-        x.className = "nav-left";
+        symbol.innerHTML = `<i class="fa fa-bars"></i>`
+        x.style.width = "0px"
     }
-    // console.log(x.className)
-    // var x = document.getElementById("intro");
-    // if (x.className === "intro") {
-    //     x.className += " responsive";
-    // } else {
-    //     x.className = "intro";
-    // }
 }
