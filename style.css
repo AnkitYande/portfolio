@@ -75,6 +75,7 @@ a:hover {
 .nav-center a {
     /* padding for logo */
     padding: 20px;
+    margin: 0;
 }
 
 .navbar p {
@@ -100,10 +101,9 @@ a:hover {
 }
 
 .nav-left {
-    display: flex;
     flex: 40%;
+    display: flex;
     transition: 0.5s;
-    overflow-x: hidden;
     white-space: nowrap;
 }
 
@@ -234,6 +234,29 @@ a:hover {
     margin-bottom: 5rem;
 }
 
+/************************** Work *************************************/
+
+.work{
+    margin-top: 2em;
+    text-align: center;
+}
+input[type="radio"]{
+    opacity: 0;
+}
+input[type="radio"]:checked+label{ 
+    color: var(--purple); 
+} 
+.work-selection{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.work h3{
+    font-size: 1.75em;
+    font-weight: 600;
+}
 /************************** ABOUT / FORM *************************************/
 
 .curve-spacer {
@@ -291,13 +314,13 @@ form button {
     margin-top: 2em;
 }
 
-label {
+form label {
     padding-top: 2em;
     font-weight: 600;
     float: left;
 }
 
-input, textarea {
+form input, textarea {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
@@ -433,6 +456,7 @@ embed {
 /* RESPONSIVE NAV */
 @media screen and (max-width: 1100px) {
     .nav-left {
+        overflow-x: hidden;
         box-shadow: 10px 10px 10px rgba(50, 50, 50, 0.1);
         position: absolute;
         top: 100%;
