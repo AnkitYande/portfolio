@@ -158,7 +158,7 @@ setInterval(() => {
     myimg.src = images[scrollpos]
     aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
     aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
-    arrow.style.display  =  scrollpos > 1 ? "none" : "block"
+    arrow.style.display  =  scrollpos > 10 ? "none" : "block"
 }, 0);
 
 var tween = new TimelineMax()
