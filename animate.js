@@ -1,12 +1,11 @@
 const nav = document.querySelector(".navbar");
 const intro = document.querySelector(".intro");
 const myimg = document.querySelector(".myimg");
-const aloha = document.querySelector("h2");
-const arrow = document.querySelector("h4");
+const aloha = document.querySelector(".aloha");
+const arrow = document.querySelector(".down-arrow");
 const bio = document.querySelector(".bio");
-const spacer = document.querySelector(".spacer");
-const strokes = document.querySelectorAll(".stroke");
 const fog = document.querySelector(".fog");
+const nav_left = document.getElementById("nav-left");
 
 var controller = new ScrollMagic.Controller();
 
@@ -174,19 +173,8 @@ var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 450 })
     .addTo(controller)
     .on("enter", function () {
         fog.style.opacity = 0;
-    })
-    .on("leave", function () {
-        for (i = 0; i < 13; i++) {
-            strokes[i].style.animationPlayState = "running";
-        }
-        // setTimeout(() => {
-        //     for (i = 0; i < 13; i++) {
-        //         strokes[i].style.display = "none";
-        //     }
-        // }, 10000);
+        nav_left.style.width = "0px";
     });
-
-
 
 scene.on("update", e => {
     scrollpos = e.scrollPos * 0.06;
