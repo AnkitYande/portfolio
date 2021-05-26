@@ -42,8 +42,8 @@
         <!-- Script will fill this with Images -->
     </div>
 
-    <script>
-        var folder = "https://ankityande.github.io/portfolio/photography/";
+    <!-- <script>
+        var folder = "./photography/";
         $.ajax({
             url: "folder",
             success: function (data) {
@@ -58,18 +58,18 @@
                 });
             }
         });
-    </script>
+    </script> -->
     
     <!-- The previous ajax script doesn't work on github pages, as an alternative,
          I creaded a rename script that renames all files sequentially for looping-->
 
-    <!-- <script>
+    <script>
         gallery =  document.querySelector(".ph_gallery");
         for(i=1; i<=20; i++){
             val = `./photography/${String(i).padStart(4, '0')}.jpg`;
             gallery.innerHTML += `<a href = "${val}" class = image> <img src= "${val}" /> </a>`;
         }
-    </script> -->
+    </script>
 
     <script>
         $(".ph_gallery").magnificPopup({
