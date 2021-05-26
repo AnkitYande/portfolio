@@ -145,6 +145,7 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
     })
     .on("leave", function () {
         intro.style.position = 'fixed';
+        nav_left.style.width = "0px";
     })
 
 let scrollpos = 0;
