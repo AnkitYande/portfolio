@@ -42,10 +42,10 @@
         <!-- Script will fill this with Images -->
     </div>
 
-    <!-- <script>
-        var folder = "./photography/";
+    <script>
+        var folder = "https://ankityande.github.io/portfolio/photography/";
         $.ajax({
-            url: folder,
+            url: "folder",
             success: function (data) {
                 $(data).find("a").attr("href", function (i, val) {
                     if (val.toLowerCase().match(/\.(jpeg|jpg|png|gif)$/)) {
@@ -58,7 +58,7 @@
                 });
             }
         });
-    </script> -->
+    </script>
     
     <!-- The previous ajax script doesn't work on github pages, as an alternative,
          I creaded a rename script that renames all files sequentially for looping-->
