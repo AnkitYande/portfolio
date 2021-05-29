@@ -65,7 +65,7 @@ function workHandler(type){
 function formatCell(text, imageSrc, onClick){
 
     return(
-        `<div class = work-cell>
+        `<div class = work-cell tabindex="0">
             <img
                 src="${imageSrc}"
                 onclick="location.href='${onClick}'"
