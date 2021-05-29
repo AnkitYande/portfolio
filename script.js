@@ -57,6 +57,9 @@ function workHandler(type){
         work = works[type][i];
         my_works.innerHTML += formatCell(work["text"],work["imageSrc"],work["onClick"])
     }
+    if(type == "photography" || type == "art"){
+        my_works.innerHTML += ` <a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`
+    }
 }
 
 function formatCell(text, imageSrc, onClick){

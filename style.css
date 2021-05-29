@@ -23,6 +23,10 @@ a {
     text-decoration: none;
 }
 
+p{
+    font-weight: 500;
+}
+
 a:hover {
     color: var(--purple);
     text-decoration: none;
@@ -248,16 +252,13 @@ input[type="radio"]:checked+label{
     color: var(--purple); 
     
 } 
-input[type="radio"]:checked+label::before{ 
+input[type="radio"]:checked+label::after{ 
     content: '.';
-    display: inline-block;
-
     position: absolute;
-    bottom: -0.5em;
-    left: 0;
-
-    text-align: center;
     width: 100%;
+    height: 2px;
+    bottom: 0.8em;
+    left: 0;
 } 
 
 .work-selection{
@@ -269,6 +270,8 @@ input[type="radio"]:checked+label::before{
 }
 
 .work-selection label{
+    display: inline-block;
+    position: relative;
     transition: 0.2s;
 }
 
@@ -318,7 +321,6 @@ input[type="radio"]:checked+label::before{
 .work-cell p{
     color: white;
     margin-top: 0.5em;
-    font-weight: 500
 }
 
 /************************** ABOUT / FORM *************************************/
