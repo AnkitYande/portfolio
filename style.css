@@ -6,7 +6,8 @@
 }
 
 :root{
- --purple: #8558F0
+ --purple: #8558F0;
+ --dark-purple: #6542b6;
 }
 
 i {
@@ -245,18 +246,81 @@ input[type="radio"]{
 }
 input[type="radio"]:checked+label{ 
     color: var(--purple); 
+    
 } 
+input[type="radio"]:checked+label::before{ 
+    content: '.';
+    display: inline-block;
+
+    position: absolute;
+    bottom: -0.5em;
+    left: 0;
+
+    text-align: center;
+    width: 100%;
+} 
+
 .work-selection{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     font-weight: 600;
     font-size: 1.5em;
+}
+
+.work-selection label{
+    transition: 0.2s;
 }
 
 .work h3{
     font-size: 1.75em;
     font-weight: 600;
 }
+.work h3:hover{
+   color: var(--purple);
+}
+
+.my-works{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 2em;
+    margin-bottom: 2em; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.work-cell{
+    width: 28%;
+    height:auto;
+    margin: 1.5em;
+    background-color: var(--purple);
+    border-radius: 10px;
+    padding: 1em;
+    transition: 0.5s ease;
+    /* padding-bottom: 3em; */
+}
+
+.work-cell:hover{
+    background-color: var(--dark-purple);
+}
+
+.work-cell img{
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 3px 5px 0;
+
+}
+
+.work-cell p{
+    color: white;
+    margin-top: 0.5em;
+    font-weight: 500
+}
+
 /************************** ABOUT / FORM *************************************/
 
 .curve-spacer {
@@ -423,6 +487,9 @@ embed {
     .bio-info h2{
         font-size: 2rem;
     }
+    .ph_gallery {
+        columns: 2;
+    }
 }
 @media screen and (max-width: 750px) {
     .bio {
@@ -450,6 +517,9 @@ embed {
     }
     .about h3{
         font-size: 1.5rem;
+    }
+    .ph_gallery {
+        columns: 1;
     }
 }
 

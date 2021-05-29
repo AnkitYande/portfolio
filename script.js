@@ -14,3 +14,60 @@ function expand_menu() {
         x.style.width = "0px"
     }
 }
+
+var radio = document.getElementsByName( "work" );
+var prev = null;
+for (var i = 0; i < radio.length; i++) {
+    radio[i].addEventListener('change', function() {
+        if (this !== prev) {
+            prev = this;
+            workHandler(this.value)
+        }
+    });
+}
+
+works = {
+    "frontend" : {},
+    "backend" : [
+        {
+            "text" : "Remote Sensing of Crop Pathology through CV",
+            "imageSrc" : "./src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
+            "onClick" : "./pdf.html",
+        },
+        {
+            "text" : "Utilizing Steroscopic Camera to assist the Visually Impaired",
+            "imageSrc" : "./src/Programming Projects/imgs/Yande Research Poster 2018.jpg",
+            "onClick" : "./pdf.html",
+        },
+        {
+            "text" : "Reflected Laser Black Ice Detection System for AVs",
+            "imageSrc" : "./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
+            "onClick" : "./pdf.html",
+        }
+    ],
+    "photography" : {},
+    "art" : {}
+}
+
+var my_works = document.querySelector( ".my-works" );
+function workHandler(type){
+    my_works.innerHTML = ""
+    console.log("here");
+    for(i in works[type]){
+        work = works[type][i];
+        my_works.innerHTML += formatCell(work["text"],work["imageSrc"],work["onClick"])
+    }
+}
+
+function formatCell(text, imageSrc, onClick){
+
+    return(
+        `<div class = work-cell>
+            <img
+                src="${imageSrc}"
+                onclick="location.href='${onClick}'"
+            />
+            <p>${text}</p>
+        </div>`
+    )
+}
