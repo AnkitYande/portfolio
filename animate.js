@@ -144,6 +144,7 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
         fog.style.opacity = 1;
     })
     .on("leave", function () {
+        document.body.style.overflow = "auto";
         intro.style.position = 'fixed';
         nav_left.style.width = "0px";
     })
