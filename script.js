@@ -1,7 +1,7 @@
 function expand_menu() {
     const width  = window.innerWidth;
-    var x = document.getElementById("nav-left");
-    var symbol = document.getElementById("symbol");
+    const x = document.getElementById("nav-left");
+    const symbol = document.getElementById("symbol");
 
     if (x.style.width == "0px"){
         symbol.innerHTML = `<i class="fas fa-times"></i>`
@@ -9,14 +9,26 @@ function expand_menu() {
             x.style.width =  "500px";
         else
             x.style.width = `${width}px`
+        document.body.style.overflow = "hidden";
     } else {
         symbol.innerHTML = `<i class="fa fa-bars"></i>`
         x.style.width = "0px"
+        document.body.style.overflow = "auto";
     }
 }
 
 var radio = document.getElementsByName( "work" );
 var prev = null;
+//first time
+window.onload = () =>{
+    for (var i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            prev = radio[i];
+            workHandler(radio[i].value)
+        }
+    }
+}
+//on change
 for (var i = 0; i < radio.length; i++) {
     radio[i].addEventListener('change', function() {
         if (this !== prev) {
@@ -27,7 +39,7 @@ for (var i = 0; i < radio.length; i++) {
 }
 
 works = {
-    "frontend" : {},
+    "frontend" : [],
     "backend" : [
         {
             "text" : "Remote Sensing of Crop Pathology through CV",
@@ -45,8 +57,8 @@ works = {
             "onClick" : "./pdf.html",
         }
     ],
-    "photography" : {},
-    "art" : {}
+    "photography" : [],
+    "art" : []
 }
 
 var my_works = document.querySelector( ".my-works" );

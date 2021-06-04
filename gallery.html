@@ -37,6 +37,10 @@
                 style="height:65px; padding: 5px;"></img></a>
     </div>
 
+    <div class="loader">
+        <img src="./AY_svg_seq/AY_svg_seq0120.svg" alt="Loading...">
+    </div>
+
 
     <div class="ph_gallery">
         <!-- Script will fill this with Images -->
@@ -64,11 +68,17 @@
          I creaded a rename script that renames all files sequentially for looping-->
 
     <script>
+        loader =  document.querySelector(".loader");
         gallery =  document.querySelector(".ph_gallery");
+        document.body.style.overflow = "hidden";
         for(i=1; i<=20; i++){
             val = `./photography/${String(i).padStart(4, '0')}.jpg`;
             gallery.innerHTML += `<a href = "${val}" class = image> <img src= "${val}" /> </a>`;
         }
+        window.onload = function() {
+            loader.style.display = 'none'
+            document.body.style.overflow = "auto";
+        };
     </script>
 
     <script>
