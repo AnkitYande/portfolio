@@ -57,32 +57,65 @@ works = {
             "onClick" : "./pdf.html",
         }
     ],
-    "photography" : [],
+    "photography" : [
+        {
+            "text" : "",
+            "imageSrc" : "./photography/0012.jpg",
+            "onClick" : "./photography/0012.jpg",
+        },
+        {
+            "text" : "",
+            "imageSrc" : "./photography/0011.jpg",
+            "onClick" : "./photography/0011.jpg",
+        },
+        {
+            "text" : "",
+            "imageSrc" : "./photography/0019.jpg",
+            "onClick" : "./photography/0019.jpg",
+            
+        },
+        {
+            "text" : "",
+            "imageSrc" : "./photography/0016.jpg",
+            "onClick" : "./photography/0016.jpg",
+            
+        },
+        {
+            "text" : "",
+            "imageSrc" : "./photography/0021.jpg",
+            "onClick" : "./photography/0021.jpg",
+        },
+    ],
     "art" : []
 }
 
 var my_works = document.querySelector( ".my-works" );
+var seeAll = document.querySelector( ".see-all" );
+
 function workHandler(type){
     my_works.innerHTML = ""
     console.log("here");
     for(i in works[type]){
         work = works[type][i];
-        my_works.innerHTML += formatCell(work["text"],work["imageSrc"],work["onClick"])
+        my_works.innerHTML += formatCell(work["text"],work["imageSrc"],work["onClick"], (type == "photography" || type == "art"));
     }
     if(type == "photography" || type == "art"){
-        my_works.innerHTML += ` <a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`
+        seeAll.innerHTML = `<a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
+    }
+    else{
+        seeAll.innerHTML = "";
     }
 }
 
-function formatCell(text, imageSrc, onClick){
+function formatCell(text, imageSrc, onClick, full){
 
     return(
-        `<div class = work-cell tabindex="0">
+        `<div class = "work-cell ${full ? "full-cell" : ""}" tabindex="0">
             <img
                 src="${imageSrc}"
                 onclick="location.href='${onClick}'"
             />
-            <p>${text}</p>
+            ${ text == "" ? `<span></span>` : `<p>${text}</p>`}
         </div>`
     )
 }

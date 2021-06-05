@@ -164,7 +164,7 @@ setInterval(() => {
 }, 0);
 
 var tween = new TimelineMax()
-    .fromTo(intro, 1, { height: '90vh' }, { height: '65px' })
+    .fromTo(intro, 1, { height: '90vh' }, { height: '60px' })
     .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
 
