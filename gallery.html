@@ -61,19 +61,19 @@
             }
         });
     </script> -->
-    
+
     <!-- The previous ajax script doesn't work on github pages, as an alternative,
          I creaded a rename script that renames all files sequentially for looping-->
 
     <script>
-        loader =  document.querySelector(".loader");
-        gallery =  document.querySelector(".ph_gallery");
+        loader = document.querySelector(".loader");
+        gallery = document.querySelector(".ph_gallery");
         document.body.style.overflow = "hidden";
-        for(i=1; i<=20; i++){
+        for (i = 1; i <= 20; i++) {
             val = `./photography/${String(i).padStart(4, '0')}.jpg`;
             gallery.innerHTML += `<a href = "${val}" class = image> <img src= "${val}" /> </a>`;
         }
-        window.onload = function() {
+        window.onload = function () {
             loader.style.display = 'none'
             document.body.style.overflow = "auto";
         };

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&family=Noto+Sans+JP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.css">
+    <link rel="stylesheet" href="./style.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+    <link rel="icon" href="./src/AY.png">
+    <title>Ankit Yande - Gallery</title>
+</head>
+
+<body>
+
+    <div class="navbar" id="navbar"
+        style="display: grid; opacity: 1; background-color: rgba(255, 255, 255, 0.95); z-index: 1;">
+    </div>
+    <div style="position: fixed; left: 50%; top: 0; transform: translate(-50%); z-index: 1;">
+        <a href="./index.html#bio"><img id="myimg" src="./AY_svg_seq/AY_svg_seq0120.svg"
+                style="height:65px; padding: 5px;"></img></a>
+    </div>
+
+    <div class="loader">
+        <img src="./AY_svg_seq/AY_svg_seq0120.svg" alt="Loading...">
+    </div>
+
+
+    <div class="ph_gallery">
+        <!-- Script will fill this with Images -->
+    </div>
+
+    <div class="vid_gallery">
+        <!-- Script will fill this with Images -->
+    </div>
+
+    <!-- <script>
+        var folder = "./photography/";
+        $.ajax({
+            url: "folder",
+            success: function (data) {
+                $(data).find("a").attr("href", function (i, val) {
+                    if (val.toLowerCase().match(/\.(jpeg|jpg|png|gif)$/)) {
+                        x = Math.floor(Math.random() * 2)
+                        if (x == 1)
+                            $(".ph_gallery").append(`<a href = "${val}" class = image> <img src= "${val}" /> </a>`);
+                        else
+                            $(".ph_gallery").prepend(`<a href = "${val}" class = image> <img src= "${val}" /> </a>`);
+                    }
+                });
+            }
+        });
+    </script> -->
+
+    <!-- The previous ajax script doesn't work on github pages, as an alternative,
+         I creaded a rename script that renames all files sequentially for looping-->
+
+    <script>
+        loader = document.querySelector(".loader");
+        gallery = document.querySelector(".ph_gallery");
+        vid_gallery = document.querySelector(".vid_gallery");
+
+        document.body.style.overflow = "hidden";
+        const artworks = [
+            "./art/reindeer.jpg",    
+            "./art/Sunset_Scene.png",
+            "./art/Story_Book.png",
+            "./art/Star_Wars_NES.gif",
+            "./art/Robot_Render.png",
+            "./art/Wallpaper_Both.png",
+            "./art/pong.gif",
+            "./art/Polymath_logo.gif",
+            "./art/paralax.gif",
+            "./art/floating _sland.png",
+            "./art/coffee_icon.png",
+            "./art/maga_poster.png",
+        ]
+        const videos = [
+            "./art/RPS_Masking.mp4",
+            "./art/Uzi_animation.mp4",
+            "./art/fire_finger.mp4",
+        ]
+        for (artwork of artworks) {
+            gallery.innerHTML += `<a href = "${artwork}" class = image> <img src= "${artwork}" /> </a>`;
+        }
+        for (video of videos) {
+            vid_gallery.innerHTML += `<a href = "${video}" class = video> <video autoplay muted loop> <source src= "${video}" type="video/mp4"> </video> </a>`;
+        }
+        window.onload = function () {
+            loader.style.display = 'none'
+            document.body.style.overflow = "auto";
+        };
+    </script>
+
+    <script>
+        $(".ph_gallery").magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+        // $(".vid_gallery").magnificPopup({
+        //     delegate: 'a',
+        //     type: 'video',
+        //     gallery: {
+        //         enabled: true
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>
