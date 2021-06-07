@@ -40,31 +40,13 @@
     </div>
 
 
-    <div class="ph_gallery">
+    <div class="ph_gallery" style="margin-top: 100px">
         <!-- Script will fill this with Images -->
     </div>
 
     <div class="vid_gallery">
         <!-- Script will fill this with Images -->
     </div>
-
-    <!-- <script>
-        var folder = "./photography/";
-        $.ajax({
-            url: "folder",
-            success: function (data) {
-                $(data).find("a").attr("href", function (i, val) {
-                    if (val.toLowerCase().match(/\.(jpeg|jpg|png|gif)$/)) {
-                        x = Math.floor(Math.random() * 2)
-                        if (x == 1)
-                            $(".ph_gallery").append(`<a href = "${val}" class = image> <img src= "${val}" /> </a>`);
-                        else
-                            $(".ph_gallery").prepend(`<a href = "${val}" class = image> <img src= "${val}" /> </a>`);
-                    }
-                });
-            }
-        });
-    </script> -->
 
     <!-- The previous ajax script doesn't work on github pages, as an alternative,
          I creaded a rename script that renames all files sequentially for looping-->
