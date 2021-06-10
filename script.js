@@ -20,12 +20,12 @@ function expand_menu() {
 
 
 works = {
-    "frontend": [],
-    "backend": [
+    "websites": [],
+    "programs": [
         {
             "text": "Remote Sensing of Crop Pathology through CV",
             "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
-            "onClick": "./pdf.html",
+            "onClick": "./pathology.html",
         },
         {
             "text": "Utilizing Steroscopic Camera to assist the Visually Impaired",
@@ -88,8 +88,8 @@ works = {
         },
         {
             "text": "",
-            "imageSrc": "./art/uzi.gif",
-            "onClick": "./art/uzi.gif",
+            "imageSrc": "./art/Uzi.gif",
+            "onClick": "./art/Uzi.gif",
         },
     ]
 }
