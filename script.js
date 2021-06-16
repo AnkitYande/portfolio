@@ -83,8 +83,8 @@ works = {
         },
         {
             "text": "",
-            "imageSrc": "./art/polymath_logo.gif",
-            "onClick": "./art/polymath_logo.gif",
+            "imageSrc": "./art/Polymath_logo.gif",
+            "onClick": "./art/Polymath_logo.gif",
         },
         {
             "text": "",
