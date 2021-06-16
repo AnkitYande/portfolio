@@ -18,7 +18,6 @@ function expand_menu() {
 }
 
 
-
 works = {
     "websites": [],
     "programs": [
