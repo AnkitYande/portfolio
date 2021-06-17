@@ -15,77 +15,77 @@ const works = {
     "programs": [
         {
             "text": "Inteligent Scissoring and Image Composition",
-            "imageSrc": "/src/Programming Projects/imgs/iScissor.png",
-            "onClick": "/programs/iScissoring.html",
+            "imageSrc": "./src/Programming Projects/imgs/iScissor.png",
+            "onClick": "./programs/iScissoring.html",
         },
         {
             "text": "Remote Sensing of Crop Pathology through CV",
-            "imageSrc": "/src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
-            "onClick": "/programs/sr2019.html",
+            "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
+            "onClick": "./programs/sr2019.html",
         },
         {
             "text": "Utilizing Steroscopic Camera to assist the Visually Impaired",
-            "imageSrc": "/src/Programming Projects/imgs/Yande Research Poster 2018.jpg",
-            "onClick": "/programs/sr2018.html",
+            "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2018.jpg",
+            "onClick": "./programs/sr2018.html",
         },
         // {
         //     "text": "Reflected Laser Black Ice Detection System for AVs",
-        //     "imageSrc": "/src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
-        //     "onClick": "/pdf.html",
+        //     "imageSrc": "./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
+        //     "onClick": "./pdf.html",
         // }
     ],
     "photography": [
         {
             "text": "",
-            "imageSrc": "/photography/0011.jpg",
-            "onClick": "/photography/0011.jpg",
+            "imageSrc": "./photography/0011.jpg",
+            "onClick": "./photography/0011.jpg",
         },
         {
             "text": "",
-            "imageSrc": "/photography/0010.jpg",
-            "onClick": "/photography/0010.jpg",
+            "imageSrc": "./photography/0010.jpg",
+            "onClick": "./photography/0010.jpg",
         },
         {
             "text": "",
-            "imageSrc": "/photography/0019.jpg",
-            "onClick": "/photography/0019.jpg",
+            "imageSrc": "./photography/0019.jpg",
+            "onClick": "./photography/0019.jpg",
         },
         {
             "text": "",
-            "imageSrc": "/photography/0015.jpg",
-            "onClick": "/photography/0015.jpg",
+            "imageSrc": "./photography/0015.jpg",
+            "onClick": "./photography/0015.jpg",
         },
         {
             "text": "",
-            "imageSrc": "/photography/0021.jpg",
-            "onClick": "/photography/0021.jpg",
+            "imageSrc": "./photography/0021.jpg",
+            "onClick": "./photography/0021.jpg",
         },
     ],
     "art": [
         {
             "text": "",
-            "imageSrc": "/art/reindeer.jpg",
-            "onClick": "/art/reindeer.jpg",
+            "imageSrc": "./art/reindeer.jpg",
+            "onClick": "./art/reindeer.jpg",
         },
         {
             "text": "",
-            "imageSrc": "/art/floating_island.png",
-            "onClick": "/art/floating_island.png",
+            "imageSrc": "./art/floating_island.png",
+            "onClick": "./art/floating_island.png",
         },
         {
             "text": "",
-            "imageSrc": "/art/Robot_Render.png",
-            "onClick": "/art/Robot_Render.png",
+            "imageSrc": "./art/Robot_Render.png",
+            "onClick": "./art/Robot_Render.png",
         },
         {
             "text": "",
-            "imageSrc": "/art/Polymath_logo.gif",
-            "onClick": "/art/Polymath_logo.gif",
+            "imageSrc": "./art/Polymath_logo.gif",
+            "onClick": "./art/Polymath_logo.gif",
         },
         {
             "text": "",
-            "imageSrc": "/art/Uzi.gif",
-            "onClick": "/art/Uzi.gif",
+            "imageSrc": "./art/Uzi.gif",
+            "onClick": "./art/Uzi.gif",
         },
     ]
 }
@@ -131,10 +131,10 @@ function workHandler(type) {
         my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], (type == "photography" || type == "art"));
     }
     if (type == "photography") {
-        seeAll.innerHTML = `<a href="/gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
+        seeAll.innerHTML = `<a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
     else if (type == "art") {
-        seeAll.innerHTML = `<a href="/art.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
+        seeAll.innerHTML = `<a href="./art.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
     else {
         seeAll.innerHTML = "";
