@@ -2,7 +2,7 @@ const works = {
     "websites": [
         {
             "text": "Interactive Spotify Player",
-            "imageSrc": "./src/Web Development/SpotifyPlayer.png",
+            "imageSrc": "./src/Web Development/SpotifyPlayer2.png",
             "onClick": "https://ankityande.github.io/ReactSpotifyPlayer/",
         },
         {
