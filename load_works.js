@@ -116,17 +116,18 @@ function workHandler(type) {
     }
 
     for (i in works[type]) {
-        work = works[type][i];
+        let work = works[type][i];
         my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], (type == "photography" || type == "art"));
     }
-
     if (type == "photography") {
         seeAll.innerHTML = `<a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
     else if (type == "art") {
         seeAll.innerHTML = `<a href="./art.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
-   
+    else {
+        seeAll.innerHTML = "";
+    }
 }
 
 function formatCell(text, imageSrc, onClick, full) {
