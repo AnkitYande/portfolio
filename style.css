@@ -430,8 +430,8 @@ textarea {
 .info_container {
     padding-top: 5vh;
     padding-bottom: 5vh;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
     display: grid;
     grid-gap: 15%;
     grid-template-columns: fit-content(300px) fit-content(300px) fit-content(300px);

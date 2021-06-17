@@ -1,23 +1,27 @@
-
-works = {
+const works = {
     "websites": [],
     "design": [],
     "programs": [
         {
+            "text": "Inteligent Scissoring and Image Composition",
+            "imageSrc": "../src/Programming Projects/imgs/iScissor.png",
+            "onClick": "./programs/iScissoring.html",
+        },
+        {
             "text": "Remote Sensing of Crop Pathology through CV",
             "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
-            "onClick": "./pathology.html",
+            "onClick": "./programs/sr2019.html",
         },
         {
             "text": "Utilizing Steroscopic Camera to assist the Visually Impaired",
             "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2018.jpg",
-            "onClick": "./pdf.html",
+            "onClick": "./programs/sr2018.html",
         },
-        {
-            "text": "Reflected Laser Black Ice Detection System for AVs",
-            "imageSrc": "./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
-            "onClick": "./pdf.html",
-        }
+        // {
+        //     "text": "Reflected Laser Black Ice Detection System for AVs",
+        //     "imageSrc": "./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
+        //     "onClick": "./pdf.html",
+        // }
     ],
     "photography": [
         {
@@ -75,11 +79,10 @@ works = {
     ]
 }
 
+// import {works} from './works.js'
 
-
-
-var radio = document.getElementsByName("work");
-var prev = null;
+const radio = document.getElementsByName("work");
+let prev = null;
 //first time
 window.onload = () => {
     for (var i = 0; i < radio.length; i++) {
@@ -104,10 +107,11 @@ var seeAll = document.querySelector(".see-all");
 
 function workHandler(type) {
 
-    my_works.innerHTML = ""
+    my_works.innerHTML = "";
+    seeAll.innerHTML = "";
 
     if(works[type].length == 0){
-        my_works.innerHTML +=`<h4> Coming Soon </h4>`
+        my_works.innerHTML +=`<h4> Coming Soon </h4>`;
         return;
     }
 
@@ -115,24 +119,26 @@ function workHandler(type) {
         work = works[type][i];
         my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], (type == "photography" || type == "art"));
     }
+
     if (type == "photography") {
         seeAll.innerHTML = `<a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
     else if (type == "art") {
         seeAll.innerHTML = `<a href="./art.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
     }
-    else {
-        seeAll.innerHTML = "";
-    }
+   
 }
 
 function formatCell(text, imageSrc, onClick, full) {
 
     return (
-        `<div class = "work-cell ${full ? "full-cell" : ""}" tabindex="0">
+        `<div 
+        onclick="location.href='${onClick}'"
+        class = "work-cell ${full ? "full-cell" : ""}" 
+        tabindex="0"
+        >
             <img
                 src="${imageSrc}"
-                onclick="location.href='${onClick}'"
             />
             ${text == "" ? `<span></span>` : `<p>${text}</p>`}
         </div>`
