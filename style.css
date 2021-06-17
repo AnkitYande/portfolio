@@ -347,7 +347,8 @@ input[type="radio"]:checked+label::after {
 
 .work-cell p {
     color: white;
-    margin-top: 0.5em;
+    margin-top: 0.75em;
+    margin-bottom: -0.25em;
 }
 
 /************************** ABOUT / FORM *************************************/
