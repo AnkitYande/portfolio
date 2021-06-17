@@ -137,7 +137,7 @@ var controller = new ScrollMagic.Controller();
 
 // build scene
 var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1700 })
-    //.addIndicators()
+    // .addIndicators()
     .setPin(intro)
     .addTo(controller)
     .on("enter", function () {
@@ -167,6 +167,7 @@ var tween = new TimelineMax()
     .fromTo(intro, 1, { height: '90vh' }, { height: '60px' })
     .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
+    .fromTo(intro, 1, { backgroundColor: 'rgba(255, 255, 255, 0)' }, { backgroundColor: 'rgba(255, 255, 255, 0.95)' })
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 300 })
     // .addIndicators()

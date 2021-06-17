@@ -74,16 +74,10 @@ a:hover {
 }
 
 .navbar a {
-    float: left;
+    /* float: left; */
     margin-right: 20px;
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-.nav-center a {
-    /* padding for logo */
-    padding: 20px;
-    margin: 0;
 }
 
 .navbar p {
@@ -641,6 +635,9 @@ embed {
 }
 
 @media screen and (max-width: 750px) {
+    .nav-ham{
+       flex:40%
+    }
     .nav-right-links {
         display: none;
     }

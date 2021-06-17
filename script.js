@@ -1,25 +1,7 @@
-function expand_menu() {
-    const width = window.innerWidth;
-    const x = document.getElementById("nav-left");
-    const symbol = document.getElementById("symbol");
-
-    if (x.style.width == "0px") {
-        symbol.innerHTML = `<i class="fas fa-times"></i>`
-        if (width >= 500)
-            x.style.width = "500px";
-        else
-            x.style.width = `${width}px`
-        document.body.style.overflow = "hidden";
-    } else {
-        symbol.innerHTML = `<i class="fa fa-bars"></i>`
-        x.style.width = "0px"
-        document.body.style.overflow = "auto";
-    }
-}
-
 
 works = {
     "websites": [],
+    "design": [],
     "programs": [
         {
             "text": "Remote Sensing of Crop Pathology through CV",
@@ -123,6 +105,12 @@ var seeAll = document.querySelector(".see-all");
 function workHandler(type) {
 
     my_works.innerHTML = ""
+
+    if(works[type].length == 0){
+        my_works.innerHTML +=`<h4> Coming Soon </h4>`
+        return;
+    }
+
     for (i in works[type]) {
         work = works[type][i];
         my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], (type == "photography" || type == "art"));
