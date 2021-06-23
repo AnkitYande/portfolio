@@ -146,7 +146,7 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
     .on("leave", function () {
         document.body.style.overflow = "auto";
         intro.style.position = 'fixed';
-        nav_left.style.width = "0px";
+        // nav_left.style.width = "0px";
     })
 
 let scrollpos = 0;
@@ -176,7 +176,7 @@ var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 300 })
     .addTo(controller)
     .on("enter", function () {
         fog.style.opacity = 0;
-        nav_left.style.width = "0px";
+        // nav_left.style.width = "0px";
     });
 
 scene.on("update", e => {

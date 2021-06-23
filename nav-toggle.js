@@ -2,7 +2,20 @@ const width = window.innerWidth;
 const x = document.getElementById("nav-left");
 const symbol = document.getElementById("symbol");
 
-x.style.width = "0px"
+//first time
+if (window.innerWidth < 1100)
+    x.style.width = "0px";
+else
+    x.style.width = "40%";
+
+// any time the window is resized
+window.addEventListener("resize", () => {
+    if (window.innerWidth < 1100)
+        x.style.width = "0px";
+    else
+        x.style.width = "40%";
+}, true);
+
 
 function expand_menu() {
 
