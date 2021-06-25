@@ -3,15 +3,21 @@ const x = document.getElementById("nav-left");
 const symbol = document.getElementById("symbol");
 
 //first time
-if (window.innerWidth < 1100)
-    x.style.width = "0px";
+if (window.innerWidth < 1100) {
+    symbol.innerHTML = `<i class="fas fa-bars"></i>`
+    x.style.width = "0px"
+    // document.body.style.overflow = "auto";
+}
 else
     x.style.width = "40%";
 
 // any time the window is resized
 window.addEventListener("resize", () => {
-    if (window.innerWidth < 1100)
-        x.style.width = "0px";
+    if (window.innerWidth < 1100) {
+        symbol.innerHTML = `<i class="fas fa-bars"></i>`
+        x.style.width = "0px"
+        document.body.style.overflow = "auto";
+    }
     else
         x.style.width = "40%";
 }, true);

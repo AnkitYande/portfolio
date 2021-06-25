@@ -10,6 +10,11 @@ const works = {
             "imageSrc": "./src/Web Development/Stack.png",
             "onClick": "https://ankityande.github.io/StackGame/",
         },
+        {
+            "text": "MERN Stack Twitter Clone",
+            "imageSrc": "./src/Web Development/TwitterClone3.png",
+            "onClick": "https://github.com/AnkitYande/TwitterCopy",
+        },
     ],
     "design": [],
     "programs": [
