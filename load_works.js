@@ -1,11 +1,6 @@
 const works = {
     "websites": [
         {
-            "text": "MERN Stack Twitter Clone",
-            "imageSrc": "./src/Web Development/TwitterClone3.png",
-            "onClick": "./web-dev/TwitterClone.html",
-        },
-        {
             "text": "Interactive Spotify Player",
             "imageSrc": "./src/Web Development/SpotifyPlayer2.png",
             "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
@@ -17,8 +12,13 @@ const works = {
         },
         {
             "text": "Collaborative Socket Whitebaord",
-            "imageSrc": "./src/Web Development/Draw.png",
+            "imageSrc": "./src/Web Development/draw.png",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
+        },
+        {
+            "text": "MERN Stack Twitter Clone",
+            "imageSrc": "./src/Web Development/TwitterClone3.png",
+            "onClick": "./web-dev/TwitterClone.html",
         },
     ],
     "design": [],
