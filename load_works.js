@@ -2,45 +2,51 @@ const works = {
     "websites": [
         {
             "text": "MERN Stack Twitter Clone",
-            "imageSrc": "./src/Web Development/TwitterClone3.png",
+            "imageSrc": "./assets/Web Development/TwitterClone3.png",
             "onClick": "./web-dev/TwitterClone.html",
         },
         {
             "text": "Three.js Stack Game",
-            "imageSrc": "./src/Web Development/Stack.png",
+            "imageSrc": "./assets/Web Development/Stack.png",
             "onClick": "https://github.com/AnkitYande/StackGame",
         },
         {
             "text": "Collaborative Socket Whitebaord",
-            "imageSrc": "./src/Web Development/draw.png",
+            "imageSrc": "./assets/Web Development/draw.png",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
         },
         {
             "text": "Interactive Spotify Player",
-            "imageSrc": "./src/Web Development/SpotifyPlayer2.png",
+            "imageSrc": "./assets/Web Development/SpotifyPlayer2.png",
             "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
         },
     ],
-    "design": [],
+    "design": [
+        {
+            "text": "Logo for ReView Technology",
+            "imageSrc": "./assets/Design/review_logo.png",
+            "onClick": "./design/ReView_Logo.html",
+        },
+    ],
     "programs": [
         {
             "text": "Inteligent Scissoring and Image Composition",
-            "imageSrc": "./src/Programming Projects/imgs/iScissor.png",
+            "imageSrc": "./assets/Programming Projects/imgs/iScissor.png",
             "onClick": "./programs/iScissoring.html",
         },
         {
             "text": "Remote Sensing of Crop Pathology through CV",
-            "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2019.jpg",
+            "imageSrc": "./assets/Programming Projects/imgs/Yande Research Poster 2019.jpg",
             "onClick": "./programs/sr2019.html",
         },
         {
             "text": "Utilizing Steroscopic Camera to assist the Visually Impaired",
-            "imageSrc": "./src/Programming Projects/imgs/Yande Research Poster 2018.jpg",
+            "imageSrc": "./assets/Programming Projects/imgs/Yande Research Poster 2018.jpg",
             "onClick": "./programs/sr2018.html",
         },
         // {
         //     "text": "Reflected Laser Black Ice Detection System for AVs",
-        //     "imageSrc": "./src/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
+        //     "imageSrc": "./assets/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
         //     "onClick": "./pdf.html",
         // }
     ],
