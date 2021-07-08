@@ -1,9 +1,9 @@
 const works = {
     "websites": [
         {
-            "text": "Interactive Spotify Player",
-            "imageSrc": "./src/Web Development/SpotifyPlayer2.png",
-            "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
+            "text": "MERN Stack Twitter Clone",
+            "imageSrc": "./src/Web Development/TwitterClone3.png",
+            "onClick": "./web-dev/TwitterClone.html",
         },
         {
             "text": "Three.js Stack Game",
@@ -16,9 +16,9 @@ const works = {
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
         },
         {
-            "text": "MERN Stack Twitter Clone",
-            "imageSrc": "./src/Web Development/TwitterClone3.png",
-            "onClick": "./web-dev/TwitterClone.html",
+            "text": "Interactive Spotify Player",
+            "imageSrc": "./src/Web Development/SpotifyPlayer2.png",
+            "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
         },
     ],
     "design": [],
