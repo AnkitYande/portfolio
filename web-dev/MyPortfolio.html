@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&amily=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="icon" href="../assets/AY.png">
+    <title>Ankit Yande - Web Development</title>
+</head>
+
+<body>
+
+    <div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 100px;"></div>
+
+    <div class="container">
+        <h1> My Portfolio </h1>
+
+        <div class="info_container">
+            <div>
+                <p class="headder"> Date:</p>
+                <p> Winter 2020 </p>
+                <p> Summer 2021</p>
+            </div>
+            <div>
+                <p class="headder">Skills:</p>
+                <!-- <div class="two_column_list"> -->
+                <p>HTML/CSS/JS</p>
+                <p>Scroll Magic JS</p>
+                <p>UI/ User Accessibility Design</p>
+                <!-- </div> -->
+            </div>
+            <div class="btn-cnt">
+                <button style="margin: 10px" class="btn"
+                    onclick="location.href='https://github.com/AnkitYande/portfolio'">
+                    Github Repo
+                </button>
+            </div>
+        </div>
+
+        <p>
+            Welcome to my Portfolio! I created this website to showcase all my skills and projects. It was developed
+            from scratch in vanilla HTML, CSS, and JavaScript because I wanted to use this page to serve as a showcase
+            of my front-end web development abilities. All the code for this website is viewable at the Github link at
+            the top of this page. While designing this page, I wanted it to have a more playful creative tone while also being
+            simple and professional. I also wanted it to feel more like an experience than a static webisite and so I
+            tried my best to make the website interactive without being excessive. I also strived to keep in mind proper
+            UI principles and accessibility guidelines.
+        </p>
+        <br />
+
+        <div style="margin-top: 5vh; margin-bottom: 60vh;">
+            <h2>Features</h2>
+            <div class="two_column">
+                <div class="center">Scroll-Based Animations</div>
+                <img style="max-width: 100%" src="./portfolio-photos/AY_scroll.gif"></img>
+                <div class="center">WCAG 2.0 AA Complient Contrast Ratios</div>
+                <img style="max-width: 100%" src="./portfolio-photos/contrast_ratio.png"></img>
+                <div class="center">Full Tab/ Keyboard Focusability</div>
+                <!-- <video style="max-width: 100%"><source src="./portfolio-photos/keyboard_nav.mp4" type="video/mp4"></video> -->
+                <img style="max-width: 100%" src="./portfolio-photos/keyboard_nav.gif"></img>
+                <div class="center">Current Tab and Hover Indicators <br/>(not just indicated by color for accessibility)</div>
+                <img style="max-width: 100%" src="./portfolio-photos/indicator.jpg"></img>
+                <div class="center">Mouse Hover Microinteractions</div>
+                <img style="max-width: 100%" src="./portfolio-photos/hover.gif"></img>
+                <div class="center">Responsive Design</div>
+                <img style="max-width: 100%" src="./portfolio-photos/responsive.gif"></img>
+            </div>
+        </div>
+
+    </div>
+
+    <br/><br/><br/>
+
+</body>
+
+</html>

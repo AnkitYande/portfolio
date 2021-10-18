@@ -1,6 +1,11 @@
 const works = {
     "websites": [
         {
+            "text": "My Portfolio",
+            "imageSrc": "./assets/Web Development/portfolio.png",
+            "onClick": "./web-dev/MyPortfolio.html",
+        },
+        {
             "text": "MERN Stack Twitter Clone",
             "imageSrc": "./assets/Web Development/TwitterClone3.png",
             "onClick": "./web-dev/TwitterClone.html",

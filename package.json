@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3"
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "react-native-vision-camera": "^2.4.1"
   }
 }
