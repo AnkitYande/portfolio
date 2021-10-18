@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&amily=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="icon" href="../assets/AY.png">
+    <title>Ankit Yande - Design</title>
+</head>
+
+<body>
+
+    <div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+    <div class='container'>
+        <h1>IxD Case Study: The Hybrid Classroom</h1>
+
+        <br>
+        <p>
+            This page houses my Interaction Design case study on the Hybrid Classroom. A hybrid classroom is defined as
+            a dual-modality classroom in which students may attend either in-person or online. This project currently
+            has 2 phases: <b>Observation</b> In which my teammates and I did research to understand the problem space
+            and <b>Enable</b> in which I created a toolkit to bridge the disconnect that in-person and online students
+            face while attempting to collaborate with each other.
+        </p>
+
+        <h2 style="margin-top: 100px"> Phase I: Observe </h2>
+        <p> In this stage, five of my teammates and I arranged user interviews, ethnographic observations, and secondary
+            research to understand the current state of the hybrid classroom in a recovering-COVID environment. Our goal
+            was to understand decision-making in autonomous hybrid classes and why students attend in the modality that
+            they do. We found that there were many social, health, and logistical reasons that students choose their
+            modality outside of just COVID safety concerns. We presented our findings using an Ecosystem Map and
+            Vignettes.
+        </p>
+        <br>
+        <iframe width="100%" height="500"
+            src="https://miro.com/app/live-embed/o9J_lpkQyVs=/?moveToViewport=-9691,7411,4769,2548" frameBorder="0"
+            scrolling="no" allowFullScreen>
+        </iframe>
+
+
+        <h2 style="margin-top: 100px"> Phase II: Enable </h2>
+        <p>
+            In this stage, I attempted to combat an opening that my team and I found in our research. The issue I chose
+            to tackle was bridging the disconnect between in-person and online students while collaborating. To do this,
+            I created a "toolkit" with materials to help close the collaboration gap between students of different
+            modalities. The toolkit revolved around a Virtual Presence device that serves as a interactive analog for a
+            virtual student. A Concept Drawing of the toolkit and a Journey Map was then created to show how I
+            envisioned the kit working. From here, I prototyped the base of the virtual presence device by laser cutting
+            wood and hooking up a Raspberry Pi with a motor. This served as a proof of concept I could test and demo.
+        </p>
+        <br>
+        <iframe width="100%" height="500"
+            src="https://miro.com/app/live-embed/o9J_lpkQoWo=/?moveToViewport=-3737,-5188,12517,11728" frameBorder="0"
+            scrolling="no" allowFullScreen>
+        </iframe>
+
+        <video height="500" controls>
+            <source src="./imgs/turntable.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+</body>
+
+</html>

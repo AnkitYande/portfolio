@@ -436,8 +436,11 @@ textarea {
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 1.25em
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: 500;
 }
+
 
 .info_container {
     padding-top: 5vh;
@@ -462,7 +465,7 @@ textarea {
 
 .two_column{
     display: grid;
-    grid-gap: 5%;
+    grid-gap: 10%;
     grid-template-columns: 40% 50%;
 }
 
@@ -678,5 +681,8 @@ embed {
     .two_column{
         grid-template-columns: 100%;
         grid-gap: 2%;
+    }
+    .center{
+        margin-top: 5em
     }
 }

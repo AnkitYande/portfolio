@@ -27,10 +27,15 @@ const works = {
         },
     ],
     "design": [
+        // {
+        //     "text": "Logo for ReView Technology",
+        //     "imageSrc": "./assets/Design/review_logo.png",
+        //     "onClick": "./design/ReView_Logo.html",
+        // },
         {
-            "text": "Logo for ReView Technology",
-            "imageSrc": "./assets/Design/review_logo.png",
-            "onClick": "./design/ReView_Logo.html",
+            "text": "IxD Case Study: The Hybrid Classroom",
+            "imageSrc": "./assets/Design/classroom.jpg",
+            "onClick": "./design/HybridClassroom.html",
         },
     ],
     "programs": [
