@@ -8,6 +8,7 @@
 :root {
     --purple: #8558F0;
     --dark-purple: #6542b6;
+    /* font-size: 0.95em */
 }
 
 i {
@@ -508,6 +509,19 @@ embed {
     text-align: center;
     margin: 5%;
     border: solid;
+}
+
+.education h3{
+    text-align: center;
+    font-size: 1.5em
+}
+
+.education .spacer{
+    height: 4em;
+}
+
+.tab{
+    margin-left: 5em;
 }
 
 /************************** Gallery *************************************/

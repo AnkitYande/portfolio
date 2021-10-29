@@ -1,7 +1,7 @@
 const works = {
     "websites": [
         {
-            "text": "My Portfolio",
+            "text": "This Portfolio!",
             "imageSrc": "./assets/Web Development/portfolio.png",
             "onClick": "./web-dev/MyPortfolio.html",
         },
