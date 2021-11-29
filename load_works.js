@@ -28,9 +28,9 @@ const works = {
     ],
     "design": [
         {
-            "text": "Logo for ReView Technology",
+            "text": "Design for ReView Technology",
             "imageSrc": "./assets/Design/review_logo.png",
-            "onClick": "./design/ReView_Logo.html",
+            "onClick": "./design/ReView_Work.html",
         },
         {
             "text": "IxD Case Study: The Hybrid Classroom",

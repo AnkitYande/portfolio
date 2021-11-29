@@ -466,7 +466,7 @@ textarea {
 
 .two_column{
     display: grid;
-    grid-gap: 10%;
+    grid-gap: 10em;
     grid-template-columns: 40% 50%;
 }
 
