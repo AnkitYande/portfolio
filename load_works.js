@@ -16,7 +16,7 @@ const works = {
             "onClick": "https://github.com/AnkitYande/StackGame",
         },
         {
-            "text": "Collaborative Socket Whitebaord",
+            "text": "Collaborative Socket Whiteboard",
             "imageSrc": "./assets/Web Development/draw.png",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
         },
@@ -28,8 +28,8 @@ const works = {
     ],
     "design": [
         {
-            "text": "Design for ReView Technology",
-            "imageSrc": "./assets/Design/review_logo.png",
+            "text": "Design work for ReView <br> Technology Inc.",
+            "imageSrc": "./assets/Design/review_logo_2.png",
             "onClick": "./design/ReView_Work.html",
         },
         {
@@ -37,10 +37,15 @@ const works = {
             "imageSrc": "./assets/Design/classroom.jpg",
             "onClick": "./design/HybridClassroom.html",
         },
+        {
+            "text": "Safe Spaces <br> COVID Safety App",
+            "imageSrc": "./assets/Design/safe_spaces_covid_01.png",
+            "onClick": "./design/CovidApp.html",
+        },
     ],
     "programs": [
         {
-            "text": "Inteligent Scissoring and Image Composition",
+            "text": "Intelligent Scissoring and Image Composition",
             "imageSrc": "./assets/Programming Projects/imgs/iScissor.png",
             "onClick": "./programs/iScissoring.html",
         },
@@ -50,7 +55,7 @@ const works = {
             "onClick": "./programs/sr2019.html",
         },
         {
-            "text": "Utilizing Steroscopic Camera to assist the Visually Impaired",
+            "text": "Utilizing Stereoscopic Camera to assist the Visually Impaired",
             "imageSrc": "./assets/Programming Projects/imgs/Yande Research Poster 2018.jpg",
             "onClick": "./programs/sr2018.html",
         },
