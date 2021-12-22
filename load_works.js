@@ -11,14 +11,14 @@ const works = {
             "onClick": "./web-dev/TwitterClone.html",
         },
         {
-            "text": "Three.js Stack Game",
-            "imageSrc": "./assets/Web Development/Stack.png",
-            "onClick": "https://github.com/AnkitYande/StackGame",
-        },
-        {
             "text": "Collaborative Socket Whiteboard",
             "imageSrc": "./assets/Web Development/draw.png",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
+        },
+        {
+            "text": "Three.js Stack Game",
+            "imageSrc": "./assets/Web Development/Stack.png",
+            "onClick": "https://github.com/AnkitYande/StackGame",
         },
         {
             "text": "Interactive Spotify Player",

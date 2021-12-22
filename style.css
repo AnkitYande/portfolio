@@ -32,6 +32,10 @@ h1{
     text-align: center
 }
 
+iframe{
+    max-width: 95%;
+}
+
 a:hover {
     color: var(--purple);
     text-decoration: none;
@@ -445,7 +449,7 @@ textarea {
 
 .info_container {
     padding-top: 5vh;
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
@@ -511,12 +515,16 @@ embed {
     border: solid;
 }
 
+.education h2{
+    margin-top: 2em;
+}
+
 .education h3{
     text-align: center;
     font-size: 1.5em
 }
 
-.education .spacer{
+.spacer{
     height: 4em;
 }
 
@@ -690,13 +698,20 @@ embed {
         padding-right: 0.5em;
     }
     .info_container{
-        grid-template-columns: 100%
+        grid-template-columns: 50% 50%;
     }
     .two_column{
         grid-template-columns: 100%;
         grid-gap: 2%;
+        column-gap: 0;
     }
-    .center{
-        margin-top: 5em
+    .two_column .center{
+        margin-top: 5em;
+    }
+    .center img{
+        max-width: 100%;
+    }
+    .tab{
+        margin-left: 0;
     }
 }
