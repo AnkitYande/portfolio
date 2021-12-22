@@ -28,11 +28,11 @@ p {
     font-weight: 500;
 }
 
-h1{
+h1 {
     text-align: center
 }
 
-iframe{
+iframe {
     max-width: 95%;
 }
 
@@ -172,7 +172,7 @@ a:hover {
 .fog {
     position: absolute;
     width: 100%;
-    top: calc( ( 90vh - 100vw * 1300 / 1920) / 2);
+    top: calc((90vh - 100vw * 1300 / 1920) / 2);
     height: 30px;
     background: linear-gradient(0, rgba(255, 255, 255, 0), rgb(255, 255, 255));
     z-index: 5;
@@ -211,9 +211,11 @@ a:hover {
     0% {
         top: 93%;
     }
+
     50% {
         top: 98%;
     }
+
     100% {
         top: 93%;
     }
@@ -334,11 +336,12 @@ input[type="radio"]:checked+label::after {
     transition: 0.5s ease;
 }
 
-.full-cell{
+.full-cell {
     /* padding: 0; */
     display: flex;
 }
-.work span{
+
+.work span {
     display: none;
 }
 
@@ -402,7 +405,7 @@ form {
     max-width: 750px;
     padding: 2em;
     text-align: center;
-    background: rgba( 255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 8px 32px 0;
     border-radius: 20px;
 }
@@ -457,18 +460,18 @@ textarea {
     grid-template-columns: fit-content(300px) fit-content(300px) fit-content(300px);
     justify-content: center;
 }
+
 .info_container p {
     text-align: left;
 }
 
-.two_column_list{
+.two_column_list {
     display: grid;
     grid-gap: 4%;
     grid-template-columns: 48% 48%
-
 }
 
-.two_column{
+.two_column {
     display: grid;
     grid-gap: 10em;
     grid-template-columns: 40% 50%;
@@ -515,20 +518,20 @@ embed {
     border: solid;
 }
 
-.education h2{
+.education h2 {
     margin-top: 2em;
 }
 
-.education h3{
+.education h3 {
     text-align: center;
     font-size: 1.5em
 }
 
-.spacer{
+.spacer {
     height: 4em;
 }
 
-.tab{
+.tab {
     margin-left: 5em;
 }
 
@@ -579,10 +582,12 @@ embed {
         transform: rotate(0);
         animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
+
     50% {
         transform: rotate(360deg);
         animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
+
     100% {
         transform: rotate(720deg);
     }
@@ -594,15 +599,19 @@ embed {
     .bio-info {
         padding-left: 0%;
     }
+
     .bio-info h1 {
         font-size: 4rem;
     }
+
     .bio-info h2 {
         font-size: 2rem;
     }
+
     .ph_gallery {
         columns: 2;
     }
+
     .work-cell {
         width: 40%;
     }
@@ -612,38 +621,49 @@ embed {
     .intro h4 {
         font-size: 6vh;
     }
+
     .bio {
         flex-direction: column;
     }
+
     .bio {
         text-align: center;
     }
+
     .bio-info {
         order: 2;
         padding-left: 0;
     }
+
     .bio-info h1 {
         font-size: 3rem;
     }
+
     .bio-info h2 {
         font-size: 1.5rem;
     }
+
     .bio-img {
         margin: 0%;
         max-width: 450px;
     }
+
     .about h2 {
         font-size: 1.5rem;
     }
+
     .about h3 {
         font-size: 1.5rem;
     }
-    .ph_gallery, .vid_gallery{
+
+    .ph_gallery, .vid_gallery {
         columns: 1;
     }
+
     .my-works {
         flex-direction: column;
     }
+
     .work-cell {
         width: 100%;
         margin-left: auto;
@@ -669,21 +689,27 @@ embed {
         display: flex;
         flex-direction: column;
     }
+
     .navbar a {
         padding-top: 0;
     }
+
     .nav-right-links p {
         display: none;
     }
+
     .icon {
         display: block;
     }
+
     .nav-ham {
         width: 40%;
     }
-    .nav-ham a{
+
+    .nav-ham a {
         padding-right: 0
     }
+
     .hidden {
         display: inline;
     }
@@ -693,11 +719,13 @@ embed {
     .nav-right-links {
         display: none;
     }
+
     .nav-btn button {
         padding-left: 0.5em;
         padding-right: 0.5em;
     }
-    .info_container{
+
+    .info_container {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -707,18 +735,22 @@ embed {
         justify-content: center;
         flex-wrap: wrap;
     }
-    .two_column{
+
+    .two_column {
         grid-template-columns: 100%;
         grid-gap: 2%;
         column-gap: 0;
     }
-    .two_column .center{
+
+    .two_column .center {
         margin-top: 5em;
     }
-    .center img{
+
+    .center img {
         max-width: 100%;
     }
-    .tab{
+
+    .tab {
         margin-left: 0;
     }
 }
