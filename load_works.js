@@ -16,14 +16,19 @@ const works = {
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
         },
         {
-            "text": "Three.js Stack Game",
-            "imageSrc": "./assets/Web Development/Stack.png",
-            "onClick": "https://github.com/AnkitYande/StackGame",
+            "text": "Flutter Spotify UI Clone",
+            "imageSrc": "./assets/Web Development/SpotifyCloneMockup.png",
+            "onClick": "https://github.com/AnkitYande/SpotifyUIClone",
         },
         {
             "text": "Interactive Spotify Player",
             "imageSrc": "./assets/Web Development/SpotifyPlayer2.png",
             "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
+        },
+        {
+            "text": "Three.js Stack Game",
+            "imageSrc": "./assets/Web Development/Stack.png",
+            "onClick": "https://github.com/AnkitYande/StackGame",
         },
     ],
     "design": [
