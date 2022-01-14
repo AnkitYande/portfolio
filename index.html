@@ -17,41 +17,41 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    
+
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://kit.fontawesome.com/9d145696d7.js" crossorigin="anonymous"></script>
-   
+
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./assets/AY.png">
-    
+
     <meta property="og:site_name" content="Ankit Yande" />
-    <meta property="og:description" content="Ankit Yande's Portfolio"/>
-    <meta property="og:url" content="https://ankityande.github.io/portfolio/"/>
+    <meta property="og:description" content="Ankit Yande's Portfolio" />
+    <meta property="og:url" content="https://ankityande.github.io/portfolio/" />
     <meta property="og:image" content="https://ankityande.github.io/portfolio/assets/AY.png" />
-    
+
     <title>Ankit Yande</title>
 </head>
 
 <body>
 
     <nav class="navbar" id="navbar">
-        
+
         <div class="nav-ham">
             <a href="javascript:void(0);" class="icon" onclick="expand_menu()">
-                <div id = "symbol">
+                <div id="symbol">
                     <i class="fas fa-bars"></i>
                 </div>
             </a>
         </div>
 
         <div class="nav-left" id="nav-left">
-            <div class = "hidden">
+            <div class="hidden">
                 <h5>Check out my work</h5>
             </div>
             <a href="index.html#work" tabindex="0">
                 <p class="hover-underline-animation">Projects</p>
             </a>
-            <a  href="./education.html" tabindex="0">
+            <a href="./education.html" tabindex="0">
                 <p class="hover-underline-animation">Education</p>
             </a>
             <a href="./gallery.html" tabindex="0">
@@ -63,15 +63,15 @@
             <div class=hidden>
                 <h5>Learn more about me here</h5>
             </div>
-            <a href="assets/Yande_Resume.pdf" download class = "hidden" tabindex="0">
+            <a href="assets/Yande_Resume.pdf" download class="hidden" tabindex="0">
                 <p class="hover-underline-animation">Resume</p>
             </a>
-            <div style = "margin-left: auto; margin-right: auto" class=hidden>
-                <a href="https://github.com/AnkitYande" tabindex="0"> 
+            <div style="margin-left: auto; margin-right: auto" class=hidden>
+                <a href="https://github.com/AnkitYande" tabindex="0">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/ankit-yande/" tabindex="0">
-                    <i class="fab fa-linkedin"></i> 
+                    <i class="fab fa-linkedin"></i>
                 </a>
             </div>
         </div>
@@ -94,21 +94,21 @@
                 <button class="btn" onclick="location.href='./index.html#form'">
                     Contact
                 </button>
-           </div>
-    
+            </div>
+
         </div>
     </nav>
 
 
     <div class="intro" , id="intro">
-        <div class = "fog"></div> 
+        <div class="fog"></div>
         <img class="myimg" src="./AY_svg_seq/AY_svg_seq0001.svg" alt=""></img>
         <h2 class="aloha">loha!</h2>
         <i class="fa fa-chevron-down down-arrow"></i>
     </div>
 
 
-    <div class="bio" id="bio">   
+    <div class="bio" id="bio">
         <div class="bio-info">
             <h1>Ankit Yande</h1>
             <h2>Developer · Designer</h2>
@@ -117,12 +117,12 @@
             </button>
         </div>
         <div class="bio-img">
-            <img src="./assets/bio.svg" alt = "image of Ankit Yande"></img>
+            <img src="./assets/bio.svg" alt="image of Ankit Yande"></img>
         </div>
     </div>
 
-    <div class = "work" id="work">
-        <div class = "work-selection">
+    <div class="work" id="work">
+        <div class="work-selection">
             <input type="radio" id="websites" name="work" value="websites" checked>
             <label for="websites">Websites</label>
             <input type="radio" id="programs" name="work" value="programs">
@@ -134,13 +134,13 @@
             <input type="radio" id="art" name="work" value="art">
             <label for="art">Art</label>
         </div>
-        <div class = "my-works">
+        <div class="my-works">
             <!-- To be filled by workHandler -->
         </div>
-        <div class = "see-all">
-             <!-- Link to be filled by workHandler -->
+        <div class="see-all">
+            <!-- Link to be filled by workHandler -->
         </div>
-        
+
     </div>
 
 
@@ -152,24 +152,25 @@
             <p>
                 I am a student at the University of Texas at Austin pursuing a BSA in Computer Science. In the past few
                 years, design has become my passion and I am working on developing my front-end skills to design highly
-                interactive, visually rich user experiences. Some of my other passions are photography and digital art.
+                interactive, visually rich, and intuitive user experiences. Some of my other passions are photography
+                and digital art.
             </p>
 
             <div id="form"></div>
             <form action="https://formspree.io/f/mvovyeeg" method="POST">
                 <h3>Let's Chat!</h3>
-                
-                    <label for="name">Name</label><br>
-                    <input type="text" name="name" placeholder="e.g. John Smith"><br>
-                
-                    <span><label for="email">Email</label><br>
+
+                <label for="name">Name</label><br>
+                <input type="text" name="name" placeholder="e.g. John Smith"><br>
+
+                <span><label for="email">Email</label><br>
                     <input type="text" name="email" placeholder="e.g. johnsmith@gmail.com"><br>
-               
+
                     <label for="message">Message</label><br>
                     <textarea name="message" placeholder="Enter your message here"></textarea>
-                
 
-                <button type="submit" class="btn">Send</button>
+
+                    <button type="submit" class="btn">Send</button>
             </form>
         </div>
 

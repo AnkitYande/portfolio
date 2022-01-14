@@ -136,7 +136,7 @@ var images = [
 var controller = new ScrollMagic.Controller();
 
 // build scene
-var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1700 })
+var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1500 })
     // .addIndicators()
     .setPin(intro)
     .addTo(controller)
@@ -151,10 +151,11 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 
 let scrollpos = 0;
 
-scene.on("update", e => {
-    scrollpos = e.scrollPos * 0.1;
-    scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
-});
+// scene.on("update", e => {
+//     scrollpos = 1;
+//     console.log(scrollpos);
+//     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
+// });
 
 setInterval(() => {
     myimg.src = images[scrollpos]
@@ -169,9 +170,9 @@ var tween = new TimelineMax()
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
     .fromTo(intro, 1, { backgroundColor: 'rgba(255, 255, 255, 0)' }, { backgroundColor: 'rgba(255, 255, 255, 0.95)' })
 
-var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 300 })
+var scene2 = new ScrollMagic.Scene({ triggerElement: intro,  triggerHook: 0, duration: 600 })
     // .addIndicators()
-    .offset(-250)
+    .offset(1500)
     .setTween(tween)
     .addTo(controller)
     .on("enter", function () {
@@ -180,7 +181,7 @@ var scene2 = new ScrollMagic.Scene({ triggerElement: bio, duration: 300 })
     });
 
 scene.on("update", e => {
-    scrollpos = e.scrollPos * 0.06;
+    scrollpos = e.scrollPos * 0.09;
     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
 });
 

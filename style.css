@@ -161,6 +161,7 @@ a:hover {
     top: 0;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.95);
+    transition: 0.2s ease;
 }
 
 .intro img {
