@@ -64,11 +64,6 @@ const works = {
             "imageSrc": "./assets/Programming Projects/imgs/Yande Research Poster 2018.jpg",
             "onClick": "./programs/sr2018.html",
         },
-        // {
-        //     "text": "Reflected Laser Black Ice Detection System for AVs",
-        //     "imageSrc": "./assets/Programming Projects/imgs/Yande, Rathod Research Poster 2017.jpg",
-        //     "onClick": "./pdf.html",
-        // }
     ],
     "photography": [
         {
