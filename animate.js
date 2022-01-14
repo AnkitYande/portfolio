@@ -151,12 +151,6 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 
 let scrollpos = 0;
 
-// scene.on("update", e => {
-//     scrollpos = 1;
-//     console.log(scrollpos);
-//     scrollpos = scrollpos > 119 ? 119 : Math.round(scrollpos);
-// });
-
 setInterval(() => {
     myimg.src = images[scrollpos]
     aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
