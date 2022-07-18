@@ -47,6 +47,11 @@ const works = {
             "imageSrc": "./assets/Design/safe_spaces_covid_01.png",
             "onClick": "./design/CovidApp.html",
         },
+        {
+            "text": "Web Landing Page Mockup",
+            "imageSrc": "./assets/Design/landing_page.png",
+            "onClick": "./design/Landing_Page_Mockup.html",
+        },
     ],
     "programs": [
         {

@@ -11,12 +11,12 @@
     /* font-size: 0.95em */
 }
 
-i {
+.navbar i {
     font-size: 1.75em;
     padding-bottom: 0;
-}
+} 
 
-i:hover {
+.navbar i:hover {
     color: var(--purple);
 }
 
