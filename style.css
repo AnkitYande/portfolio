@@ -257,7 +257,7 @@ a:hover {
 
 /************************** Work *************************************/
 
-.spacer{
+.spacer {
     margin-bottom: 2em;
 }
 
@@ -288,9 +288,17 @@ a:hover {
     display: inline-flex;
     justify-content: center;
     /* color: white; */
-    background-color: #ccc;
+    background-color: #ddd;
     border-radius: 100px;
     padding: 0.25rem 0.5rem;
+    transition: 0.4s ease;
+}
+
+.chip:hover {
+    background-color: #aaa;
+}
+input[type="checkbox"]:focus+label {
+    background-color: #aaa;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -305,41 +313,38 @@ input[type="checkbox"]:checked+label {
 input[type="checkbox"]:checked+label::before {
     content: '✕';
     padding-right: 5px;
-    /* height: 10px */
 }
 
 input[type="checkbox"]+label::before {
     content: '+';
     padding-right: 6px;
-    /* height: 10px */
 }
 
-.work-selection {
+/* .work-selection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     font-weight: 600;
     font-size: 1.5em;
-}
-
+} */
+/* 
 .work-selection label {
     display: inline-block;
     position: relative;
     transition: 0.15s;
-}
-
-.work-selection label:hover {
+} */
+/* .work-selection label:hover {
     color: var(--purple);
-}
+} */
 
-.work h3 {
+/* .work h3 {
     font-size: 1.75em;
     font-weight: 600;
 }
 
 .work h3:hover {
     color: var(--purple);
-}
+} */
 
 .my-works {
     width: 80%;
@@ -360,7 +365,7 @@ input[type="checkbox"]+label::before {
     background-color: var(--purple);
     border-radius: 10px;
     padding: 1em;
-    transition: 0.5s ease;
+    transition: 0.4s ease;
 }
 
 .full-cell {
