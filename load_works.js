@@ -4,25 +4,25 @@ const works = {
             "text": "This Portfolio!",
             "imageSrc": "./assets/work/portfolio.png",
             "onClick": "./work/MyPortfolio.html",
-            "tags": ["website", "frontend", "design"]
+            "tags": ["website", "frontend", "design", "featured"]
         },
         {
             "text": "MeetApp (iOS Dev)",
             "imageSrc": "./assets/work/meetApp.jpg",
             "onClick": "./work/meetApp.html",
-            "tags": ["fullstack", "frontend"]
+            "tags": ["fullstack", "frontend", "featured"]
         },
         {
             "text": "Accessibility Simulator",
             "imageSrc": "./assets/work/accessibility.png",
             "onClick": "./work/accessibility-sim.html",
-            "tags": ["frontend", "design"]
+            "tags": ["frontend", "design", "featured"]
         },
         {
             "text": "MERN Stack Twitter Clone",
             "imageSrc": "./assets/work/TwitterClone3.png",
             "onClick": "./work/TwitterClone.html",
-            "tags": ["website", "fullstack"]
+            "tags": ["website", "fullstack", "featured"]
         },
         {
             "text": "Collaborative Socket Whiteboard",
@@ -52,7 +52,7 @@ const works = {
             "text": "Intelligent Scissoring and Image Composition",
             "imageSrc": "./assets/Programming Projects/imgs/iScissor.png",
             "onClick": "./work/iScissoring.html",
-            "tags": ["cv"]
+            "tags": ["cv", "featured"]
         },
         {
             "text": "Remote Sensing of Crop Pathology through CV",
@@ -70,7 +70,7 @@ const works = {
             "text": "Design work for ReView <br> Technology Inc.",
             "imageSrc": "./assets/Design/review_logo_2.png",
             "onClick": "./design/ReView_Work.html",
-            "tags": ["design"]
+            "tags": ["design", "featured"]
         },
         {
             "text": "IxD Case Study: The Hybrid Classroom",
@@ -148,27 +148,39 @@ const works = {
 }
 
 // import {works} from './works.js'
+const my_works = document.querySelector(".my-works");
+const featured_works = document.querySelector(".my-works-featured");
+const checkboxes = document.getElementsByName("work");
 
 //first time
 window.onload = () => {
-    for (let i in works["work"]) {
-        let work = works["work"][i]
-        my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], false);
+    if (my_works) {
+        for (let i in works["work"]) {
+            let work = works["work"][i]
+            my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], false);
+        }
+    }
+
+    if (featured_works) {
+        for (let i in works["work"]) {
+            let work = works["work"][i]
+            if (work["tags"].includes("featured")) {
+                console.log("here", work["text"])
+                featured_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], false);
+            }
+        }
     }
 }
 //on change
-const checkboxes = document.getElementsByName("work");
-console.log("boxes:", checkboxes)
-for (var i = 0; i < checkboxes.length; i++) {
-    let checkbox = checkboxes[i]
-    checkbox.addEventListener('change', (event) => {
-        let selected = Array.prototype.slice.call(checkboxes).filter(ch => ch.checked == true).map(a => a.defaultValue);
-        filter(selected)
-    })
+if (checkboxes) {
+    for (var i = 0; i < checkboxes.length; i++) {
+        let checkbox = checkboxes[i]
+        checkbox.addEventListener('change', (event) => {
+            let selected = Array.prototype.slice.call(checkboxes).filter(ch => ch.checked == true).map(a => a.defaultValue);
+            filter(selected)
+        })
+    }
 }
-
-const my_works = document.querySelector(".my-works");
-const seeAll = document.querySelector(".see-all");
 
 function filter(filterList) {
     my_works.innerHTML = "";
@@ -187,42 +199,19 @@ function filter(filterList) {
         }
     }
 }
-// function workHandler(type) {
-
-//     my_works.innerHTML = "";
-//     seeAll.innerHTML = "";
-
-//     if (works[type].length == 0) {
-//         my_works.innerHTML += `<h4> Coming Soon </h4>`;
-//         return;
-//     }
-//     for (let i in works[type]) {
-//         let work = works[type][i];
-//         my_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], (type == "photography" || type == "art"));
-//     }
-//     if (type == "photography") {
-//         seeAll.innerHTML = `<a href="./gallery.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
-//     }
-//     else if (type == "art") {
-//         seeAll.innerHTML = `<a href="./art.html"> <h3 class="hover-underline-animation">See All 👉</h3> </a>`;
-//     }
-//     else {
-//         seeAll.innerHTML = "";
-//     }
-// }
 
 function formatCell(text, imageSrc, onClick, full) {
 
     return (
         `<div 
-        onclick="location.href='${onClick}'"
-        class = "work-cell ${full ? "full-cell" : ""}" 
-        tabindex="0"
-        >
-            <img
-                src="${imageSrc}"
-            />
-            ${text == "" ? `<span></span>` : `<p>${text}</p>`}
+            onclick="location.href='${onClick}'"
+            class = "work-cell ${full ? "full-cell" : ""}" 
+            tabindex="0"
+        >   
+            <div class="work-cell-inner">
+                <img src="${imageSrc}"/>
+                ${text == "" ? `<span></span>` : `<p>${text}</p>`}
+            </div>
         </div>`
     )
 }
