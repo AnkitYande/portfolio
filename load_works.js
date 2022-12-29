@@ -2,37 +2,49 @@ const works = {
     "work": [
         {
             "text": "This Portfolio!",
-            "imageSrc": "./assets/Web Development/portfolio.png",
+            "imageSrc": "./assets/work/portfolio.png",
             "onClick": "./work/MyPortfolio.html",
             "tags": ["website", "frontend", "design"]
         },
         {
+            "text": "MeetApp (iOS Dev)",
+            "imageSrc": "./assets/work/meetApp.jpg",
+            "onClick": "./work/meetApp.html",
+            "tags": ["fullstack", "frontend"]
+        },
+        {
+            "text": "Accessibility Simulator",
+            "imageSrc": "./assets/work/accessibility.png",
+            "onClick": "./work/accessibility-sim.html",
+            "tags": ["frontend", "design"]
+        },
+        {
             "text": "MERN Stack Twitter Clone",
-            "imageSrc": "./assets/Web Development/TwitterClone3.png",
+            "imageSrc": "./assets/work/TwitterClone3.png",
             "onClick": "./work/TwitterClone.html",
             "tags": ["website", "fullstack"]
         },
         {
             "text": "Collaborative Socket Whiteboard",
-            "imageSrc": "./assets/Web Development/draw.png",
+            "imageSrc": "./assets/work/draw.png",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
             "tags": ["website", "frontend", "fullstack"]
         },
         {
             "text": "Flutter Spotify UI Clone",
-            "imageSrc": "./assets/Web Development/SpotifyCloneMockup.png",
+            "imageSrc": "./assets/work/SpotifyCloneMockup.png",
             "onClick": "https://github.com/AnkitYande/SpotifyUIClone",
             "tags": ["frontend"]
         },
         {
             "text": "Interactive Spotify Player",
-            "imageSrc": "./assets/Web Development/SpotifyPlayer2.png",
+            "imageSrc": "./assets/work/SpotifyPlayer2.png",
             "onClick": "https://github.com/AnkitYande/ReactSpotifyPlayer",
             "tags": ["website", "frontend", "fullstack"]
         },
         {
             "text": "Three.js Stack Game",
-            "imageSrc": "./assets/Web Development/Stack.png",
+            "imageSrc": "./assets/work/Stack.png",
             "onClick": "https://github.com/AnkitYande/StackGame",
             "tags": ["website", "frontend"]
         },
