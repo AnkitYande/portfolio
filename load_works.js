@@ -16,7 +16,7 @@ const works = {
             "text": "Accessibility Simulator",
             "imageSrc": "./assets/work/accessibility.png",
             "onClick": "./work/accessibility-sim.html",
-            "tags": ["frontend", "design", "featured"]
+            "tags": ["website", "frontend", "design", "featured"]
         },
         {
             "text": "MERN Stack Twitter Clone",

@@ -246,7 +246,7 @@ a:hover {
 
 .bio-info h2 {
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     padding-bottom: 1rem;
 }
 
@@ -369,7 +369,7 @@ input[type="checkbox"]+label::before {
     transition: 0.4s ease;
 }
 
-.work-cell-inner{
+.work-cell-inner {
     width: 100%;
     height: 100%;
     display: flex;
@@ -518,13 +518,13 @@ textarea {
     grid-template-columns: 40% 50%;
 }
 
-.meetapp{
+.meetapp {
     grid-gap: 5em;
 }
 
-.meetapp img{
+.meetapp img {
     max-height: 60vh;
-    border:rgb(90, 90, 90);
+    border: rgb(90, 90, 90);
     border-style: solid;
     border-radius: 8px;
     justify-self: center;
@@ -630,6 +630,30 @@ embed {
     /* This is not ideal (make img w padding)*/
 }
 
+
+.roundedImg {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1.5px solid #ccc;
+    text-align: left;
+    padding: 8px;
+}
+
+.tabbed {
+    margin-left: 2em;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0);
@@ -693,7 +717,7 @@ embed {
     }
 
     .bio-info h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .bio-img {
