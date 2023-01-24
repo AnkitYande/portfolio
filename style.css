@@ -654,6 +654,13 @@ td, th {
     margin-left: 2em;
 }
 
+.table-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0);
