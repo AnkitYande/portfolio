@@ -253,7 +253,7 @@ a:hover {
 
 .bio-info button {
     font-size: 1.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
 }
 
 /************************** Work *************************************/
@@ -816,9 +816,12 @@ td, th {
         justify-content: center;
         flex-wrap: wrap;
     }
-    
+
     .bio-info h1 {
         text-align: center;
+    }
+    .bio-info button {
+        margin-bottom: 5rem;
     }
 
     .two_column {
