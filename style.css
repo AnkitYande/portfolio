@@ -11,6 +11,7 @@
     /* font-size: 0.95em */
 }
 
+
 .navbar i {
     font-size: 1.75em;
     padding-bottom: 0;
@@ -814,6 +815,10 @@ td, th {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .bio-info h1 {
+        text-align: center;
     }
 
     .two_column {
