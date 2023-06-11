@@ -165,10 +165,8 @@ a:hover {
     transition: 0.2s ease;
 }
 
-.intro img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+.intro canvas{
+    height: 90vh;
 }
 
 .fog {

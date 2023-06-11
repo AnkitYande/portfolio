@@ -9,7 +9,7 @@ const nav_left = document.getElementById("nav-left");
 
 var controller = new ScrollMagic.Controller();
 
-var images = [
+var imageURLs = [
     "./AY_svg_seq/AY_svg_seq0001.svg",
     "./AY_svg_seq/AY_svg_seq0002.svg",
     "./AY_svg_seq/AY_svg_seq0003.svg",
@@ -132,6 +132,31 @@ var images = [
     "./AY_svg_seq/AY_svg_seq0120.svg"
 ];
 
+var images = []
+
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+let loadImage = (img) => {
+    let cw = intro.clientWidth * 10
+    let ch = intro.clientHeight * 10
+    console.log(cw, ch, " | ", img.width, img.height);
+    ctx.clearRect(0, 0, 10000, 100000)
+    let scale_factor = Math.min(cw / img.width, ch / img.height);
+    let newWidth = img.width * scale_factor;
+    let newHeight = img.height * scale_factor;
+    console.log("new ", newWidth, newHeight);
+    let x = (cw / 2) - (newWidth / 2);
+    let y = (ch / 2) - (newHeight / 2);
+    ctx.drawImage(img, x, y, newWidth, newHeight);
+};
+
+for (url in imageURLs) {
+    let image = new Image();
+    image.src = imageURLs[url];
+    images.push(image);
+}
+
 // init controller
 var controller = new ScrollMagic.Controller();
 
@@ -151,20 +176,23 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 
 let scrollpos = 0;
 
+
 setInterval(() => {
-    myimg.src = images[scrollpos]
+    img = images[scrollpos];
+    loadImage(img)
     aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
     aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
-    arrow.style.display  =  scrollpos > 10 ? "none" : "block"
+    arrow.style.display = scrollpos > 10 ? "none" : "block"
 }, 0);
 
 var tween = new TimelineMax()
     .fromTo(intro, 1, { height: '90vh' }, { height: '60px' })
+    // .fromTo(canvas, 1, { height: '90vh' }, { height: '60px' })
     .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
     .fromTo(intro, 1, { backgroundColor: 'rgba(255, 255, 255, 0)' }, { backgroundColor: 'rgba(255, 255, 255, 0.95)' })
 
-var scene2 = new ScrollMagic.Scene({ triggerElement: intro,  triggerHook: 0, duration: 600 })
+var scene2 = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 600 })
     // .addIndicators()
     .offset(1500)
     .setTween(tween)
