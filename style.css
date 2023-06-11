@@ -167,6 +167,7 @@ a:hover {
 
 .intro canvas{
     height: 90vh;
+    /* width: 100%; */
 }
 
 .fog {

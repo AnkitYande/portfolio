@@ -133,6 +133,11 @@ var imageURLs = [
 ];
 
 var images = []
+for (url in imageURLs) {
+    let image = new Image();
+    image.src = imageURLs[url];
+    images.push(image);
+}
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
@@ -140,22 +145,14 @@ const ctx = canvas.getContext("2d");
 let loadImage = (img) => {
     let cw = intro.clientWidth * 10
     let ch = intro.clientHeight * 10
-    // console.log(cw, ch, " | ", img.width, img.height);
     ctx.clearRect(0, 0, 10000, 100000)
     let scale_factor = Math.min(cw / img.width, ch / img.height);
     let newWidth = img.width * scale_factor;
     let newHeight = img.height * scale_factor;
-    // console.log("new ", newWidth, newHeight);
     let x = (cw / 2) - (newWidth / 2);
     let y = (ch / 2) - (newHeight / 2);
     ctx.drawImage(img, x, y, newWidth, newHeight);
 };
-
-for (url in imageURLs) {
-    let image = new Image();
-    image.src = imageURLs[url];
-    images.push(image);
-}
 
 // init controller
 var controller = new ScrollMagic.Controller();
