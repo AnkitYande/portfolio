@@ -171,6 +171,7 @@ a:hover {
     object-fit: contain;
 }
 
+
 .fog {
     position: absolute;
     width: 100%;
@@ -178,6 +179,15 @@ a:hover {
     height: 30px;
     background: linear-gradient(0, rgba(255, 255, 255, 0), rgb(255, 255, 255));
     z-index: 5;
+}
+
+.fog::before  {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -200px;
+    height: 200px;
+    background: white;
 }
 
 .aloha {

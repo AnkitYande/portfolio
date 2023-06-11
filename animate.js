@@ -1,6 +1,6 @@
 const nav = document.querySelector(".navbar");
 const intro = document.querySelector(".intro");
-const myimg = document.querySelector(".myimg");
+// const imageContainer = document.querySelector(".imgContainer");
 const aloha = document.querySelector(".aloha");
 const arrow = document.querySelector(".down-arrow");
 const bio = document.querySelector(".bio");
@@ -9,7 +9,7 @@ const nav_left = document.getElementById("nav-left");
 
 var controller = new ScrollMagic.Controller();
 
-var images = [
+var imageURLs = [
     "./AY_svg_seq/AY_svg_seq0001.svg",
     "./AY_svg_seq/AY_svg_seq0002.svg",
     "./AY_svg_seq/AY_svg_seq0003.svg",
@@ -132,6 +132,13 @@ var images = [
     "./AY_svg_seq/AY_svg_seq0120.svg"
 ];
 
+images = []
+for (url in imageURLs) {
+    let image = new Image();
+    image.src = imageURLs[url];
+    images.push(image);
+}
+
 // init controller
 var controller = new ScrollMagic.Controller();
 
@@ -151,20 +158,27 @@ var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, durat
 
 let scrollpos = 0;
 
+
+
 setInterval(() => {
-    myimg.src = images[scrollpos]
-    aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
-    aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
-    arrow.style.display  =  scrollpos > 10 ? "none" : "block"
+    let myImg = intro.children[1];
+    let newImg = images[scrollpos];
+    if (newImg.src != myImg.src) {
+        intro.replaceChild(newImg, myImg);
+        aloha.style.opacity = (100 - scrollpos * 1.5) / 100 < 0 ? 0 : (100 - scrollpos * 1.5) / 100
+        aloha.style.display = (100 - scrollpos * 1.5) / 100 < 0 ? "none" : "block"
+        arrow.style.display = scrollpos > 10 ? "none" : "block"
+    }
 }, 0);
 
 var tween = new TimelineMax()
     .fromTo(intro, 1, { height: '90vh' }, { height: '60px' })
+    // .fromTo(imageContainer, 1, { height: '90vh' }, { height: '60px' })
     .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
     .fromTo(intro, 1, { backgroundColor: 'rgba(255, 255, 255, 0)' }, { backgroundColor: 'rgba(255, 255, 255, 0.95)' })
 
-var scene2 = new ScrollMagic.Scene({ triggerElement: intro,  triggerHook: 0, duration: 600 })
+var scene2 = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 600 })
     // .addIndicators()
     .offset(1500)
     .setTween(tween)
