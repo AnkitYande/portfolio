@@ -28,7 +28,6 @@ function toggle_menu() {
     width = window.innerWidth;
     x = document.getElementById("nav-left");
     symbol = document.getElementById("symbol");
-    console.log(x.style.width)
     if (!x.style.width || x.style.width == "0px") {
         expand_menu()
     } else {
