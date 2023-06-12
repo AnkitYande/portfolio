@@ -165,7 +165,7 @@ window.onload = () => {
         for (let i in works["work"]) {
             let work = works["work"][i]
             if (work["tags"].includes("featured")) {
-                console.log("here", work["text"])
+                // console.log("here", work["text"])
                 featured_works.innerHTML += formatCell(work["text"], work["imageSrc"], work["onClick"], false);
             }
         }

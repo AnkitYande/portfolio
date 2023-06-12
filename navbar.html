@@ -1,20 +1,17 @@
 <head>
     <base href="https://ankityande.github.io/portfolio/">
     <!-- <base href="/"> -->
-
-    <script src="./nav-toggle.js"></script>
     <script src="https://kit.fontawesome.com/9d145696d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&amily=Poppins">
 </head>
 
 <nav class="navbar" id="navbar" style="background-color: rgba(255, 255, 255, 0.95);">
-
     <div class="nav-ham">
-        <a href="javascript:void(0);" class="icon" onclick="expand_menu()">
+        <button class="unstyledBtn icon" onclick="toggle_menu()">
             <div id="symbol">
                 <i class="fas fa-bars"></i>
             </div>
-        </a>
+        </button>
     </div>
 
     <div class="nav-left" id="nav-left">
@@ -40,7 +37,7 @@
         <div class=hidden>
             <h5>Learn more about me here</h5>
         </div>
-        <a href="assets/Yande_Ankit_Resume_FS_2022.pdf" target="_blank" class="hidden" tabindex="0">
+        <a href="assets/Yande_Ankit_Resume_FS_2022.pdf" target="_blank" class="hidden" tabindex="0" style="margin-bottom: 10px">
             <p class="hover-underline-animation">Resume</p>
         </a>
         <div style="margin-left: auto; margin-right: auto" class=hidden>
@@ -70,7 +67,7 @@
             <a href="https://www.linkedin.com/in/ankit-yande/"> <i class="fab fa-linkedin"></i> </a>
         </div>
         <div class="nav-btn">
-            <button class="btn" onclick="location.href='/index.html#form'">
+            <button class="btn" onclick="location.href='./index.html#form'">
                 Contact
             </button>
         </div>
