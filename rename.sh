@@ -4,4 +4,4 @@ for i in $1/*.jpg; do
   mv -i -- "$i" "$1/$new"
   let a=a+1
 done
-echo $a-1
+echo $((a-1))
