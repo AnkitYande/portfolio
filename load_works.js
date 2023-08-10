@@ -25,6 +25,12 @@ const works = {
             "tags": ["website", "fullstack", "featured"]
         },
         {
+            "text": "CSS Demos",
+            "imageSrc": "./assets/cover-imgs/cssDemos.jpg",
+            "onClick": "https://ankityande.github.io/CSS-Demos/",
+            "tags": ["website", "frontend"]
+        },
+        {
             "text": "Collaborative Socket Whiteboard",
             "imageSrc": "./assets/cover-imgs/draw.jpg",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
@@ -73,7 +79,7 @@ const works = {
             "tags": ["design", "featured"]
         },
         {
-            "text": "IxD Case Study: The Hybrid Classroom",
+            "text": "IxD Case Study: <br> The Hybrid Classroom",
             "imageSrc": "./assets/cover-imgs/classroom.jpg",
             "onClick": "./design/HybridClassroom.html",
             "tags": ["design"]
