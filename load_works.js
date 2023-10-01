@@ -28,7 +28,7 @@ const works = {
             "text": "CSS Demos",
             "imageSrc": "./assets/cover-imgs/cssDemos.jpg",
             "onClick": "https://ankityande.github.io/CSS-Demos/",
-            "tags": ["website", "frontend"]
+            "tags": ["website", "frontend", "featured"]
         },
         {
             "text": "Collaborative Socket Whiteboard",
@@ -58,7 +58,7 @@ const works = {
             "text": "Intelligent Scissoring and Image Composition",
             "imageSrc": "./assets/cover-imgs/iScissor.jpg",
             "onClick": "./work/iScissoring.html",
-            "tags": ["cv", "featured"]
+            "tags": ["cv"]
         },
         {
             "text": "Remote Sensing of Crop Pathology through CV",
