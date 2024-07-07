@@ -7,12 +7,6 @@ const works = {
             "tags": ["website", "frontend", "design", "featured"]
         },
         {
-            "text": "MeetApp (iOS Dev)",
-            "imageSrc": "./assets/cover-imgs/meetApp.jpg",
-            "onClick": "./work/meetApp.html",
-            "tags": ["fullstack", "frontend", "featured"]
-        },
-        {
             "text": "Accessibility Simulator",
             "imageSrc": "./assets/cover-imgs/accessibility.jpg",
             "onClick": "./work/accessibility-sim.html",
@@ -29,6 +23,12 @@ const works = {
             "imageSrc": "./assets/cover-imgs/cssDemos.jpg",
             "onClick": "https://ankityande.github.io/CSS-Demos/",
             "tags": ["website", "frontend", "featured"]
+        },
+        {
+            "text": "MeetApp (iOS Dev)",
+            "imageSrc": "./assets/cover-imgs/meetApp.jpg",
+            "onClick": "./work/meetApp.html",
+            "tags": ["fullstack", "frontend", "featured"]
         },
         {
             "text": "Collaborative Socket Whiteboard",

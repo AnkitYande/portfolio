@@ -1,0 +1,273 @@
+/**************************** Intro *********************************/
+
+.intro {
+    top: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: 0.2s ease;
+}
+
+.intro img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    z-index: 5;
+}
+
+
+.fog {
+    position: absolute;
+    width: 100%;
+    top: calc((90vh - 100vw * 1300 / 1920) / 2);
+    height: 30px;
+    background: linear-gradient(0, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+    z-index: 5;
+}
+
+.fog::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -200px;
+    height: 200px;
+    background: white;
+}
+
+.aloha {
+    font-family: 'Pacifico', sans-serif;
+    color: var(--orange);
+    text-align: center;
+    position: absolute;
+    font-size: 10vw;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 63%;
+}
+
+.down-arrow {
+    font-size: 10vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    animation: move-arrow 1.5s linear infinite;
+    opacity: 60%;
+}
+
+@keyframes move-arrow {
+    0% {
+        top: 93%;
+    }
+
+    50% {
+        top: 98%;
+    }
+
+    100% {
+        top: 93%;
+    }
+}
+
+/**************************** Bio *********************************/
+
+.bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.bio-info {
+    flex: 50%;
+    padding-left: 5%
+}
+
+.bio-img {
+    flex: 40%;
+}
+
+.bio-img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.bio-info h1 {
+    text-align: left;
+    font-size: 6rem;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+.bio-info h2 {
+    font-weight: 600;
+    font-size: 2.3rem;
+    padding-bottom: 1rem;
+}
+
+.bio-info button {
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+/************************** Work *************************************/
+
+.spacer {
+    margin-bottom: 2em;
+}
+
+.work-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.work-section h3 {
+    font-size: 1.75em;
+    font-weight: 600;
+}
+
+.work-section h3:hover {
+    color: var(--purple);
+}
+
+/************************** ABOUT / FORM *************************************/
+
+.curve-spacer {
+    background-color: var(--purple);
+    background-image: url(./assets/curve.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 10vw;
+    width: 100vw;
+}
+
+.about {
+    padding: 5em 0 5em 0;
+    background-color: var(--purple);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.about p {
+    max-width: 1000px;
+    font-size: 1rem;
+    line-height: 2em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    color: white;
+    margin: 0 auto;
+}
+
+form {
+    margin: auto;
+    margin-top: 4em;
+    width: 90%;
+    max-width: 750px;
+    padding: 2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 32px 0;
+    border-radius: 20px;
+}
+
+.about h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+form button {
+    margin-top: 1.5em;
+}
+
+form label {
+    padding-top: 1.5em;
+    font-weight: 600;
+    float: left;
+}
+
+form input, textarea {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: none;
+    padding: 1.25rem;
+}
+
+textarea {
+    height: 10em;
+}
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 1100px) {
+    .bio-info {
+        padding-left: 0%;
+    }
+
+    .bio-info h1 {
+        font-size: 4rem;
+    }
+
+    .bio-info h2 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .intro h4 {
+        font-size: 6vh;
+    }
+
+    .bio {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bio-info {
+        order: 2;
+        padding-left: 0;
+    }
+
+    .bio-info h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .bio-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .bio-info button {
+        margin-bottom: 5rem;
+    }
+
+    .bio-img {
+        margin: 0%;
+        max-width: 450px;
+    }
+
+    .about h2 {
+        font-size: 1.5rem;
+    }
+
+    .about h3 {
+        font-size: 1.5rem;
+    }
+}

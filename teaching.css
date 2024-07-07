@@ -1,0 +1,25 @@
+.roundedImg {
+    object-fit: cover;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1.5px solid var(--grey-1);
+    text-align: left;
+    padding: 8px;
+}
+
+.table-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
