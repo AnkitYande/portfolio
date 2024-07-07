@@ -65,7 +65,7 @@ input[type="checkbox"]+label::before {
 /************ Work Cell Tiles ************/
 
 .work-cell {
-    width: 30%;
+    width: 28%;
     height: auto;
     margin: 1.5em;
     background-color: var(--purple);
