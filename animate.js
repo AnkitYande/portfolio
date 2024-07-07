@@ -6,6 +6,7 @@ const bio = document.querySelector(".bio");
 const fog = document.querySelector(".fog");
 const nav_left = document.getElementById("nav-left");
 
+const offset = 1500;
 
 images = []
 for (let i = 1; i <= 120; i++) {
@@ -19,7 +20,7 @@ var controller = new ScrollMagic.Controller();
 
 /** PLAY SLIDING ANIMATION **/ 
 
-var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 1500 })
+var scene = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: offset })
     // .addIndicators()
     .setPin(intro)
     .addTo(controller)
@@ -55,7 +56,7 @@ setInterval(() => {
 /** TURN SEQ INTO NAV **/ 
 
 var tween = new TimelineMax()
-    .fromTo(intro, 1, { height: '90vh' }, { height: '60px' })
+    .fromTo(intro, 1, { height: '90vh' }, { height: '65px' })
     // .fromTo(imageContainer, 1, { height: '90vh' }, { height: '60px' })
     .fromTo(nav, 1, { display: 'none' }, { display: 'flex' })
     .fromTo(nav, 1, { opacity: '0' }, { opacity: '1' })
@@ -63,7 +64,7 @@ var tween = new TimelineMax()
 
 var scene2 = new ScrollMagic.Scene({ triggerElement: intro, triggerHook: 0, duration: 600 })
     // .addIndicators()
-    .offset(1500)
+    .offset(offset)
     .setTween(tween)
     .addTo(controller)
     .on("enter", function () {

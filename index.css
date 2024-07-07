@@ -69,12 +69,18 @@
 
 /**************************** Bio *********************************/
 
+.bio-wrapper {
+    display: flex;
+    justify-content: center
+}
+
 .bio {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 5%;
     padding-right: 5%;
+    max-width: 2000px;
 }
 
 .bio-info {
@@ -110,6 +116,10 @@
 }
 
 /************************** Work *************************************/
+
+.spacer {
+    margin-bottom: 5em;
+}
 
 .work-section {
     text-align: center;

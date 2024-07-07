@@ -19,15 +19,16 @@
     background-color: var(--grey-1);
     border-radius: 100px;
     padding: 0.25rem 0.5rem;
-    transition: 0.4s ease;
+    transition: background-color 0.4s ease;
 }
 
 .chip:hover {
     background-color: var(--grey-2);
 }
 
-input[type="checkbox"]:focus+label {
+input[type="checkbox"]:focus-visible+label {
     background-color: var(--grey-2);
+    outline: 2px solid var(--one);
 }
 
 input[type="checkbox"], input[type="radio"] {
