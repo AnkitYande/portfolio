@@ -172,9 +172,9 @@
 .about p {
     max-width: 1000px;
     font-size: 1rem;
-    line-height: 2em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
+    line-height: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     color: white;
     margin: 0 auto;
 }
@@ -192,6 +192,7 @@ form {
 }
 
 .about h3 {
+    color: #444;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -202,6 +203,7 @@ form button {
 }
 
 form label {
+    color: #444;
     padding-top: 1.5em;
     font-weight: 600;
     float: left;
