@@ -7,12 +7,6 @@ const works = {
             "tags": ["website", "frontend", "design", "featured"]
         },
         {
-            "text": "Accessibility Simulator",
-            "imageSrc": "./assets/cover-imgs/accessibility.jpg",
-            "onClick": "./work/accessibility-sim.html",
-            "tags": ["website", "frontend", "design", "featured"]
-        },
-        {
             "text": "MERN Stack Twitter Clone",
             "imageSrc": "./assets/cover-imgs/twitterClone.jpg",
             "onClick": "./work/TwitterClone.html",
@@ -23,6 +17,18 @@ const works = {
             "imageSrc": "./assets/cover-imgs/cssDemos.jpg",
             "onClick": "https://ankityande.github.io/CSS-Demos/",
             "tags": ["website", "frontend", "featured"]
+        },
+        {
+            "text": "Accessibility Simulator",
+            "imageSrc": "./assets/cover-imgs/accessibility.jpg",
+            "onClick": "./work/accessibility-sim.html",
+            "tags": ["website", "frontend", "design", "featured"]
+        },
+        {
+            "text": "Three.js Voxel Character",
+            "imageSrc": "./assets/cover-imgs/bevo.jpg",
+            "onClick": "https://github.com/AnkitYande/3DBevo",
+            "tags": ["website"]
         },
         {
             "text": "MeetApp (iOS Dev)",
@@ -61,6 +67,12 @@ const works = {
             "tags": ["cv"]
         },
         {
+            "text": "Design work for ReView Technology Inc.",
+            "imageSrc": "./assets/cover-imgs/reviewLogo.jpg",
+            "onClick": "./design/ReView_Work.html",
+            "tags": ["design", "featured"]
+        },
+        {
             "text": "Remote Sensing of Crop Pathology through CV",
             "imageSrc": "./assets/cover-imgs/srPoster2019.jpg",
             "onClick": "./work/sr2019.html",
@@ -73,27 +85,21 @@ const works = {
             "tags": ["cv"]
         },
         {
-            "text": "Design work for ReView <br> Technology Inc.",
-            "imageSrc": "./assets/cover-imgs/reviewLogo.jpg",
-            "onClick": "./design/ReView_Work.html",
-            "tags": ["design", "featured"]
+            "text": "Web Landing Page Mockup",
+            "imageSrc": "./assets/cover-imgs/landingPage.jpg",
+            "onClick": "./design/Landing_Page_Mockup.html",
+            "tags": ["design"]
         },
         {
-            "text": "IxD Case Study: <br> The Hybrid Classroom",
+            "text": "IxD Case Study: The Hybrid Classroom",
             "imageSrc": "./assets/cover-imgs/classroom.jpg",
             "onClick": "./design/HybridClassroom.html",
             "tags": ["design"]
         },
         {
-            "text": "Safe Spaces: <br> COVID Safety App Design",
+            "text": "Safe Spaces: COVID Safety App Design",
             "imageSrc": "./assets/cover-imgs/safeSpaces.jpg",
             "onClick": "./design/CovidApp.html",
-            "tags": ["design"]
-        },
-        {
-            "text": "Web Landing Page Mockup",
-            "imageSrc": "./assets/cover-imgs/landingPage.jpg",
-            "onClick": "./design/Landing_Page_Mockup.html",
             "tags": ["design"]
         },
     ],
