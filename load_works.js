@@ -13,9 +13,9 @@ const works = {
             "tags": ["website", "frontend", "design", "featured"]
         },
         {
-            "text": "CSS Demos",
-            "imageSrc": "./assets/cover-imgs/cssDemos.jpg",
-            "onClick": "https://ankityande.github.io/CSS-Demos/",
+            "text": "Interactive UI Demos",
+            "imageSrc": "./assets/cover-imgs/UIDemos.jpg",
+            "onClick": "https://ankityande.github.io/Interactive-UI-Demos/",
             "tags": ["website", "frontend", "featured"]
         },
                {
