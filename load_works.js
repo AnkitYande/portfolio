@@ -7,10 +7,10 @@ const works = {
             "tags": ["website", "frontend", "design", "featured"]
         },
         {
-            "text": "MERN Stack Twitter Clone",
-            "imageSrc": "./assets/cover-imgs/twitterClone.jpg",
-            "onClick": "./work/TwitterClone.html",
-            "tags": ["website", "fullstack", "featured"]
+            "text": "Accessibility Simulator",
+            "imageSrc": "./assets/cover-imgs/accessibility.jpg",
+            "onClick": "./work/accessibility-sim.html",
+            "tags": ["website", "frontend", "design", "featured"]
         },
         {
             "text": "CSS Demos",
@@ -18,12 +18,12 @@ const works = {
             "onClick": "https://ankityande.github.io/CSS-Demos/",
             "tags": ["website", "frontend", "featured"]
         },
-        {
-            "text": "Accessibility Simulator",
-            "imageSrc": "./assets/cover-imgs/accessibility.jpg",
-            "onClick": "./work/accessibility-sim.html",
-            "tags": ["website", "frontend", "design", "featured"]
-        },
+               {
+            "text": "ThinkThrove.io",
+            "imageSrc": "./assets/cover-imgs/thinkThrove.jpg",
+            "onClick": "./work/ThinkThrove.html",
+            "tags": ["website", "fullstask", "featured"]
+        },     
         {
             "text": "Three.js Voxel Character",
             "imageSrc": "./assets/cover-imgs/bevo.jpg",
@@ -41,6 +41,12 @@ const works = {
             "imageSrc": "./assets/cover-imgs/draw.jpg",
             "onClick": "https://github.com/AnkitYande/socket-paint-client",
             "tags": ["website", "frontend", "fullstack"]
+        },
+        {
+            "text": "MERN Stack Twitter Clone",
+            "imageSrc": "./assets/cover-imgs/twitterClone.jpg",
+            "onClick": "./work/TwitterClone.html",
+            "tags": ["website", "fullstack"]
         },
         {
             "text": "Flutter Spotify UI Clone",
