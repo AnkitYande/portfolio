@@ -18,23 +18,29 @@ const works = {
             "onClick": "https://ankityande.github.io/Interactive-UI-Demos/",
             "tags": ["website", "frontend", "featured"]
         },
-               {
+        {
             "text": "ThinkThrove.io",
             "imageSrc": "./assets/cover-imgs/thinkThrove.jpg",
             "onClick": "./work/ThinkThrove.html",
-            "tags": ["website", "fullstask", "featured"]
-        },     
+            "tags": ["website", "fullstack", "featured"]
+        },
+         {
+            "text": "AI Pokemon Guide (RAG)",
+            "imageSrc": "./assets/cover-imgs/frlg-rag.jpg",
+            "onClick": "./work/FRLG-RAG.html",
+            "tags": ["website", "fullstack", "featured"]
+        },
         {
             "text": "Three.js Voxel Character",
             "imageSrc": "./assets/cover-imgs/bevo.jpg",
             "onClick": "https://github.com/AnkitYande/3DBevo",
-            "tags": ["website"]
+            "tags": ["website", "frontend"]
         },
         {
             "text": "MeetApp (iOS Dev)",
             "imageSrc": "./assets/cover-imgs/meetApp.jpg",
             "onClick": "./work/meetApp.html",
-            "tags": ["fullstack", "frontend", "featured"]
+            "tags": ["fullstack", "frontend"]
         },
         {
             "text": "Collaborative Socket Whiteboard",

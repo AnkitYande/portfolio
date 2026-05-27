@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik&family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="./project.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="icon" href="../assets/AY.png">
+    <title>Ankit Yande - Pokémon FRLG RAG AI Guide</title>
+</head>
+
+<body>
+
+    <div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+    <div class="container">
+        <h1>Pokémon FRLG — RAG Powered AI Guide</h1>
+
+        <p class="project-date">Spring 2026</p>
+
+        <div class="skill-tags">
+            <span class="skill-tag">RAG Pipeline</span>
+            <span class="skill-tag">Python / Flask</span>
+            <span class="skill-tag">ChromaDB</span>
+            <span class="skill-tag">Gemini 2.5 Flash</span>
+            <span class="skill-tag">Web Scraping</span>
+            <span class="skill-tag">BeautifulSoup</span>
+            <span class="skill-tag">Vector Search</span>
+            <span class="skill-tag">HTML / CSS / JS</span>
+        </div>
+
+        <div class="project-btns">
+            <button class="btn" onclick="location.href='https://ankityande.github.io/frlg-rag'">
+                Live Demo
+            </button>
+            <button class="secondary-btn" onclick="location.href='https://github.com/AnkitYande/frlg-rag'">
+                GitHub Repo
+            </button>
+        </div>
+
+        <br />
+        <p>
+            <strong>Pokémon FRLG RAG Guide</strong> is a full-stack AI assistant that answers natural language
+            questions about Pokémon FireRed and LeafGreen — where to find Pokémon, how to beat Gym Leaders, item
+            locations, and more. Responses are grounded in real game data and delivered in character as
+            <strong>Professor Oak</strong>, making it both technically rigorous and genuinely fun to use.
+        </p>
+
+        <p>
+            The core of the project is a custom <strong>RAG (Retrieval-Augmented Generation) pipeline</strong> built
+            from scratch. Rather than relying on a pre-existing dataset, custom scrapers were written for two sources
+            with completely different structures: <strong>Bulbapedia</strong> via the MediaWiki render API and
+            <strong>Serebii</strong> via BeautifulSoup HTML parsing. A deliberate chunking strategy splits each page
+            into semantically focused chunks — one per table type (trainers, encounters, items) and one for prose —
+            with source metadata prepended into the chunk text before embedding. This ensures the vector encodes
+            location context alongside content, dramatically improving retrieval precision.
+        </p>
+
+        <p>
+            Chunks are embedded using <strong>Google's Gemini Embedding API</strong> and stored in
+            <strong>ChromaDB</strong> with a tuned HNSW index to ensure consistent
+            nearest-neighbor quality regardless of result count. At query time, the user's question is embedded with
+            the same model, the top matching chunks are retrieved, and injected as context into a
+            <strong>Gemini 2.5 Flash</strong> prompt that constrains the model to answer only from the retrieved
+            data — preventing hallucination.
+        </p>
+
+        <p>
+            The frontend is a static site deployed on <strong>GitHub Pages</strong>, communicating with a
+            <strong>Flask API on Render</strong>. A debug mode lets users inspect exactly which chunks the AI
+            used to form its answer, including similarity scores and links back to the original sources.
+        </p>
+
+        <div class="bottom-spacer"></div>
+    </div>
+
+    <script src="/nav-toggle.js"></script>
+
+</body>
+
+</html>
