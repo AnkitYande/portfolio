@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firewall Rules and Access Control</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li class="active"><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>Firewall Rules and Access Control</h1>
+
+    <p>Creating four VLANs took maybe twenty minutes in the Omada interface once I knew what I wanted. Deciding exactly what should be allowed to pass between them took a lot longer, and it taught me more about networking than the VLAN setup itself ever did.</p>
+
+    <h2>Finding where the rules actually live</h2>
+
+    <p>My first instinct was to look for a settings page literally called "Firewall," and Omada does have one, but it turned out to mostly contain connection timeout settings and not much else useful for what I wanted. The actual inter-network policy lives in a separate section called Gateway ACL, short for access control list. That's a small but genuinely useful lesson on its own. On a lot of router platforms, the feature that actually controls what one network is allowed to do to another isn't necessarily labeled "firewall" at all, and it's worth poking around the whole interface before assuming a feature doesn't exist just because it isn't where you expected it.</p>
+
+    <h2>The rule set</h2>
+
+    <p>The final policy comes down to a short, ordered list of rules. Order matters a lot in ACL systems like this one, since the first matching rule wins and everything after it is skipped for that particular piece of traffic.</p>
+
+    <table>
+    <tr><th>Rule</th><th>Direction</th><th>Result</th></tr>
+    <tr><td>Allow_LAN_to_WAN</td><td>Any VLAN to internet</td><td>Permit</td></tr>
+    <tr><td>Allow_VLAN1_to_All_Internal</td><td>VLAN 1 to VLAN 10, 20, 30</td><td>Permit</td></tr>
+    <tr><td>Allow_VLAN10_to_All_Internal</td><td>VLAN 10 to VLAN 1, 20, 30</td><td>Permit</td></tr>
+    <tr><td>Deny_Guest_to_Internal</td><td>VLAN 20 to VLAN 1, 10, 30</td><td>Deny</td></tr>
+    <tr><td>Deny_IoT_to_Trusted</td><td>VLAN 30 to VLAN 1, 10</td><td>Deny</td></tr>
+    </table>
+
+    <p>Reading that top to bottom, everyone gets internet access through the first rule, the two trusted networks can reach everything else, and Guest and IoT get explicitly blocked from reaching back into the trusted side. Guest and IoT devices still get internet through that first rule, they just can't reach anything internal beyond it.</p>
+
+    <h2>A real problem: the IoT exception for Plex</h2>
+
+    <p>That deny rule for IoT created an actual, practical problem almost immediately after I turned it on. A Google TV living on the IoT network needed to reach a Plex server sitting over on the trusted network, and the deny-everything policy blocked that connection outright, which meant the TV couldn't see the Plex library at all anymore. The tempting fix would have been to just move the Google TV onto the trusted network, or delete the deny rule entirely and call it a day. I didn't want to do either, since that throws away the whole point of isolating IoT devices from the trusted side in the first place.</p>
+
+    <p>Instead I added one more rule, placed above the broad IoT deny rule so it gets evaluated first and wins before the deny rule ever gets a chance to apply:</p>
+
+    <pre><code>Allow_IoT_to_Plex
+    Direction: LAN to LAN
+    Source: IoT (VLAN 30)
+    Destination: Plex server's reserved address
+    Protocol: TCP
+    Port: 32400
+    Policy: Permit</code></pre>
+
+    <p>That one narrow exception, IoT devices can reach exactly one address on exactly one port, is a small but real example of least-privilege thinking in practice. The Google TV doesn't need to see my laptop or reach any file shares on my network, it needs to talk to Plex on port 32400 and nothing else at all. Giving it exactly that and nothing more is a lot more defensible than "IoT can reach the trusted network now" as a blanket policy change, and it kept the rest of the isolation intact while fixing the one thing that actually broke.</p>
+
+    <h2>What this taught me about network security</h2>
+
+    <p>The thing that stuck with me most from this whole exercise is that segmentation and access control are really two separate design problems that happen to live in the same interface. Segmentation, putting devices into different VLANs, is mechanical and quick, and you can do it in an afternoon without thinking too hard. Deciding what's allowed to cross between those segments is where the actual security thinking happens, and it never resolves into one clean rule that handles everything. It's always a list of specific, narrow exceptions layered on top of a default-deny posture, which is exactly what real firewall configurations tend to look like once you get past the tutorial stage and start dealing with devices that actually need to talk to each other for a good reason.</p>
+
+    <pre><code>ACL evaluation order (first match wins)
+
+    1. Allow_LAN_to_WAN              -> everyone gets internet
+    2. Allow_VLAN1_to_All_Internal   -> wired trusted, full access
+    3. Allow_VLAN10_to_All_Internal  -> main WiFi, full access
+    4. Allow_IoT_to_Plex             -> narrow exception, TCP 32400 only
+    5. Deny_Guest_to_Internal        -> guest blocked from internal
+    6. Deny_IoT_to_Trusted           -> IoT blocked from internal (except above)</code></pre>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/07-designing-the-vlans.html"><span class="label">Previous</span>Designing the VLANs</a>
+  <a class="next" href="home-network/09-the-mdns-problem.html"><span class="label">Next</span>The mDNS Problem</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

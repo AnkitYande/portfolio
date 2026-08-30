@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Router-Level VPN Detour</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li class="active"><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>A Router-Level VPN Detour</h1>
+
+    <p>Not every part of this project was about segmentation or self-hosting. At one point I got curious about running a VPN at the router level instead of installing a VPN app on every individual device, and it turned into a good lesson about hardware limits I hadn't really thought about before.</p>
+
+    <h2>What I was trying to do</h2>
+
+    <p>The ER605 supports configuring itself as an OpenVPN client, meaning the router itself connects out to a VPN provider, and any device routed through it gets that VPN treatment automatically with no app required on the device itself. That's appealing for things like a smart TV or a game console that can't easily run a VPN client of their own, since there's often no good way to install third party software on devices like that.</p>
+
+    <h2>What I learned along the way</h2>
+
+    <p>Setting the router up as a VPN client and actually paying for a VPN provider are two separate things, and I hadn't fully separated those in my head going in. The router can establish the tunnel, but it still needs somewhere to tunnel to, which means an actual VPN service, in this case Surfshark, not something the router provides on its own out of the box. Getting Surfshark's OpenVPN configuration onto the ER605 took a couple of rounds of troubleshooting once I actually sat down to do it. The router's config screen wanted a plain IP address for the remote server field, while Surfshark's exported configuration file used a hostname instead, so I had to resolve that hostname to an actual IP address with nslookup and enter the resulting address by hand. Then the router complained about a missing OpenVPN client certificate, which turned out to live in a separate download on Surfshark's site labeled "CA and TLS certificates," distinct from the general OpenVPN configuration file download I'd already grabbed. Small stuff on its own, but the kind of small stuff that stops you cold if you don't already know it's there.</p>
+
+    <h2>What I changed, and then changed again</h2>
+
+    <p>Once it was actually connected, an external IP checker confirmed the whole network's traffic was leaving through Surfshark's exit server, exactly as intended. That part worked exactly the way I expected it to. What I didn't expect was the performance hit that came with it. My normal connection runs around 500 megabits per second. Through the router-level VPN tunnel, that dropped to roughly 20 megabits per second, in both directions. The ER605 is a fine little router for routing, firewalling, and handling VLANs, but encrypting and decrypting every single packet for an entire household's traffic in real time is a genuinely heavy CPU workload, and this router simply isn't built to do that at full line speed.</p>
+
+    <p>Rather than accept a twenty five times slowdown across every device on the network just to get VPN coverage on the couple of devices that actually needed it, I moved to policy-based routing instead, sending only specific devices through the Surfshark tunnel and letting everything else use the normal WAN connection at full speed. That way the devices that genuinely benefit from the VPN still get it, and the rest of the household isn't paying a massive speed penalty for a feature it doesn't need.</p>
+
+    <pre><code>Whole-network VPN (rejected) vs. selective policy routing (kept)
+
+      Whole network through VPN:              Selective policy routing:
+      ---------------------------             --------------------------
+      Every device                            Device A (needs VPN)
+           |                                       |
+           v                                       v
+      ER605 OpenVPN client                    ER605 OpenVPN client
+           |                                       |
+           v                                       v
+      Surfshark (~20 Mbps)                    Surfshark (~20 Mbps)
+
+                                               Device B, C, D (normal use)
+                                                    |
+                                                    v
+                                               Normal WAN (~500 Mbps)</code></pre>
+
+    <h2>Why it mattered</h2>
+
+    <p>This is a good example of something being technically correct and still being the wrong call for how I actually use my network. The VPN worked. It was secure. It was also going to make every other device on the network feel noticeably broken if I'd left the whole house routed through it just for the sake of consistency. Recognizing that and backing off to a more targeted approach, instead of accepting the slowdown because "well, it's more secure" sounds like a reasonable justification on its own, ended up being the actual engineering decision here. The VPN setup itself was mostly just following instructions.</p>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/10-plex-across-the-network.html"><span class="label">Previous</span>Plex Across the Network</a>
+  <a class="next" href="home-network/12-the-final-network.html"><span class="label">Next</span>The Final Network</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

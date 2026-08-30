@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Final Network</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li class="active"><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>The Final Network</h1>
+
+    <p>After all the hardware decisions, the VLAN design, the firewall rules, and the mDNS and Plex debugging, here's what the network actually looks like put together as one system, rather than as a series of separate stories.</p>
+
+    <h2>The physical layer</h2>
+
+    <p>The AT&T gateway still handles the actual connection to the internet, but it runs in IP passthrough mode, which means it hands its public IP address straight through to the TP-Link ER605 instead of doing any of its own routing. The ER605 is the real router now. It's the device making decisions about VLANs, firewall rules, and DHCP for the entire household. A TP-Link EAP610 access point, connected back to the router over the apartment's existing in-wall Ethernet, provides WiFi and maps each of the wireless networks to its matching VLAN behind the scenes.</p>
+
+    <h2>The four networks</h2>
+
+    <p>Four VLANs split the household by trust level. There's a wired trusted network for a couple of PCs that stayed put rather than getting migrated for no real benefit, a Main WiFi network treated with that same level of trust since I don't think wired versus wireless should decide how much a device is allowed to do, a Guest network that gets internet and nothing else, and an IoT network for the smart home gear, cameras, and casting devices, locked out of reaching the trusted side except through a small number of specific, deliberate exceptions like the Plex streaming port and the mDNS reflector.</p>
+
+    <h2>The self-hosted side</h2>
+
+    <p>A Beelink mini PC, running Ubuntu headless most of the time, sits on the network handling Pi-hole for network-wide ad blocking and DNS, with the ER605's DHCP server pointing every VLAN at it by default. That same machine can switch into a graphical, entertainment-focused mode on demand for game streaming and light retro emulation, without needing to be a separate physical device from the always-on background services it also runs.</p>
+
+    <h2>The trust boundaries, all in one place</h2>
+
+    <p>Putting all of it together, the network looks roughly like this:</p>
+
+    <pre><code>Internet
+       |
+    AT&T Gateway (IP passthrough)
+       |
+    TP-Link ER605  --  VLANs, firewall/ACL, DHCP
+       |
+       +-- VLAN 1  (Trusted wired)  ----\
+       +-- VLAN 10 (Main WiFi)      ----+---> full access to everything internal
+       |
+       +-- VLAN 20 (Guest)   -- internet only, no internal access
+       |
+       +-- VLAN 30 (IoT)     -- internet only by default,
+       |                        narrow exceptions: Plex (TCP 32400),
+       |                        mDNS reflection for casting/HomeKit
+       |
+       +-- EAP610 Access Point (WiFi 6, maps SSIDs to VLANs above)
+       |
+       +-- Beelink mini PC (home server)
+             |
+             +-- Pi-hole (Docker) -- DNS for every VLAN
+             +-- Entertainment mode (on demand): game streaming, Plex client, emulation</code></pre>
+
+    <p>None of this is exotic hardware, and it isn't a particularly large setup by homelab standards. It's four VLANs, one router, one access point, and one small server. What makes it worth documenting isn't the size of it. It's that every piece of it exists because a specific, real problem showed up somewhere along the way, not because it looked good on a shopping list or in someone else's homelab post.</p>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/11-a-vpn-detour.html"><span class="label">Previous</span>A Router-Level VPN Detour</a>
+  <a class="next" href="home-network/13-what-i-would-change.html"><span class="label">Next</span>What I Would Change</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

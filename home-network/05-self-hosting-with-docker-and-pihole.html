@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Hosting with Docker and Pi-hole</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li class="active"><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>Self-Hosting with Docker and Pi-hole</h1>
+
+    <p>With the mini PC set up and running, the next question was how to actually run the services I wanted on it. I settled on Docker for everything, and the first real service to go on the machine was Pi-hole, which turned out to produce some of the better troubleshooting stories from this whole project.</p>
+
+    <h2>Why Docker instead of installing things directly</h2>
+
+    <p>Every self-hosted service on this machine runs inside a Docker container rather than being installed straight onto the OS. That decision paid off almost immediately once I started actually using it. Docker containers restart automatically if they crash, so a service doesn't just quietly stay down until I notice. They keep their configuration in mounted folders that survive a container being deleted and rebuilt from scratch, which meant I could break something badly while experimenting and not lose my actual settings. They also don't leave stray files and half-removed dependencies scattered across the base OS if I decide to rip a service out later, which matters a lot on a machine I plan to keep running for years. Just as important, everything keeps running whether or not the graphical desktop is active, which fits the whole point of having a machine that mostly runs headless in the background.</p>
+
+    <h2>Pi-hole's DNS wasn't answering, even though its dashboard was fine</h2>
+
+    <p>Getting Pi-hole running in Docker looked successful at first. The admin dashboard loaded without any trouble, and gravity updated and pulled in over a hundred thousand blocklist domains with no errors. But when I pointed a device at it for DNS, nothing came back. No blocked ads, no resolved domains, nothing.</p>
+
+    <p>My first instinct was to assume something was wrong with Pi-hole's upstream DNS server, the resolver it forwards requests to when a domain isn't on any blocklist. I tested that directly from the Linux machine itself with a plain nslookup against Cloudflare's public resolver, and it worked immediately. That ruled out anything related to internet connectivity or the upstream resolver Pi-hole depends on. The real answer was sitting in Pi-hole's own container logs the whole time: <code>failed to create listening socket for port 53: Address in use</code>. Something else on the Linux host, in this case Ubuntu's own systemd-resolved service, was already sitting on port 53, so Pi-hole's DNS server couldn't bind to that port at all, even though every other part of Pi-hole, the web dashboard included, was running completely normally.</p>
+
+    <p>Disabling the stub listener that systemd-resolved uses freed up port 53, and DNS queries against Pi-hole started returning real answers right away. The lesson that stuck with me here is that a service's web dashboard loading fine tells you almost nothing about whether its actual core function is working underneath. Pi-hole's UI has no idea whether its DNS listener is bound to anything at all, it just renders the interface regardless.</p>
+
+    <h2>The password that was set but somehow wasn't</h2>
+
+    <p>A smaller but genuinely confusing issue came up right after. I set a Pi-hole web password directly in the Docker Compose environment variables, and confirmed with <code>docker inspect</code> that the variable really was present inside the running container, spelled correctly, with the value I expected. Pi-hole still generated and displayed its own random temporary password on startup instead, and the password I'd set didn't work at all when I tried logging in with it.</p>
+
+    <p>That turned out to be a useful reminder that an environment variable existing inside a container doesn't guarantee the application actually reads it as the current, active setting, especially once persistent configuration is already stored on disk from a previous run of the same container. Pi-hole had already written its own password to a config file the first time it ever started, and it was reading from that file instead of re-checking the environment variable on every restart. The fix ended up being Pi-hole's own built-in command for exactly this situation, <code>pihole setpassword</code>, run directly inside the container, which set the password properly regardless of what the environment variable said or what was already on disk.</p>
+
+    <pre><code>Same symptom, two different root causes
+
+      Symptom: Pi-hole isn't behaving the way I configured it
+
+      Case 1: DNS queries get no answer
+        -> dashboard fine, but container log shows port 53 already in use
+        -> fix: disable systemd-resolved's stub listener
+
+      Case 2: my password doesn't work
+        -> docker inspect shows the right env var, but Pi-hole ignores it
+        -> fix: run `pihole setpassword` inside the container directly</code></pre>
+
+    <h2>What both of these had in common</h2>
+
+    <p>Neither of these problems showed up anywhere near the surface. Pi-hole's dashboard, its setup wizard, and its general responsiveness all looked completely normal in both cases. The actual answer in both was buried in a log file or required checking a layer underneath the application itself, the host OS in one case and Pi-hole's own persisted config in the other. That became a pattern I leaned on for the rest of this project. When something looks like it should work and doesn't, check the layer just underneath the one that's complaining before assuming the obvious explanation is the right one.</p>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/04-the-home-server.html"><span class="label">Previous</span>The Home Server</a>
+  <a class="next" href="home-network/06-the-network-before-segmentation.html"><span class="label">Next</span>The Network Before Segmentation</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

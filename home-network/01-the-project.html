@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="hn-style.css">
+</head>
+
+<body>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <div id='nav-placeholder'></div>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("../navbar.html");
+    });
+  </script>
+
+  <div style="margin-top: 150px;"></div>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <p class="sidebar-title">Home Network Project</p>
+      <ol>
+        <li class="active"><a href="home-network/01-the-project.html">The Project</a></li>
+        <li><a href="home-network/02-the-router.html">The Router</a></li>
+        <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+        <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+        <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+        <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+        <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+        <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+        <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+        <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+        <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+        <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+        <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+      </ol>
+    </nav>
+    <main class="content">
+      <h1>The Project</h1>
+
+      <p>This started with a boring problem. My office had bad WiFi. That's really it. I wasn't trying to build a
+        homelab, I wasn't chasing a hobby, I just wanted to sit at my desk without my connection dropping every time I
+        moved my chair. If the WiFi in that one room had just worked, none of the rest of this probably happens.</p>
+
+      <p>This is a new apartment, and the builders had run Ethernet wiring into the walls but never actually finished
+        it. I opened up the little junction box in my closet and found a bundle of blue cables just sitting there,
+        unconnected to anything. I figured those were probably meant for internet, since blue is the usual color for
+        network cable, but there was no jack, no connector, nothing to actually plug into. I asked the apartment about
+        it and they said wiring inside the unit wasn't their responsibility and to try to call AT&T next who would obviously
+        be no help. Hiring an electrician just to crimp a few connectors felt like a lot of money for something that looked
+        pretty learnable, so I bought a cheap crimping tool, watched a few videos on wire order, and decided this was as good a
+        reason as any to just learn how to do it myself. It worked on the first real test, which surprised me more than it
+        probably should have. Plugging a laptop straight into the wall jack in my office and getting a real wired connection was
+        the moment this stopped being a one-off fix and started being a project with actual momentum.</p>
+        
+      <h2>How the question changed</h2>
+
+      <p>Once that wall jack was live, the question in my head shifted. It went from "how do I fix my WiFi" to "what
+        does a wired access point in that room actually need behind it." That's a small shift on paper, but it's the one
+        that turned this into a networking project instead of a weekend fix. Answering it meant learning what a router
+        actually does versus what an access point does, which I honestly hadn't thought about clearly before this. I
+        started looking at routers built for that kind of setup and ran into the idea of VLANs for the first time,
+        without really understanding what they were yet.</p>
+
+      <p>At the same time, I had a growing pile of smart home devices sitting on the same network as everything else I
+        owned. A couple of Google Nest devices, some Meross smart plugs, a Eufy camera. Nothing about that setup was
+        broken exactly, but something in the back of my head kept saying those devices probably shouldn't have the same
+        level of access to my network as my laptop does. That instinct is what eventually pulled VLANs from "a term I
+        saw in a forum post" into "a thing I actually need to understand and build."</p>
+
+      <h2>Where self-hosting came in</h2>
+
+      <p>Around the same time, I got interested in running a few small services myself instead of relying on other
+        people's apps and cloud accounts for everything. Pi-hole for network-wide ad blocking, a small server I could
+        stream games from to the living room TV, maybe something for the smart home stuff down the line. None of it was
+        urgent and none of it solved a problem I was actively suffering from. It was cheap to try, though, and it gave
+        me a real reason to learn how a network actually works instead of just accepting whatever the ISP's box does out
+        of the box.</p>
+
+      <p>So the project grew in layers, and that's basically how the rest of these pages are organized too. First the
+        hardware, because none of the rest of this works without picking the right boxes and getting them wired up
+        correctly. Then the home server, because I wanted one small machine handling everything self-hosted instead of
+        buying three separate devices for three separate jobs. Then the actual network design, the VLANs, the firewall
+        rules, the DNS setup, which turned out to be a lot more interesting than I expected going in. I didn't predict,
+        for example, that letting two networks talk to each other on paper wouldn't be enough to make a Chromecast
+        actually show up when I went looking for it.</p>
+
+      <h2>What stayed constant</h2>
+
+      <p>A few decisions held steady through the whole thing, even as everything else changed. I kept the AT&T gateway
+        around instead of ripping it out, because it's still the box that actually connects to the internet and there
+        was no good reason to replace something that already does that job. I put a dedicated router behind it
+        specifically to get real control over routing, VLANs, and DNS, which the gateway alone couldn't give me. And I
+        tried hard not to buy hardware just because it looked good in a forum thread. There's a whole page later about
+        the gear I deliberately didn't buy, and honestly that turned out to be almost as useful a lesson as the gear I
+        did end up buying.</p>
+
+      <p>What follows isn't a tutorial you can copy step by step onto your own network. It's closer to a log of
+        decisions, a few wrong turns, and the moments where something I thought I understood turned out to be wrong once
+        I actually tried it. If you're building something similar, I think the mistakes end up being the more useful
+        part to read.</p>
+
+      <div class="page-nav">
+        <span></span>
+        <a class="next" href="home-network/02-the-router.html"><span class="label">Next</span>The Router</a>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>

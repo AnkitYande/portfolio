@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Router</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li class="active"><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>The Router</h1>
+
+    <p>Once I had a working wired path into the room with bad WiFi, the next question was what to put behind it. The AT&T gateway that came with my internet service does one job well. It gets you online. It doesn't do VLANs, it doesn't give you real control over firewall rules, and it won't let you point your devices at a custom DNS server in any meaningful way. Those were exactly the three things I wanted, which meant the gateway was never going to be enough on its own, no matter how I configured it.</p>
+
+    <h2>What I actually needed</h2>
+
+    <p>I made a short list before shopping for anything, mostly so I wouldn't get talked into buying more router than I needed. I wanted VLAN support so I could eventually separate my smart home devices from my laptop and phone. I wanted real firewall control, something more than the generic "allow" or "block everything" toggle most consumer routers give you. And I wanted a DHCP server I could actually configure, since I planned to run Pi-hole for ad blocking and needed every device on the network to get pointed at it automatically instead of manually setting DNS on each one.</p>
+
+    <p>I landed on the TP-Link ER605, a small router from TP-Link's Omada line that's built for exactly this kind of setup. It's VPN-capable, it supports multiple VLANs out of the box, and being part of the Omada ecosystem meant it could eventually be managed through the same controller software as an access point, instead of juggling two separate logins and two separate mental models for what should really be one network. It cost around fifty dollars, which felt like a reasonable amount of money to spend on "I want to learn networking properly" without betting the whole project on expensive gear I might not know how to use yet.</p>
+
+    <h2>What I learned once it arrived</h2>
+
+    <p>The first thing that actually surprised me about the ER605, and I mean genuinely surprised, is that it has no WiFi radio at all. I had assumed a router meant a router-shaped box that also broadcasts WiFi, because that's what every consumer gateway I'd ever owned did by default. The ER605 is wired only. There's no wireless antenna, no SSID to configure, nothing. It routes, it firewalls, it hands out DHCP leases, and that's the entire job.</p>
+
+    <p>That one fact reshaped the rest of the hardware list immediately. WiFi stopped being something I got for free and became a separate problem I had to solve on purpose, with its own dedicated piece of hardware. If I hadn't caught this before ordering, I would have unboxed the ER605, plugged it in, and spent a confused twenty minutes looking for a WiFi setting that doesn't exist anywhere in its interface. Instead I understood going in that a router and an access point are two different jobs, done by two different boxes, and that separation actually turned out to be a feature rather than an inconvenience once I understood it. It meant I could pick the best router for routing and the best access point for WiFi, instead of settling for whatever compromise a single combo device happened to ship with.</p>
+
+    <h2>Why the separation mattered later</h2>
+
+    <p>This distinction kept paying off well past the initial setup. Because the ER605 has no idea WiFi even exists, all of the wireless-specific configuration, the SSIDs, the WiFi 6 settings, mapping a network name to a VLAN, lives entirely on the access point instead of being split awkwardly across two devices that both think they're in charge of the wireless side. When I eventually got to designing VLANs and figuring out which SSID should land on which network, there was no ambiguity about where that setting actually lived. The router routes. The access point broadcasts. Once I had that mental model straight, everything else about the network's architecture made a lot more sense.</p>
+
+    <pre><code>What each device in this setup is actually responsible for
+
+      Router (ER605)              Access Point (added separately)
+      ---------------             --------------------------------
+      Routing between networks    Broadcasts WiFi networks (SSIDs)
+      Firewall / access rules     Maps each SSID to a VLAN
+      DHCP (assigns addresses)    No routing or firewall of its own
+      VLAN definitions
+      No WiFi radio at all</code></pre>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/01-the-project.html"><span class="label">Previous</span>The Project</a>
+  <a class="next" href="home-network/03-the-access-point.html"><span class="label">Next</span>The Access Point</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

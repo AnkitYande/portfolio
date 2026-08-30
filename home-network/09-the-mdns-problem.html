@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The mDNS Problem</title>
+<link rel="stylesheet" href="hn-style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li class="active"><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>The mDNS Problem</h1>
+
+    <p>This is the page where I learned that "the network allows it" and "the app can find it" are two completely different questions, and that finding out the hard way is a lot more memorable than reading it in an article.</p>
+
+    <h2>What I was trying to do</h2>
+
+    <p>Once the VLANs and the ACL rules from the last page were in place, my goal was simple. I wanted my phone to be able to see and control my smart home devices no matter which WiFi network it happened to be connected to at the time, since I move between the Main network and the IoT network more than I'd expect. I have a HomeKit device set up through Apple Home with no separate hub involved, just a phone talking directly to the device over the local network. As far as I understood it, once the ACL rules explicitly allowed Main WiFi to reach the IoT network, that should have been the end of the story.</p>
+
+    <h2>What went wrong</h2>
+
+    <p>It wasn't the end of the story. When my phone was connected to the IoT WiFi, sitting right there alongside the device, Apple Home could see it without any issue. But the moment I switched my phone over to Main WiFi, the exact same device disappeared from Apple Home entirely, even though my firewall rules explicitly permitted Main WiFi to reach the IoT network. That's the part that didn't make sense at first. The routing was allowed. Nothing in the ACL was blocking it. And yet the device just wasn't showing up in the app at all, as if the two networks weren't connected in the first place.</p>
+
+    <h2>What I learned</h2>
+
+    <p>The answer is that a lot of "it just works" local device discovery, Apple Home, AirPlay, Chromecast, printers on your home network, doesn't rely on your firewall rules at all. It relies on a protocol called mDNS, multicast DNS, where devices announce themselves over the local network using multicast traffic instead of a normal point-to-point connection to a specific address. Multicast traffic like that generally doesn't cross VLAN boundaries by default, even when your regular routed traffic is explicitly allowed to. Your router will happily forward a normal request to a specific IP address across VLANs if the ACL says yes. It does not automatically forward multicast discovery announcements the same way, because multicast is designed to stay local to one network segment unless something is specifically configured to relay it elsewhere.</p>
+
+    <p>So my devices were reachable the whole time. They just weren't discoverable, and for something like a smart plug or a Chromecast, not being discoverable is functionally the same as not existing, since the entire interaction model for these devices is "open the app and see what shows up."</p>
+
+    <h2>What I changed</h2>
+
+    <p>Omada has a built-in mDNS reflector, essentially a service that listens for these local discovery announcements on one VLAN and repeats them onto another VLAN you specify, without opening up general traffic between the two networks. I ran into a small platform quirk while setting this up too. Omada wouldn't let me create a gateway-level mDNS rule while an access-point-level one already existed for the same purpose, and it just refused to save until I removed the older AP-level rule first. Once that was cleared, the gateway-level rule saved without any trouble.</p>
+
+    <p>The final configuration reflects specific service categories, AirPlay, Printers, and a manually added Chromecast service identifier, from the IoT network over to Main WiFi and the trusted wired network. That last part, the manually added service identifier, is the piece worth calling out specifically. Omada ships with a preset list of common Bonjour service types you can just toggle on, AirPlay, printers, file sharing, and a few others. Chromecast isn't one of the presets. Enabling every preset that was listed didn't fix casting at all, because the network still had no idea it needed to forward Chromecast's specific announcement type. The actual fix was adding <code>_googlecast._tcp.local</code> by hand as its own service entry. Finding that exact string, rather than assuming the built-in presets covered everything relevant, was the actual breakthrough that made casting work across VLANs.</p>
+
+    <pre><code>Routing allowed vs. discovery blocked
+
+      Main WiFi (VLAN 10)                    IoT (VLAN 30)
+           |                                       |
+           |---- normal traffic, ACL allows ------>|   reaches the device fine
+           |                                       |
+           |---- mDNS multicast announcement -----X    stays local, doesn't cross
+                                                         the VLAN boundary by default
+
+      Fix: Omada gateway-level mDNS reflector, configured per service type,
+      including a manually added "_googlecast._tcp.local" entry for Chromecast.</code></pre>
+
+    <h2>Why it mattered</h2>
+
+    <p>This is probably the single most useful networking lesson from the whole project. It's tempting to think of VLAN isolation purely in terms of whether device A can send a packet to device B. That's necessary, but it's not sufficient for anything that depends on local discovery instead of a hardcoded address. If I'd stopped at the firewall rules and declared the network finished, half my smart home setup would have quietly stopped working from the exact room I actually spend most of my day in, and I probably wouldn't have figured out why for a while.</p>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/08-firewall-and-access-control.html"><span class="label">Previous</span>Firewall Rules and Access Control</a>
+  <a class="next" href="home-network/10-plex-across-the-network.html"><span class="label">Next</span>Plex Across the Network</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

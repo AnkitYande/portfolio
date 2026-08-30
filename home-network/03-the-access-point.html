@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Access Point</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li class="active"><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>The Access Point</h1>
+
+    <p>Once I knew the ER605 wasn't going to give me WiFi, picking an access point became its own real decision instead of an afterthought. This was the piece of hardware actually responsible for fixing the original problem, the bad signal in my office, so I didn't want to rush it.</p>
+
+    <h2>Why the EAP610</h2>
+
+    <p>I compared a handful of access points in TP-Link's Omada lineup, mainly the EAP225, the EAP245, and the EAP610, and the main question was whether WiFi 6 was worth paying extra for over the older WiFi 5 models. I've got a lot of smart home gadgets connected at once, a phone that supports WiFi 6, and I play games online often enough that a stable connection under load actually matters to me. Those three things together tipped the decision toward the EAP610 fairly quickly. It also fit naturally into the same Omada ecosystem as the ER605, which meant I could eventually manage both devices from one controller instead of two separate apps with two separate logins.</p>
+
+    <h2>The PoE mixup</h2>
+
+    <p>There's a small, slightly embarrassing story here that's worth telling because it's a good lesson on its own. I assumed the EAP610 needed Power over Ethernet to run, since that's how a lot of ceiling-mounted access points get power in offices and larger installs. So I started pricing out PoE injectors and PoE switches, including a cheap five-port switch that looked like a reasonable deal. I almost bought that switch before checking its actual specs closely enough, and it turned out to only support 10 and 100 megabit Ethernet, not Gigabit. Had I bought it, it would have quietly capped the AP's wired connection at Fast Ethernet speeds no matter how fast the WiFi radio itself could go, undoing a big part of the reason I was upgrading in the first place.</p>
+
+    <p>Before pulling the trigger on any of that PoE gear, I actually looked at what was in the box the EAP610 shipped with. It includes its own 12 volt DC power adapter. No PoE required at all. That single check saved me anywhere from fifteen to forty five dollars depending on which PoE setup I would have bought, and more importantly it saved me from plugging in hardware that would have bottlenecked the exact thing I was trying to upgrade. The lesson stuck with me for the rest of the project. Check what's actually in the box, and what the device actually requires, before you start solving a problem you might not even have.</p>
+
+    <h2>Getting it into the right room</h2>
+
+    <p>The whole point of this project was fixing WiFi in one specific room, so the EAP610 needed to physically end up there, connected back to the network closet over the apartment's existing in-wall Ethernet rather than relying on a repeater that just rebroadcasts a weak signal at a lower speed. The path was simple on paper. Router in the closet, out through the wall jack in the closet, through the wall to the jack in the target room, then a short patch cable into the AP itself.</p>
+
+    <p>Placement inside the room mattered more than I expected going in. The EAP610 is designed to be ceiling mounted, and I looked seriously at whether laying it flat on the floor, face up, would work about as well, mostly because ceiling mounting meant more effort. The honest answer is the raw radio pattern is roughly similar either way, but a floor-level AP has to contend with furniture, people, and general room clutter blocking the signal in ways a high shelf or ceiling mount just doesn't. I ended up mounting it high in the room rather than leaving it on the floor, partly because it was an easy change to make while I already had cable and a ladder out.</p>
+
+    <h2>An Ethernet speed cap I didn't expect</h2>
+
+    <p>Once everything was wired and powered up, I ran a speed test through the new access point and got roughly 80 megabits per second, when my actual internet plan is closer to 500. That's a big enough gap that it would be easy to blame on WiFi itself, so that's exactly where I started ruling things out. I confirmed I was connected on 5GHz rather than the slower 2.4GHz band, which ruled out one obvious wireless explanation. I checked the patch cable running into the AP and confirmed it was rated Cat6, then swapped in a second cable I already knew was good from another part of the apartment, and the speed didn't change at all. That ruled out a bad cable too.</p>
+
+    <p>With WiFi band and cabling both cleared, the AT&T gateway's own port status page showed the connection negotiating at 100 megabits instead of a full gigabit on that particular run. That pointed at a port or link-negotiation issue rather than anything about wireless at all. Reseating the connections at both ends and confirming each port was actually capable of gigabit speeds fixed it, and the access point started hitting speeds much closer to what the rest of the house was already getting. The whole detour turned out to be a good example of why it pays to test one variable at a time instead of guessing. If I had just assumed "WiFi is slow" and gone out to buy a fancier access point, I would have spent money without ever touching the actual problem.</p>
+
+    <pre><code>Testing one variable at a time on a slow connection
+
+      1. Check WiFi band          -> was on 5GHz, ruled out
+      2. Check the cable          -> confirmed Cat6, swapped for a known-good
+                                      cable, speed unchanged, ruled out
+      3. Check link negotiation   -> gateway reported 100 Mbps instead of
+                                      Gigabit on that port
+      4. Reseat both ends         -> link renegotiated at full Gigabit,
+                                      speed test matched the rest of the house</code></pre>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/02-the-router.html"><span class="label">Previous</span>The Router</a>
+  <a class="next" href="home-network/04-the-home-server.html"><span class="label">Next</span>The Home Server</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

@@ -24,7 +24,7 @@ const works = {
             "onClick": "./work/ThinkThrove.html",
             "tags": ["website", "fullstack", "featured"]
         },
-         {
+        {
             "text": "AI Pokemon Guide (RAG)",
             "imageSrc": "./assets/cover-imgs/frlg-rag.jpg",
             "onClick": "./work/FRLG-RAG.html",
@@ -35,6 +35,12 @@ const works = {
             "imageSrc": "./assets/cover-imgs/bevo.jpg",
             "onClick": "https://github.com/AnkitYande/3DBevo",
             "tags": ["website", "frontend"]
+        },
+        {
+            "text": "Building My Homelab",
+            "imageSrc": "./assets/cover-imgs/home_network_diagram.jpg",
+            "onClick": "home-network/01-the-project.html",
+            "tags": ["networking", "self-hosting"]
         },
         {
             "text": "MeetApp (iOS Dev)",

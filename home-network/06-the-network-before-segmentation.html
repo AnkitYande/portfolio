@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Network Before Segmentation</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="hn-style.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div id='nav-placeholder'></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../navbar.html");
+        });
+    </script>
+
+    <div style="margin-top: 150px;"></div>
+
+<div class="layout">
+  <nav class="sidebar">
+    <p class="sidebar-title">Home Network Project</p>
+    <ol>
+      <li><a href="home-network/01-the-project.html">The Project</a></li>
+      <li><a href="home-network/02-the-router.html">The Router</a></li>
+      <li><a href="home-network/03-the-access-point.html">The Access Point</a></li>
+      <li><a href="home-network/04-the-home-server.html">The Home Server</a></li>
+      <li><a href="home-network/05-self-hosting-with-docker-and-pihole.html">Self-Hosting with Docker and Pi-hole</a></li>
+      <li class="active"><a href="home-network/06-the-network-before-segmentation.html">The Network Before Segmentation</a></li>
+      <li><a href="home-network/07-designing-the-vlans.html">Designing the VLANs</a></li>
+      <li><a href="home-network/08-firewall-and-access-control.html">Firewall Rules and Access Control</a></li>
+      <li><a href="home-network/09-the-mdns-problem.html">The mDNS Problem</a></li>
+      <li><a href="home-network/10-plex-across-the-network.html">Plex Across the Network</a></li>
+      <li><a href="home-network/11-a-vpn-detour.html">A Router-Level VPN Detour</a></li>
+      <li><a href="home-network/12-the-final-network.html">The Final Network</a></li>
+      <li><a href="home-network/13-what-i-would-change.html">What I Would Change</a></li>
+    </ol>
+  </nav>
+  <main class="content">
+    <h1>The Network Before Segmentation</h1>
+
+    <p>Before any of the VLAN work started, the network was about as simple as it gets. The AT&T gateway handed out addresses to everything on one flat network, phones, laptops, the gaming PC, the smart plugs, the camera, all of it. It worked. Everything could see everything else, which is exactly what you want when you're just trying to get a new device online for the first time and don't want to fight your router to do it.</p>
+
+    <p>For a while that was genuinely fine. The problems a flat network causes don't show up on day one. They show up gradually, as the device count grows and you start actually thinking about what each device is capable of doing to the others once it's connected.</p>
+
+    <h2>What started bothering me</h2>
+
+    <p>The thing that nagged at me specifically was the smart home gear. A Nest device, a handful of Meross smart plugs, a Eufy camera. These are convenient, and I don't regret buying any of them, but they're also the kind of device that gets a firmware update maybe once a year if you're lucky, made by companies whose business model isn't "keep your home network secure forever." On a flat network, if one of those devices ever got compromised, whether through a bad firmware update, a breached cloud account, or a known vulnerability nobody bothered to patch, it would have the exact same access to my laptop and anything else on my network as my laptop has to itself. There's no fence anywhere between a camera sitting in my living room and my actual computer with my actual files on it.</p>
+
+    <p>That's not a hypothetical I made up afterward to justify buying networking gear I wanted anyway. It's the actual reasoning that got me looking into VLANs in the first place, alongside wanting a legitimate reason to learn how real network segmentation works instead of just reading about it in an article somewhere.</p>
+
+    <h2>The other pressure point: DNS</h2>
+
+    <p>The AT&T gateway also doesn't let you point devices at a custom DNS server in any meaningful way, and I wanted Pi-hole doing network-wide ad blocking for every device on the network, not just the handful I could manually reconfigure one at a time. Some devices make this worse. A Google TV in particular doesn't give you a clean way to set a custom DNS server by hand at all. If I wanted Pi-hole to actually matter across the whole household, DHCP itself had to be the thing handing out the DNS address automatically, which meant I needed a router that would actually let me control that setting. The AT&T gateway was never going to be that router, no matter how deep I dug into its settings menu.</p>
+
+    <p>So by the time I started shopping for a dedicated router, I already had two real requirements pointing in the same direction. I wanted to separate the smart home devices from everything else I cared about, and I wanted a DHCP server I actually had control over. Both of those point straight at needing a router with real VLAN support, which is exactly where the next part of this picks up.</p>
+
+    <pre><code>Flat network, before segmentation
+
+                  Internet
+                     |
+               AT&T Gateway
+            (one flat network, everything together)
+                     |
+       +------+------+------+------+------+
+       |      |      |      |      |      |
+     Laptop  Phone  Gaming  Nest  Meross  Eufy
+                      PC   device  plugs  camera
+
+      Every device on this network can reach every other device.</code></pre>
+
+    <div class="page-nav">
+  <a class="prev" href="home-network/05-self-hosting-with-docker-and-pihole.html"><span class="label">Previous</span>Self-Hosting with Docker and Pi-hole</a>
+  <a class="next" href="home-network/07-designing-the-vlans.html"><span class="label">Next</span>Designing the VLANs</a>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
